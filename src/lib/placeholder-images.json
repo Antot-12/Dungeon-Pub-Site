@@ -1,0 +1,118 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-tavern",
+      "description": "A cozy, candle-lit tavern interior, evoking a fantasy RPG setting.",
+      "imageUrl": "/images/Dungeon_Pub_main.jpg",
+      "imageHint": "fantasy tavern"
+    },
+    {
+      "id": "pub-signboard",
+      "description": "A hanging wooden signboard for a pub.",
+      "imageUrl": "/images/Dungeon-pub-img.png",
+      "imageHint": "pub sign"
+    },
+    {
+      "id": "about-us-pub",
+      "description": "The exterior of a friendly-looking pub at dusk.",
+      "imageUrl": "/images/Dungeon-pub-img.png",
+      "imageHint": "pub exterior"
+    },
+    {
+      "id": "gallery-1",
+      "description": "A group of friends laughing while playing a board game.",
+      "imageUrl": "/images/galery/1.jpg",
+      "imageHint": "people game"
+    },
+    {
+      "id": "gallery-2",
+      "description": "A close-up of colorful dice on a D&D character sheet.",
+      "imageUrl": "/images/galery/2.jpg",
+      "imageHint": "roleplaying game"
+    },
+    {
+      "id": "gallery-3",
+      "description": "People in costume at a fantasy-themed event.",
+      "imageUrl": "/images/galery/3.jpg",
+      "imageHint": "fantasy cosplay"
+    },
+    {
+      "id": "gallery-4",
+      "description": "A bartender crafting a colorful cocktail.",
+      "imageUrl": "/images/galery/4.jpg",
+      "imageHint": "cocktail bar"
+    },
+    {
+      "id": "gallery-5",
+      "description": "A lively crowd enjoying a night at the pub.",
+      "imageUrl": "/images/galery/5.jpg",
+      "imageHint": "people pub"
+    },
+    {
+      "id": "gallery-6",
+      "description": "A collection of board game boxes stacked on a shelf.",
+      "imageUrl": "/images/galery/6.jpg",
+      "imageHint": "board games"
+    },
+    {
+      "id": "gallery-7",
+      "description": "A person painting a miniature figure.",
+      "imageUrl": "/images/galery/7.jpg",
+      "imageHint": "miniature painting"
+    },
+    {
+      "id": "gallery-8",
+      "description": "A dramatic shot of a gaming table mid-session.",
+      "imageUrl": "/images/galery/8.jpg",
+      "imageHint": "game table"
+    },
+    {
+      "id": "gallery-9",
+      "description": "Two people clinking beer glasses.",
+      "imageUrl": "/images/galery/9.jpg",
+      "imageHint": "cheers beer"
+    },
+    {
+      "id": "gallery-10",
+      "description": "A bookshelf filled with fantasy novels and RPG rulebooks.",
+      "imageUrl": "/images/galery/10.jpg",
+      "imageHint": "fantasy books"
+    },
+    {
+      "id": "menu-photo",
+      "description": "A photo of the pub's menu.",
+      "imageUrl": "/images/menus/napoj.list.png",
+      "imageHint": "menu board"
+    },
+    {
+      "id": "menu-photo1",
+      "description": "A photo of the pub's menu.",
+      "imageUrl": "/images/menus/nealko.list.png",
+      "imageHint": "menu board"
+    },
+    {
+      "id": "menu-photo2",
+      "description": "A photo of the pub's menu.",
+      "imageUrl": "/images/menus/cocktails.1.list.png",
+      "imageHint": "menu board"
+    },
+    {
+      "id": "menu-photo3",
+      "description": "A photo of the pub's menu.",
+      "imageUrl": "/images/menus/cocktails.2.list.png",
+      "imageHint": "menu board"
+    },
+    {
+      "id": "menu-photo4",
+      "description": "A photo of the pub's menu.",
+      "imageUrl": "/images/menus/destilaty.a.pochutiny1..png",
+      "imageHint": "menu board"
+    },
+    {
+      "id": "menu-photo5",
+      "description": "A photo of the pub's menu.",
+      "imageUrl": "/images/menus/destilaty.a.pochutiny2..png",
+      "imageHint": "menu board"
+    }
+  ]
+}

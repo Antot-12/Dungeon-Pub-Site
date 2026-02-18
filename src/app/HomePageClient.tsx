@@ -1,0 +1,346 @@
+'use client';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Dices, Swords, Camera, GlassWater, MapPin, Clock, Users, Calendar, Facebook, Gamepad2, Mic } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useEffect, useMemo, useState } from 'react';
+import { cn } from '@/lib/utils';
+
+export default function HomePageClient() {
+  const { t } = useLanguage();
+  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-tavern');
+  const galleryImages = PlaceHolderImages.filter(p => p.imageHint.includes('people') || p.imageHint.includes('game')).slice(0, 3);
+  const menuPreviewData = [
+    {
+      category: t('home.menu.preview.beer'),
+      items: [t('home.menu.preview.beer_item1'), t('home.menu.preview.beer_item2')],
+    },
+    {
+      category: t('home.menu.preview.wine'),
+      items: [t('home.menu.preview.wine_item1'), t('home.menu.preview.wine_item2')],
+    },
+    {
+      category: t('home.menu.preview.rum'),
+      items: [t('home.menu.preview.rum_item1'), t('home.menu.preview.rum_item2')],
+    },
+    {
+      category: t('home.menu.preview.snacks'),
+      items: [t('home.menu.preview.snacks_item1'), t('home.menu.preview.snacks_item2')],
+    },
+  ];
+
+  const openingHours = useMemo(() => ([
+    { day: t('days.monday'), hours: '16:00 — 22:00' },
+    { day: t('days.tuesday'), hours: '16:00 — 0:00' },
+    { day: t('days.wednesday'), hours: '16:00 — 0:00' },
+    { day: t('days.thursday'), hours: '16:00 — 0:00' },
+    { day: t('days.friday'), hours: '16:00 — 2:00' },
+    { day: t('days.saturday'), hours: '16:00 — 2:00' },
+    { day: t('days.sunday'), hours: '16:00 — 22:00' },
+  ]), [t]);
+  
+  const [currentDayIndex, setCurrentDayIndex] = useState<number | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkStatus = () => {
+      const now = new Date();
+      const jsDay = now.getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
+      const dayIndex = jsDay === 0 ? 6 : jsDay - 1; // Convert to Mon-first index (0-6)
+      setCurrentDayIndex(dayIndex);
+      
+      const yesterdayIndex = dayIndex === 0 ? 6 : dayIndex - 1;
+
+      const parseHours = (hoursString: string) => {
+        if (!hoursString.includes('—')) return null;
+        const [openStr, closeStr] = hoursString.split(' — ');
+        const [openH, openM] = openStr.split(':').map(Number);
+        const [closeH, closeM] = closeStr.split(':').map(Number);
+        return { openH, openM, closeH, closeM };
+      };
+
+      const todayTimes = parseHours(openingHours[dayIndex].hours);
+      const yesterdayTimes = parseHours(openingHours[yesterdayIndex].hours);
+      
+      let currentlyOpen = false;
+
+      // Check if we are in yesterday's opening window (that crosses midnight)
+      if (yesterdayTimes && yesterdayTimes.closeH < yesterdayTimes.openH) {
+        const yesterdayCloseDate = new Date(); // This is today's date
+        yesterdayCloseDate.setHours(yesterdayTimes.closeH, yesterdayTimes.closeM, 0, 0);
+        if (now < yesterdayCloseDate) {
+          currentlyOpen = true;
+        }
+      }
+
+      // If not open from yesterday, check today's window
+      if (!currentlyOpen && todayTimes) {
+        const todayOpenDate = new Date();
+        todayOpenDate.setHours(todayTimes.openH, todayTimes.openM, 0, 0);
+        
+        const todayCloseDate = new Date();
+        todayCloseDate.setHours(todayTimes.closeH, todayTimes.closeM, 0, 0);
+        
+        if (todayTimes.closeH < todayTimes.openH) { // Crosses midnight
+          todayCloseDate.setDate(todayCloseDate.getDate() + 1);
+        }
+
+        if (now >= todayOpenDate && now < todayCloseDate) {
+          currentlyOpen = true;
+        }
+      }
+      
+      setIsOpen(currentlyOpen);
+    };
+
+    checkStatus();
+    const interval = setInterval(checkStatus, 60000);
+
+    return () => clearInterval(interval);
+  }, [openingHours]);
+
+  return (
+    <div className="flex flex-col">
+      <section className="relative h-[60vh] w-full text-white">
+        {heroImage && (
+           <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            fill
+            className="object-cover"
+            data-ai-hint={heroImage.imageHint}
+            priority
+          />
+        )}
+        <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
+          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-wider drop-shadow-lg font-bold">
+            {t('home.hero.title')}
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg md:text-xl text-neutral-200">
+            {t('home.hero.subtitle')}
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg" className="font-headline text-lg transition-transform hover:scale-105 active:scale-100">
+              <Link href="/about">{t('home.hero.discoverButton')}</Link>
+            </Button>
+            <Button asChild size="lg" variant="secondary" className="font-headline text-lg transition-transform hover:scale-105 active:scale-100">
+              <Link href="/menu">{t('home.hero.menuButton')}</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" className="w-full py-12 md:py-20 lg:py-24 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-16">
+            
+            <div className="lg:col-span-2 space-y-12">
+              <div>
+                  <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-12 text-primary">{t('home.features.title')}</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                      <FeatureCard
+                      icon={<Dices className="h-10 w-10 text-primary" />}
+                      title={t('home.features.games.title')}
+                      description={t('home.features.games.description')}
+                      />
+                      <FeatureCard
+                      icon={<Swords className="h-10 w-10 text-primary" />}
+                      title={t('home.features.events.title')}
+                      description={t('home.features.events.description')}
+                      />
+                      <FeatureCard
+                      icon={<GlassWater className="h-10 w-10 text-primary" />}
+                      title={t('home.features.drinks.title')}
+                      description={t('home.features.drinks.description')}
+                      />
+                      <FeatureCard
+                      icon={<Camera className="h-10 w-10 text-primary" />}
+                      title={t('home.features.community.title')}
+                      description={t('home.features.community.description')}
+                      />
+                  </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-1 lg:sticky lg:top-28" id="hours">
+              <div className="flex flex-col items-center text-center bg-card p-6 rounded-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1">
+                <h3 className="font-headline font-bold text-3xl text-primary flex items-center gap-3">
+                  <Clock className="h-8 w-8" />
+                  {t('home.hours.title')}
+                </h3>
+                <div className="mt-6 w-full">
+                  {isOpen !== null && (
+                    <div className="flex items-center justify-center gap-3 mb-6 pb-6 border-b border-border/50">
+                      <span className={cn(
+                        "h-3.5 w-3.5 rounded-full animate-pulse",
+                        isOpen ? "bg-green-400" : "bg-red-500"
+                      )}></span>
+                      <p className="text-xl font-semibold">
+                        {isOpen ? t('home.hours.openNow') : t('home.hours.closedNow')}
+                      </p>
+                    </div>
+                  )}
+                  <ul className="space-y-2 text-lg">
+                    {openingHours.map((item, index) => (
+                      <li key={item.day} className={cn(
+                        "flex justify-between items-center p-3 rounded-lg transition-colors -mx-3 -my-1",
+                        index === currentDayIndex && "bg-primary/10"
+                        )}>
+                        <span className={cn(
+                            "font-semibold",
+                            index === currentDayIndex ? "text-primary" : "text-foreground"
+                        )}>{item.day}</span>
+                        <span className="font-mono text-muted-foreground">{item.hours}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="collaborations" className="w-full py-12 md:py-20 lg:py-24 bg-card/50">
+        <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center text-center">
+                <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-primary flex items-center gap-3">
+                  <Users className="h-10 w-10" />
+                  {t('home.partners.title')}
+                </h2>
+                <p className="mt-2 max-w-xl text-muted-foreground">{t('home.partners.subtitle')}</p>
+            </div>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div className="flex flex-col items-center text-center gap-4 p-6 rounded-lg bg-card border border-border/50 h-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-2">
+                    <Gamepad2 className="h-12 w-12 text-primary/80" />
+                    <h3 className="font-headline text-2xl md:text-3xl font-bold text-primary/90">{t('home.partners.nero.title')}</h3>
+                    <p className="text-muted-foreground flex-grow text-lg md:text-xl">
+                        {t('home.partners.nero.description')}
+                    </p>
+                    <Button asChild variant="outline">
+                        <a href="http://www.nerogames.sk" target="_blank" rel="noopener noreferrer">{t('home.partners.nero.button')}</a>
+                    </Button>
+                </div>
+                <div className="flex flex-col items-center text-center gap-4 p-6 rounded-lg bg-card border border-border/50 h-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-2">
+                    <Mic className="h-12 w-12 text-primary/80" />
+                    <h3 className="font-headline text-2xl md:text-3xl font-bold text-primary/90">{t('home.partners.comedy.title')}</h3>
+                    <p className="text-muted-foreground flex-grow text-lg md:text-xl">
+                        {t('home.partners.comedy.description')}
+                    </p>
+                    <Button asChild variant="outline">
+                        <a href="https://www.martinhatala.sk/blog/prvy-comedy-dungeon-stand-up/" target="_blank" rel="noopener noreferrer">{t('home.partners.comedy.button')}</a>
+                    </Button>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="menu-preview" className="w-full py-12 md:py-20 lg:py-24">
+        <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center text-center">
+                <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-primary">{t('home.menu.title')}</h2>
+                <p className="mt-2 max-w-xl text-muted-foreground">{t('home.menu.subtitle')}</p>
+            </div>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {menuPreviewData.map(category => (
+                    <div key={category.category} className="rounded-lg bg-card p-6 border border-border/50 transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-2">
+                        <h3 className="font-headline text-xl md:text-2xl font-bold text-primary mb-4">{category.category}</h3>
+                        <ul className="space-y-2 text-muted-foreground">
+                            {category.items.map(item => <li key={item} className="flex items-center gap-2"><span>-</span> {item}</li>)}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+            <div className="text-center mt-12 flex flex-wrap justify-center gap-4">
+                <Button asChild size="lg" className="font-headline text-lg transition-transform hover:scale-105 active:scale-100">
+                    <Link href="/menu">{t('home.menu.fullMenuButton')}</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="font-headline text-lg transition-transform hover:scale-105 active:scale-100">
+                    <Link href="/menu/photo">{t('home.menu.photoMenuButton')}</Link>
+                </Button>
+            </div>
+        </div>
+      </section>
+
+      <section id="gallery-preview" className="w-full py-12 md:py-20 lg:py-24 bg-card/50">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-primary">{t('home.gallery.title')}</h2>
+            <p className="mt-2 max-w-xl text-muted-foreground">{t('home.gallery.subtitle')}</p>
+          </div>
+          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+             {galleryImages.map((image, index) => (
+                <Link href="/gallery" key={image.id}>
+                    <div className="group relative block h-64 overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+                        <Image
+                            src={image.imageUrl}
+                            alt={image.description}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            data-ai-hint={image.imageHint}
+                        />
+                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    </div>
+                </Link>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button asChild size="lg" variant="outline" className="font-headline text-lg border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-transform hover:scale-105 active:scale-100">
+                <Link href="/gallery">{t('home.gallery.button')}</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" className="w-full py-12 md:py-20 lg:py-24 bg-secondary">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-primary flex items-center gap-3">
+              <Calendar className="h-10 w-10" />
+              {t('nav.events')}
+            </h2>
+            <p className="mt-2 max-w-xl text-muted-foreground">{t('events.subtitle')}</p>
+            <Button asChild size="lg" className="mt-8 font-headline text-lg transition-transform hover:scale-105 active:scale-100">
+                <Link href="/events">{t('home.events.seeAllButton')}</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="location" className="w-full py-12 md:py-20 lg:py-24">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-primary">{t('home.location.title')}</h2>
+            <p className="mt-2 max-w-xl text-muted-foreground">{t('home.location.subtitle')}</p>
+            <div className="mt-8">
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Štefánikova+869%2F14+Bratislava" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center flex-wrap justify-center gap-3 text-lg font-headline text-foreground bg-card border border-border/50 rounded-lg px-6 py-4 transition-all duration-300 hover:bg-card/80 hover:border-primary/50 hover:-translate-y-1 text-center"
+              >
+                <MapPin className="h-6 w-6 text-primary" />
+                <span>Štefánikova 869/14, Bratislava</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+  return (
+    <div className="flex flex-col items-center text-center p-6 rounded-lg bg-card/80 transition-transform duration-300 hover:-translate-y-2">
+      {icon}
+      <h3 className="font-headline font-bold text-xl md:text-2xl mt-4 mb-2">{title}</h3>
+      <p className="text-muted-foreground text-lg md:text-xl">{description}</p>
+    </div>
+  )
+}
