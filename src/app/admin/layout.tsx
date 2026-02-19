@@ -26,8 +26,6 @@ function AdminSidebar() {
 
     const navItems = [
         { href: '/admin', label: 'Dashboard', icon: Home },
-        { href: '/admin/events', label: 'Manage Events', icon: Calendar },
-        { href: '/admin/status', label: 'Site Status', icon: ToggleRight },
     ];
 
     return (
@@ -44,7 +42,7 @@ function AdminSidebar() {
                         href={item.href}
                         className={cn(
                             'flex items-center gap-3 rounded-lg px-4 py-3 text-card-foreground transition-colors hover:bg-muted',
-                            pathname === item.href || (item.href === '/admin/events' && pathname.startsWith('/admin/events')) ? 'bg-primary/10 text-primary' : ''
+                            pathname === item.href ? 'bg-primary/10 text-primary' : ''
                         )}
                     >
                         <item.icon className="h-5 w-5" />
