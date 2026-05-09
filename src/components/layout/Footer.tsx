@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Logo from '@/LOGO_BIG_B.svg';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 export function Footer() {
     const { t } = useLanguage();
@@ -82,10 +83,33 @@ export function Footer() {
                   </li>
                   <li className="flex items-center justify-center sm:justify-start gap-4 pt-2">
                       <Link href="https://www.facebook.com/dungeonpub/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
-                          <Facebook className="h-6 w-6 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" aria-hidden="true" />
+                          <motion.div
+                            animate={{
+                              y: [0, -3, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              repeatDelay: 5,
+                            }}
+                          >
+                            <Facebook className="h-6 w-6 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" aria-hidden="true" />
+                          </motion.div>
                       </Link>
                       <Link href="https://www.instagram.com/dungeon_pub" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile">
-                          <Instagram className="h-6 w-6 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" aria-hidden="true" />
+                          <motion.div
+                            animate={{
+                              y: [0, -3, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              repeatDelay: 5,
+                              delay: 0.3,
+                            }}
+                          >
+                            <Instagram className="h-6 w-6 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" aria-hidden="true" />
+                          </motion.div>
                       </Link>
                   </li>
                 </ul>

@@ -21,13 +21,18 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Button } from '../ui/button';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Logo from '@/LOGO_BIG_B.svg';
+import { useHaptic } from '@/hooks/useHaptic';
 
 export function Header() {
   const { t } = useLanguage();
   const [isSheetOpen, setSheetOpen] = useState(false);
+  const sheetRef = useRef<HTMLDivElement>(null);
+  const { triggerHaptic } = useHaptic();
+  const touchStartX = useRef<number>(0);
+  const touchCurrentX = useRef<number>(0);
 
   const navItems = useMemo(() => [
     { href: '/', label: t('nav.home'), icon: Home },
@@ -36,6 +41,46 @@ export function Header() {
     { href: '/gallery', label: t('nav.gallery'), icon: Images },
     { href: '/about', label: t('nav.about'), icon: BookOpenText },
   ], [t]);
+
+  // Swipe to close functionality
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      if (isSheetOpen) {
+        touchStartX.current = e.touches[0].clientX;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isSheetOpen) {
+        touchCurrentX.current = e.touches[0].clientX;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (isSheetOpen) {
+        const swipeDistance = touchCurrentX.current - touchStartX.current;
+        // If swiped right more than 100px, close the sheet
+        if (swipeDistance > 100) {
+          triggerHaptic('selection');
+          setSheetOpen(false);
+        }
+        touchStartX.current = 0;
+        touchCurrentX.current = 0;
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      document.addEventListener('touchstart', handleTouchStart, { passive: true });
+      document.addEventListener('touchmove', handleTouchMove, { passive: true });
+      document.addEventListener('touchend', handleTouchEnd);
+
+      return () => {
+        document.removeEventListener('touchstart', handleTouchStart);
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+      };
+    }
+  }, [isSheetOpen, triggerHaptic]);
 
   const NavLinks = ({ className, showIcons = false }: { className?: string, showIcons?: boolean }) => {
     const pathname = usePathname();
@@ -80,7 +125,7 @@ export function Header() {
                         <MenuIcon className="h-6 w-6" aria-hidden="true" />
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-card" aria-label="Mobile navigation">
+                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-card backdrop-blur-xl" aria-label="Mobile navigation">
                     <SheetHeader>
                         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     </SheetHeader>

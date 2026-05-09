@@ -9,6 +9,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useEffect, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 export default function HomePageClient() {
   const { t } = useLanguage();
@@ -147,21 +148,25 @@ export default function HomePageClient() {
                       icon={<Dices className="h-10 w-10 text-primary" />}
                       title={t('home.features.games.title')}
                       description={t('home.features.games.description')}
+                      delay={0}
                       />
                       <FeatureCard
                       icon={<Swords className="h-10 w-10 text-primary" />}
                       title={t('home.features.events.title')}
                       description={t('home.features.events.description')}
+                      delay={0.1}
                       />
                       <FeatureCard
                       icon={<GlassWater className="h-10 w-10 text-primary" />}
                       title={t('home.features.drinks.title')}
                       description={t('home.features.drinks.description')}
+                      delay={0.2}
                       />
                       <FeatureCard
                       icon={<Camera className="h-10 w-10 text-primary" />}
                       title={t('home.features.community.title')}
                       description={t('home.features.community.description')}
+                      delay={0.3}
                       />
                   </div>
               </div>
@@ -337,12 +342,30 @@ export default function HomePageClient() {
   );
 }
 
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+function FeatureCard({ icon, title, description, delay = 0 }: { icon: React.ReactNode; title: string; description: string; delay?: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="flex flex-col items-center text-center p-6 rounded-lg bg-card/80 transition-transform duration-300 hover:-translate-y-2">
-      {icon}
+    <motion.div
+      className="flex flex-col items-center text-center p-6 rounded-lg bg-card/80 transition-transform duration-300 hover:-translate-y-2"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+    >
+      <motion.div
+        animate={isHovered ? {
+          rotate: [0, -10, 10, -10, 0],
+          scale: [1, 1.1, 1.1, 1.1, 1]
+        } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        {icon}
+      </motion.div>
       <h3 className="font-headline font-bold text-xl md:text-2xl mt-4 mb-2">{title}</h3>
       <p className="text-muted-foreground text-lg md:text-xl">{description}</p>
-    </div>
+    </motion.div>
   )
 }

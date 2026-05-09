@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Facebook, Instagram, Users, Calendar, Gamepad2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from 'framer-motion';
 
 export default function AboutPage() {
     const { t } = useLanguage();
@@ -91,10 +92,33 @@ export default function AboutPage() {
                         <p className="mt-2 text-muted-foreground">{t('about.social.subtitle')}</p>
                         <div className="mt-6 flex justify-center gap-6">
                             <Link href="https://www.facebook.com/dungeonpub/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <Facebook className="h-8 w-8 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" />
+                                <motion.div
+                                  animate={{
+                                    y: [0, -3, 0],
+                                  }}
+                                  transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    repeatDelay: 5,
+                                  }}
+                                >
+                                  <Facebook className="h-8 w-8 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" />
+                                </motion.div>
                             </Link>
                             <Link href="https://www.instagram.com/dungeon_pub" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <Instagram className="h-8 w-8 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" />
+                                <motion.div
+                                  animate={{
+                                    y: [0, -3, 0],
+                                  }}
+                                  transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    repeatDelay: 5,
+                                    delay: 0.3,
+                                  }}
+                                >
+                                  <Instagram className="h-8 w-8 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" />
+                                </motion.div>
                             </Link>
                         </div>
                     </Card>
