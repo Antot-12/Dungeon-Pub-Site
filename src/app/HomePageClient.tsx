@@ -111,6 +111,7 @@ export default function HomePageClient() {
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
+            sizes="100vw"
             className="object-cover"
             data-ai-hint={heroImage.imageHint}
             priority
@@ -281,6 +282,7 @@ export default function HomePageClient() {
                             src={image.imageUrl}
                             alt={image.description}
                             fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
                             data-ai-hint={image.imageHint}
                         />

@@ -74,11 +74,12 @@ export default function AboutPage() {
                 <aside className="lg:col-span-1 space-y-8 lg:sticky lg:top-28">
                      {aboutImage && (
                         <div className="overflow-hidden rounded-lg shadow-2xl">
-                            <Image 
+                            <Image
                                 src={aboutImage.imageUrl}
                                 alt={aboutImage.description}
                                 width={600}
                                 height={400}
+                                priority
                                 data-ai-hint={aboutImage.imageHint}
                                 className="object-cover w-full h-auto transition-transform duration-500 hover:scale-110"
                             />

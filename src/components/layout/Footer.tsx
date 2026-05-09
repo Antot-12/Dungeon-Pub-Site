@@ -35,12 +35,12 @@ export function Footer() {
     }, []);
 
   return (
-    <footer className="w-full bg-secondary">
+    <footer className="w-full bg-secondary" role="contentinfo">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          
+
           <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <Link href="/" className="mb-4">
+            <Link href="/" className="mb-4" aria-label="Dungeon Pub home">
               <Image src={Logo} alt="Dungeon Pub Logo" className="h-24 w-auto" />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
@@ -49,7 +49,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
-            <div>
+            <nav aria-label="Footer navigation">
               <h3 className="font-headline font-bold text-lg text-primary mb-4">{t('footer.navigation')}</h3>
               <ul className="space-y-3">
                 <li><Link href="/" className="text-muted-foreground transition-colors hover:text-primary">{t('nav.home')}</Link></li>
@@ -58,9 +58,9 @@ export function Footer() {
                 <li><Link href="/gallery" className="text-muted-foreground transition-colors hover:text-primary">{t('nav.gallery')}</Link></li>
                 <li><Link href="/about" className="text-muted-foreground transition-colors hover:text-primary">{t('nav.about')}</Link></li>
               </ul>
-            </div>
-            
-            <div>
+            </nav>
+
+            <nav aria-label="Quick links">
               <h3 className="font-headline font-bold text-lg text-primary mb-4">{t('footer.quick_links')}</h3>
               <ul className="space-y-3">
                   <li><Link href="/#features" className="text-muted-foreground transition-colors hover:text-primary">{t('home.features.title')}</Link></li>
@@ -68,26 +68,28 @@ export function Footer() {
                   <li><Link href="/#menu-preview" className="text-muted-foreground transition-colors hover:text-primary">{t('home.menu.title')}</Link></li>
                   <li><Link href="/#gallery-preview" className="text-muted-foreground transition-colors hover:text-primary">{t('home.gallery.title')}</Link></li>
               </ul>
-            </div>
+            </nav>
 
             <div>
               <h3 className="font-headline font-bold text-lg text-primary mb-4">{t('footer.contact')}</h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="https://www.google.com/maps/search/?api=1&query=Štefánikova+869%2F14+Bratislava" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center sm:justify-start gap-2 text-muted-foreground transition-colors hover:text-primary">
-                    <MapPin className="h-5 w-5" />
-                    <span>Štefánikova 869/14, BA</span>
-                  </a>
-                </li>
-                <li className="flex items-center justify-center sm:justify-start gap-4 pt-2">
-                    <Link href="https://www.facebook.com/dungeonpub/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <Facebook className="h-6 w-6 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" />
-                    </Link>
-                    <Link href="https://www.instagram.com/dungeon_pub" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <Instagram className="h-6 w-6 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" />
-                    </Link>
-                </li>
-              </ul>
+              <address className="not-italic">
+                <ul className="space-y-3">
+                  <li>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Štefánikova+869%2F14+Bratislava" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center sm:justify-start gap-2 text-muted-foreground transition-colors hover:text-primary">
+                      <MapPin className="h-5 w-5" aria-hidden="true" />
+                      <span>Štefánikova 869/14, BA</span>
+                    </a>
+                  </li>
+                  <li className="flex items-center justify-center sm:justify-start gap-4 pt-2">
+                      <Link href="https://www.facebook.com/dungeonpub/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+                          <Facebook className="h-6 w-6 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" aria-hidden="true" />
+                      </Link>
+                      <Link href="https://www.instagram.com/dungeon_pub" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile">
+                          <Instagram className="h-6 w-6 text-muted-foreground transition-all duration-200 hover:text-primary hover:scale-110" aria-hidden="true" />
+                      </Link>
+                  </li>
+                </ul>
+              </address>
             </div>
           </div>
         </div>
@@ -103,12 +105,12 @@ export function Footer() {
       {isVisible && (
             <Button
                 onClick={scrollToTop}
-                className="fixed bottom-8 right-8 h-14 w-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-100"
+                className="fixed bottom-8 right-8 h-14 w-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-100 z-50"
                 variant="default"
                 size="icon"
-                aria-label="Go to top"
+                aria-label="Scroll to top"
             >
-                <ArrowUp className="h-7 w-7" />
+                <ArrowUp className="h-7 w-7" aria-hidden="true" />
             </Button>
         )}
     </footer>

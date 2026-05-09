@@ -1,0 +1,672 @@
+[
+  {
+    "name": "🍺 Piwo",
+    "description": "(0,5 l / 0,3 l)",
+    "items": [
+      {
+        "name": "Urpiner 11° – jasne",
+        "price": "2,20 € / 1,70 €"
+      },
+      {
+        "name": "Urpiner Premium 12° – jasne",
+        "price": "2,40 € / 1,90 €"
+      },
+      {
+        "name": "Urpiner Extra 14° – jasne",
+        "price": "2,80 € / 2,30 €"
+      },
+      {
+        "name": "Urpiner Dark 11° – ciemne",
+        "price": "2,40 € / 1,90 €"
+      },
+      {
+        "name": "Specjał piwny",
+        "price": "wg oferty"
+      }
+    ]
+  },
+  {
+    "name": "🍯 Piwo z miodem",
+    "items": [
+      {
+        "name": "Korma Light – jasne 12°",
+        "price": "3,20 € / 2,70 €"
+      },
+      {
+        "name": "Darth Korma – ciemne 11°",
+        "price": "3,20 € / 2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍺 Inne",
+    "items": [
+      {
+        "name": "Radler (mieszany) 0,5 l",
+        "price": "2,60 €"
+      },
+      {
+        "name": "Cydr Strongbow (jabłkowy / ciemne owoce / grejpfrut) 0,44 l",
+        "price": "2,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🚫 Piwo bezalkoholowe",
+    "items": [
+      {
+        "name": "Bernard (klasyczny / wiśnia / śliwka) 0,5 l",
+        "price": "2,50 €"
+      }
+    ]
+  },
+  {
+    "name": "🥤 Napoje bezalkoholowe",
+    "description": "(0,5 l / 0,3 l)",
+    "items": [
+      {
+        "name": "Kofola",
+        "price": "1,90 € / 1,40 €"
+      },
+      {
+        "name": "Kofola (1 l / 0,5 l)",
+        "price": "3,30 € / 1,80 €"
+      },
+      {
+        "name": "Lemoniada",
+        "price": "5,80 € / 3,00 €"
+      },
+      {
+        "name": "Lemoniada (wg oferty)",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Domowa mrożona herbata 0,5 l",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Sok Toma (pomarańczowy / jabłkowy / truskawkowy / ananasowy)",
+        "price": "0,70 €"
+      },
+      {
+        "name": "Pepsi / Pepsi Max / 7up / Tonic",
+        "price": "0,70 €"
+      },
+      {
+        "name": "Woda sodowa",
+        "price": "0,40 €"
+      },
+      {
+        "name": "Maté lime 0,33 l",
+        "price": "2,50 €"
+      },
+      {
+        "name": "Piwo imbirowe 0,33 l",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Różowy tonik 0,33 l",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Red Bull 0,33 l",
+        "price": "3,00 €"
+      }
+    ]
+  },
+  {
+    "name": "☕ Kawa i herbata",
+    "items": [
+      {
+        "name": "Espresso / Doppio",
+        "price": "1,60 € / 2,80 €"
+      },
+      {
+        "name": "Cappuccino / smakowe (orzech laskowy / kokos / migdał)",
+        "price": "2,80 € / 3,00 €"
+      },
+      {
+        "name": "Caffé Latte",
+        "price": "2,80 €"
+      },
+      {
+        "name": "Kawa mrożona",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Espresso Tonic",
+        "price": "2,60 €"
+      },
+      {
+        "name": "Kakao (Granko, mleko, bita śmietana, migdały)",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Herbata sypana (zielona / imbirowa / miętowa)",
+        "price": "2,80 €"
+      },
+      {
+        "name": "Herbata w torebkach (czarna / owocowa / zielona / miętowa)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Herbata pieczona – różne",
+        "price": "2,90 €"
+      },
+      {
+        "name": "Mleko / bezlaktozowe / miód / cytryna",
+        "price": "0,30 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Drinki domowe",
+    "items": [
+      {
+        "name": "Mana Potion",
+        "price": "6,40 €",
+        "description": "Absynt Euphoria, Likier owocowy, Fizz, Monin Curaçao"
+      },
+      {
+        "name": "Health Potion",
+        "price": "5,60 €",
+        "description": "Likier z marakui, Fizz, Świeża limonka, Monin Grenadine"
+      },
+      {
+        "name": "Sith",
+        "price": "6,60 €",
+        "description": "Wódka Absolut, Passoa, Sok truskawkowy, Świeża limonka, Monin Brzoskwinia"
+      },
+      {
+        "name": "Soul Stone",
+        "price": "5,80 €",
+        "description": "Likier Jägermeister, Triple sec, Świeży cytrus, 7UP"
+      },
+      {
+        "name": "Mr. Poopybutthole’s Piña Colada (7)",
+        "price": "6,50 €",
+        "description": "Rum Bacardi, Sok ananasowy, Mleko, Świeża pomarańcza, Monin Kokos"
+      },
+      {
+        "name": "Pink Panther",
+        "price": "6,20 €",
+        "description": "Gin Beefeater Pink, Passoa, Świeża limonka, 7UP"
+      },
+      {
+        "name": "Kozmodróm (7)",
+        "price": "6,40 €",
+        "description": "Rum Bacardi, Bailey’s Salted Caramel, Disaronno Amaretto, Mleko, Monin Orzech laskowy"
+      }
+    ]
+  },
+  {
+    "name": "🧙 Koktajle fantasy",
+    "items": [
+      {
+        "name": "Gryffindor",
+        "price": "6,40 €",
+        "description": "Złota Tequila, Triple Sec, Sok pomarańczowy, Monin Grenadine"
+      },
+      {
+        "name": "Ravenclaw",
+        "price": "6,20 €",
+        "description": "Gin Beefeater, Sok truskawkowy, Fizz, Monin Curaçao"
+      },
+      {
+        "name": "Hufflepuff",
+        "price": "6,20 €",
+        "description": "Rum Bacardi, Sok jabłkowy i pomarańczowy, Monin Liczi"
+      },
+      {
+        "name": "Slytherin",
+        "price": "6,60 €",
+        "description": "Wódka Absolut, Triple Sec Cointreau, Sok pomarańczowy, Świeża limonka, Monin Curaçao & Marakuja"
+      },
+      {
+        "name": "Blue Milk (7)",
+        "price": "5,90 €",
+        "description": "Wódka Absolut, Malibu, Mleko, Monin Curaçao"
+      },
+      {
+        "name": "Šano Bomb",
+        "price": "5,60 €",
+        "description": "Spišská Borovička, Sok pomarańczowy, Red Bull"
+      },
+      {
+        "name": "Warianty Virgin",
+        "price": "3,40 €"
+      }
+    ]
+  },
+  {
+    "name": "🍹 Tradycyjne koktajle",
+    "items": [
+      {
+        "name": "Long Island Iced Tea",
+        "price": "9,20 €"
+      },
+      {
+        "name": "Lady Killer",
+        "price": "6,90 €"
+      },
+      {
+        "name": "Bomberman B52",
+        "price": "5,00 €"
+      },
+      {
+        "name": "Umbakarna (Mai Tai)",
+        "price": "7,10 €"
+      },
+      {
+        "name": "Rum Sour z/bez białka",
+        "price": "6,90 € / 6,40 €"
+      },
+      {
+        "name": "Cuba Libre",
+        "price": "5,60 €"
+      },
+      {
+        "name": "Espresso Martini",
+        "price": "6,70 €"
+      },
+      {
+        "name": "Moscow Mule",
+        "price": "6,60 €"
+      },
+      {
+        "name": "White Russian",
+        "price": "5,70 €"
+      },
+      {
+        "name": "Screwdriver",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Skinny B*tch",
+        "price": "5,60 €"
+      },
+      {
+        "name": "Whisky Sour z/bez białka",
+        "price": "6,90 € / 6,20 €"
+      },
+      {
+        "name": "Lynchburg Lemonade",
+        "price": "6,40 €"
+      },
+      {
+        "name": "Vermouth Orange Spritz",
+        "price": "4,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🥃 Rum",
+    "items": [
+      {
+        "name": "Piquero 40% Panama",
+        "price": "6,40 €"
+      },
+      {
+        "name": "Don Papa Baroko 40% Filipiny",
+        "price": "6,50 €"
+      },
+      {
+        "name": "Mount Gay XO 43% Barbados",
+        "price": "6,90 €"
+      },
+      {
+        "name": "Bacardi Carta Blanca 37,5%",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Kraken Black Spiced 40%",
+        "price": "4,30 €"
+      },
+      {
+        "name": "Legendario Elixir de Cuba 34%",
+        "price": "3,80 €"
+      },
+      {
+        "name": "Captain Morgan 35%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Republica Božkov 38%",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Gin",
+    "items": [
+      {
+        "name": "Lúčny (Łąkowy) 40%",
+        "price": "3,60 €"
+      },
+      {
+        "name": "Beefeater 40%",
+        "price": "3,40 €"
+      },
+      {
+        "name": "Roku Gin 43%",
+        "price": "4,20 €"
+      },
+      {
+        "name": "Beefeater Pink truskawka 37,5%",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Malfy Rosa grejpfrut 41%",
+        "price": "4,40 €"
+      }
+    ]
+  },
+  {
+    "name": "🥃 Whisk(e)y",
+    "items": [
+      {
+        "name": "Jameson 40%",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Ballantine’s 40%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Jack Daniel’s 40%",
+        "price": "3,90 €"
+      },
+      {
+        "name": "Jack Daniel’s Apple 35%",
+        "price": "4,00 €"
+      },
+      {
+        "name": "Writer’s Tears Copper Pot 40%",
+        "price": "4,40 €"
+      },
+      {
+        "name": "Glenmorangie 10 yrs 40%",
+        "price": "5,40 €"
+      },
+      {
+        "name": "Oban 14 yrs 43%",
+        "price": "7,10 €"
+      },
+      {
+        "name": "Buffalo Trace 40%",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🌲 Jałowcówka",
+    "items": [
+      {
+        "name": "Spišská Borovička 40%",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Rusínska Borovička 40%",
+        "price": "2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Wódka",
+    "items": [
+      {
+        "name": "Absolut Blue 40%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Goral Master 40%",
+        "price": "3,80 €"
+      },
+      {
+        "name": "42 Below 40%",
+        "price": "4,00 €"
+      }
+    ]
+  },
+  {
+    "name": "🌵 Tequila",
+    "items": [
+      {
+        "name": "Srebrna 40% (cytryna i sól)",
+        "price": "3,40 €"
+      },
+      {
+        "name": "Złota 40% (pomarańcza i cynamon)",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🍑 Destylaty",
+    "items": [
+      {
+        "name": "Hruškovica (Gruszkówka) 42%",
+        "price": "3,60 €"
+      },
+      {
+        "name": "Marhuľovica (Morelówka) 45%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Slivovica (Śliwowica) 52%",
+        "price": "4,00 €"
+      }
+    ]
+  },
+  {
+    "name": "🍬 Likiery",
+    "items": [
+      {
+        "name": "Jägermeister 35%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Fernet Stock Citrus 37%",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Bailey’s Salted Caramel 17%",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Disaronno Amaretto 28%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Malibu 21%",
+        "price": "2,90 €"
+      },
+      {
+        "name": "Likier miętowy 28%",
+        "price": "2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍵 TatraTea",
+    "items": [
+      {
+        "name": "TatraTea 42% Peach",
+        "price": "3,70 €"
+      },
+      {
+        "name": "TatraTea 52% Original",
+        "price": "3,50 €"
+      },
+      {
+        "name": "TatraTea 62% Forest Fruit",
+        "price": "3,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🌿 Absynt",
+    "items": [
+      {
+        "name": "Suicide Red 70%",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Suicide Black 70%",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Euphoria 80%",
+        "price": "5,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🧃 Bezalkoholowe napoje mieszane",
+    "items": [
+      {
+        "name": "Virgincollada (7)",
+        "price": "3,80 €",
+        "description": "Mleko, Sok ananasowy, Świeża pomarańcza, Syrop kokosowy"
+      },
+      {
+        "name": "Monte (7)",
+        "price": "3,90 €",
+        "description": "Mleko, Syrop orzechowy, Kakao, Bita śmietana, Bueno, Migdały"
+      },
+      {
+        "name": "Luffy",
+        "price": "3,60 €",
+        "description": "Sok pomarańczowy, Monin Grenadyna i Marakuja, Świeża limonka"
+      },
+      {
+        "name": "Powder",
+        "price": "3,60 €",
+        "description": "Monin Kiwi i Curaçao, Świeża limonka, Woda sodowa, Kwaśne rybki"
+      },
+      {
+        "name": "Healthy Potion",
+        "price": "3,40 €",
+        "description": "Sok jabłkowy, Syrop truskawkowy, Świeży cytrus, 7UP"
+      },
+      {
+        "name": "Peach Moxxie",
+        "price": "3,40 €",
+        "description": "Sok brzoskwiniowy, Syrop liczi, Świeży cytrus"
+      },
+      {
+        "name": "Legendarna impotencja",
+        "price": "2,90 €",
+        "description": "Sok truskawkowy, Woda sodowa"
+      },
+      {
+        "name": "Slytherin",
+        "price": "3,60 €",
+        "description": "Pomarańczowy \"piadidżus\", Syrop z łusek węża, Proszek z kamieni księżycowych"
+      }
+    ]
+  },
+  {
+    "name": "🍷 Wino i miód pitny",
+    "description": "(ceny podane za 1 dl, chyba że podano inaczej)",
+    "items": [
+      {
+        "name": "Białe",
+        "isSubheader": true
+      },
+      {
+        "name": "Tureček – Sauvignon / Silvanské – wytrawne 12%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "Tureček – Ryzlink Włoski – półsłodkie 12%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "butelka 0,75 l",
+        "price": "15 €"
+      },
+      {
+        "name": "Czerwone",
+        "isSubheader": true
+      },
+      {
+        "name": "Tureček – Dunaj / Neronet – wytrawne 13,5%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "butelka 0,75 l",
+        "price": "15 €"
+      },
+      {
+        "name": "Owocowe",
+        "isSubheader": true
+      },
+      {
+        "name": "Miluron – Bez / Wiśnia",
+        "price": "2,10 €"
+      },
+      {
+        "name": "butelka 0,75 l",
+        "price": "16 €"
+      },
+      {
+        "name": "Prosecco",
+        "isSubheader": true
+      },
+      {
+        "name": "Prosecco Dal Bello DOC 11%",
+        "price": "2,10 €"
+      },
+      {
+        "name": "butelka 0,75 l",
+        "price": "16 €"
+      },
+      {
+        "name": "Miód pitny",
+        "isSubheader": true
+      },
+      {
+        "name": "Apimed Trnawski miód pitny 13,5%",
+        "price": "2,20 €"
+      },
+      {
+        "name": "butelka 0,75 l",
+        "price": "18 €"
+      }
+    ]
+  },
+  {
+    "name": "🍿 Przekąski",
+    "items": [
+      {
+        "name": "Chipsy Lay’s 55–60 g (1, 6, 7) solone / paprykowe / fromage / BBQ / ser i cayenne",
+        "price": "1,70 €"
+      },
+      {
+        "name": "Chipsy Lay’s pieczone 110 g (1, 6, 7) ziołowe / grillowane warzywa",
+        "price": "2,20 €"
+      },
+      {
+        "name": "Chrupki orzechowe 60 g (5)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Paluszki 45 g (1, 7, 9)",
+        "price": "1,20 €"
+      },
+      {
+        "name": "Orzeszki ziemne 100 g (5)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Horalky 50 g (1, 3, 5, 6, 7)",
+        "price": "1,20 €"
+      },
+      {
+        "name": "Kinder Bueno 43 g (1, 5, 6, 7)",
+        "price": "1,60 €"
+      }
+    ]
+  }
+]

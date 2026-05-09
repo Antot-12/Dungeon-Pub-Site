@@ -1,0 +1,672 @@
+[
+  {
+    "name": "🍺 Pivo",
+    "description": "(0,5 l / 0,3 l)",
+    "items": [
+      {
+        "name": "Urpiner 11° – světlé",
+        "price": "2,20 € / 1,70 €"
+      },
+      {
+        "name": "Urpiner Premium 12° – světlé",
+        "price": "2,40 € / 1,90 €"
+      },
+      {
+        "name": "Urpiner Extra 14° – světlé",
+        "price": "2,80 € / 2,30 €"
+      },
+      {
+        "name": "Urpiner Dark 11° – tmavé",
+        "price": "2,40 € / 1,90 €"
+      },
+      {
+        "name": "Pivní speciál",
+        "price": "dle nabídky"
+      }
+    ]
+  },
+  {
+    "name": "🍯 Pivo s medovinou",
+    "items": [
+      {
+        "name": "Korma Light – světlá 12°",
+        "price": "3,20 € / 2,70 €"
+      },
+      {
+        "name": "Darth Korma – tmavá 11°",
+        "price": "3,20 € / 2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍺 Jiné",
+    "items": [
+      {
+        "name": "Radler (míchaný) 0,5 l",
+        "price": "2,60 €"
+      },
+      {
+        "name": "Cider Strongbow (jablko / tmavé ovoce / grep) 0,44 l",
+        "price": "2,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🚫 Nealko Pivo",
+    "items": [
+      {
+        "name": "Bernard (klasický / višeň / švestka) 0,5 l",
+        "price": "2,50 €"
+      }
+    ]
+  },
+  {
+    "name": "🥤 Nealko – Nápoje",
+    "description": "(0,5 l / 0,3 l)",
+    "items": [
+      {
+        "name": "Kofola",
+        "price": "1,90 € / 1,40 €"
+      },
+      {
+        "name": "Kofola (1 l / 0,5 l)",
+        "price": "3,30 € / 1,80 €"
+      },
+      {
+        "name": "Citronáda",
+        "price": "5,80 € / 3,00 €"
+      },
+      {
+        "name": "Limonáda (dle nabídky)",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Domácí ledový čaj 0,5 l",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Džus Toma (pomeranč / jablko / jahoda / ananas)",
+        "price": "0,70 €"
+      },
+      {
+        "name": "Pepsi / Pepsi Max / 7up / Tonic",
+        "price": "0,70 €"
+      },
+      {
+        "name": "Sóda",
+        "price": "0,40 €"
+      },
+      {
+        "name": "Maté lime 0,33 l",
+        "price": "2,50 €"
+      },
+      {
+        "name": "Ginger beer 0,33 l",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Pink Tonic 0,33 l",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Red Bull 0,33 l",
+        "price": "3,00 €"
+      }
+    ]
+  },
+  {
+    "name": "☕ Káva & Čaj",
+    "items": [
+      {
+        "name": "Espresso / Doppio",
+        "price": "1,60 € / 2,80 €"
+      },
+      {
+        "name": "Cappuccino / ochucené (lískový ořech / kokos / mandle)",
+        "price": "2,80 € / 3,00 €"
+      },
+      {
+        "name": "Caffé Latte",
+        "price": "2,80 €"
+      },
+      {
+        "name": "Ledová káva",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Espresso Tonic",
+        "price": "2,60 €"
+      },
+      {
+        "name": "Kakao (Granko, mléko, šlehačka, mandle)",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Sypaný čaj (zelený / zázvorový / mátový)",
+        "price": "2,80 €"
+      },
+      {
+        "name": "Porcovaný čaj (černý / ovocný / zelený / mátový)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Pečený čaj – různé",
+        "price": "2,90 €"
+      },
+      {
+        "name": "Mléko / bezlaktózové / med / citron",
+        "price": "0,30 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Domácí drinky",
+    "items": [
+      {
+        "name": "Mana Potion",
+        "price": "6,40 €",
+        "description": "Absinth Euphoria, Ovocný likér, Fizz, Monin Curaçao"
+      },
+      {
+        "name": "Health Potion",
+        "price": "5,60 €",
+        "description": "Maracujový likér, Fizz, Limetkový fresh, Monin Grenadina"
+      },
+      {
+        "name": "Sith",
+        "price": "6,60 €",
+        "description": "Vodka Absolut, Passoa, Jahodový džus, Limetkový fresh, Monin Broskev"
+      },
+      {
+        "name": "Soul Stone",
+        "price": "5,80 €",
+        "description": "Likér Jägermeister, Triple sec, Citrusový fresh, 7UP"
+      },
+      {
+        "name": "Mr. Poopybutthole’s Piña Colada (7)",
+        "price": "6,50 €",
+        "description": "Rum Bacardi, Ananasový džus, Mléko, Pomerančový fresh, Monin Kokos"
+      },
+      {
+        "name": "Pink Panther",
+        "price": "6,20 €",
+        "description": "Gin Beefeater Pink, Passoa, Limetkový fresh, 7UP"
+      },
+      {
+        "name": "Kozmodróm (7)",
+        "price": "6,40 €",
+        "description": "Rum Bacardi, Bailey’s Salted Caramel, Disaronno Amaretto, Mléko, Monin Lískový ořech"
+      }
+    ]
+  },
+  {
+    "name": "🧙 Fantasy koktejly",
+    "items": [
+      {
+        "name": "Gryffindor",
+        "price": "6,40 €",
+        "description": "Zlatá Tequila, Triple Sec, Pomerančový džus, Monin Grenadina"
+      },
+      {
+        "name": "Ravenclaw",
+        "price": "6,20 €",
+        "description": "Gin Beefeater, Jahodový džus, Fizz, Monin Curaçao"
+      },
+      {
+        "name": "Hufflepuff",
+        "price": "6,20 €",
+        "description": "Rum Bacardi, Jablečný & Pomerančový džus, Monin Litchi"
+      },
+      {
+        "name": "Slytherin",
+        "price": "6,60 €",
+        "description": "Vodka Absolut, Triple Sec Cointreau, Pomerančový džus, Limetkový fresh, Monin Curaçao & Maracuja"
+      },
+      {
+        "name": "Blue Milk (7)",
+        "price": "5,90 €",
+        "description": "Vodka Absolut, Malibu, Mléko, Monin Curaçao"
+      },
+      {
+        "name": "Šano Bomb",
+        "price": "5,60 €",
+        "description": "Spišská Borovička, Pomerančový džus, Red Bull"
+      },
+      {
+        "name": "Virgin variants",
+        "price": "3,40 €"
+      }
+    ]
+  },
+  {
+    "name": "🍹 Tradiční koktejly",
+    "items": [
+      {
+        "name": "Long Island Iced Tea",
+        "price": "9,20 €"
+      },
+      {
+        "name": "Lady Killer",
+        "price": "6,90 €"
+      },
+      {
+        "name": "Bomberman B52",
+        "price": "5,00 €"
+      },
+      {
+        "name": "Umbakarna (Mai Tai)",
+        "price": "7,10 €"
+      },
+      {
+        "name": "Rum Sour s bílkem / bez",
+        "price": "6,90 € / 6,40 €"
+      },
+      {
+        "name": "Cuba Libre",
+        "price": "5,60 €"
+      },
+      {
+        "name": "Espresso Martini",
+        "price": "6,70 €"
+      },
+      {
+        "name": "Moscow Mule",
+        "price": "6,60 €"
+      },
+      {
+        "name": "White Russian",
+        "price": "5,70 €"
+      },
+      {
+        "name": "Screwdriver",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Skinny B*tch",
+        "price": "5,60 €"
+      },
+      {
+        "name": "Whisky Sour s bílkem / bez",
+        "price": "6,90 € / 6,20 €"
+      },
+      {
+        "name": "Lynchburg Lemonade",
+        "price": "6,40 €"
+      },
+      {
+        "name": "Vermouth Orange Spritz",
+        "price": "4,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🥃 Rum",
+    "items": [
+      {
+        "name": "Piquero 40% Panama",
+        "price": "6,40 €"
+      },
+      {
+        "name": "Don Papa Baroko 40% Filipíny",
+        "price": "6,50 €"
+      },
+      {
+        "name": "Mount Gay XO 43% Barbados",
+        "price": "6,90 €"
+      },
+      {
+        "name": "Bacardi Carta Blanca 37,5%",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Kraken Black Spiced 40%",
+        "price": "4,30 €"
+      },
+      {
+        "name": "Legendario Elixir de Cuba 34%",
+        "price": "3,80 €"
+      },
+      {
+        "name": "Captain Morgan 35%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Republica Božkov 38%",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Gin",
+    "items": [
+      {
+        "name": "Lúčny 40%",
+        "price": "3,60 €"
+      },
+      {
+        "name": "Beefeater 40%",
+        "price": "3,40 €"
+      },
+      {
+        "name": "Roku Gin 43%",
+        "price": "4,20 €"
+      },
+      {
+        "name": "Beefeater Pink jahoda 37,5%",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Malfy Rosa grep 41%",
+        "price": "4,40 €"
+      }
+    ]
+  },
+  {
+    "name": "🥃 Whisk(e)y",
+    "items": [
+      {
+        "name": "Jameson 40%",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Ballantine’s 40%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Jack Daniel’s 40%",
+        "price": "3,90 €"
+      },
+      {
+        "name": "Jack Daniel’s Apple 35%",
+        "price": "4,00 €"
+      },
+      {
+        "name": "Writer’s Tears Copper Pot 40%",
+        "price": "4,40 €"
+      },
+      {
+        "name": "Glenmorangie 10 yrs 40%",
+        "price": "5,40 €"
+      },
+      {
+        "name": "Oban 14 yrs 43%",
+        "price": "7,10 €"
+      },
+      {
+        "name": "Buffalo Trace 40%",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🌲 Jalovcová",
+    "items": [
+      {
+        "name": "Spišská Borovička 40%",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Rusínská Borovička 40%",
+        "price": "2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Vodka",
+    "items": [
+      {
+        "name": "Absolut Blue 40%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Goral Master 40%",
+        "price": "3,80 €"
+      },
+      {
+        "name": "42 Below 40%",
+        "price": "4,00 €"
+      }
+    ]
+  },
+  {
+    "name": "🌵 Tequila",
+    "items": [
+      {
+        "name": "Stříbrná 40% (citron & sůl)",
+        "price": "3,40 €"
+      },
+      {
+        "name": "Zlatá 40% (pomeranč & skořice)",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🍑 Destiláty",
+    "items": [
+      {
+        "name": "Hruškovice 42%",
+        "price": "3,60 €"
+      },
+      {
+        "name": "Meruňkovice 45%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Slivovice 52%",
+        "price": "4,00 €"
+      }
+    ]
+  },
+  {
+    "name": "🍬 Likéry",
+    "items": [
+      {
+        "name": "Jägermeister 35%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Fernet Stock Citrus 37%",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Bailey’s Salted Caramel 17%",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Disaronno Amaretto 28%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Malibu 21%",
+        "price": "2,90 €"
+      },
+      {
+        "name": "Pepermintový likér 28%",
+        "price": "2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍵 TatraTea",
+    "items": [
+      {
+        "name": "TatraTea 42% Peach",
+        "price": "3,70 €"
+      },
+      {
+        "name": "TatraTea 52% Original",
+        "price": "3,50 €"
+      },
+      {
+        "name": "TatraTea 62% Forest Fruit",
+        "price": "3,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🌿 Absint",
+    "items": [
+      {
+        "name": "Suicide Red 70%",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Suicide Black 70%",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Euphoria 80%",
+        "price": "5,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🧃 Nealko Míchané Nápoje",
+    "items": [
+      {
+        "name": "Virgincollada (7)",
+        "price": "3,80 €",
+        "description": "Mléko, Ananasový džus, Pomerančový fresh, Kokosový sirup"
+      },
+      {
+        "name": "Monte (7)",
+        "price": "3,90 €",
+        "description": "Mléko, Lískooříškový sirup, Granko, Šlehačka, Bueno, Mandle"
+      },
+      {
+        "name": "Luffy",
+        "price": "3,60 €",
+        "description": "Pomerančový džus, Monin Grenadina & Maracuja, Limetkový fresh"
+      },
+      {
+        "name": "Powder",
+        "price": "3,60 €",
+        "description": "Monin Kiwi & Curaçao, Limetkový fresh, Soda, Kyselé rybičky"
+      },
+      {
+        "name": "Healthy Potion",
+        "price": "3,40 €",
+        "description": "Jablečný džus, Jahodový sirup, Citrusový fresh, 7UP"
+      },
+      {
+        "name": "Peach Moxxie",
+        "price": "3,40 €",
+        "description": "Broskvový džus, Litchi sirup, Citrusový fresh"
+      },
+      {
+        "name": "Legendární Impotence",
+        "price": "2,90 €",
+        "description": "Jahodový džus, Soda"
+      },
+      {
+        "name": "Slytherin",
+        "price": "3,60 €",
+        "description": "Pomerančový \"piadidžus\", Sirup z hadích šupin, Prášek z měsíčních kamenů"
+      }
+    ]
+  },
+  {
+    "name": "🍷 Víno & Medovina",
+    "description": "(ceny jsou uvedeny za 1 dl, pokud není uvedeno jinak)",
+    "items": [
+      {
+        "name": "Bílé",
+        "isSubheader": true
+      },
+      {
+        "name": "Tureček – Sauvignon / Silvanské – suché 12%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "Tureček – Ryzlink Vlašský – polosladké 12%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "láhev 0,75 l",
+        "price": "15 €"
+      },
+      {
+        "name": "Červené",
+        "isSubheader": true
+      },
+      {
+        "name": "Tureček – Dunaj / Neronet – suché 13,5%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "láhev 0,75 l",
+        "price": "15 €"
+      },
+      {
+        "name": "Ovocné",
+        "isSubheader": true
+      },
+      {
+        "name": "Miluron – Bez / Višeň",
+        "price": "2,10 €"
+      },
+      {
+        "name": "láhev 0,75 l",
+        "price": "16 €"
+      },
+      {
+        "name": "Prosecco",
+        "isSubheader": true
+      },
+      {
+        "name": "Prosecco Dal Bello DOC 11%",
+        "price": "2,10 €"
+      },
+      {
+        "name": "láhev 0,75 l",
+        "price": "16 €"
+      },
+      {
+        "name": "Medovina",
+        "isSubheader": true
+      },
+      {
+        "name": "Apimed Trnavská medovina 13,5%",
+        "price": "2,20 €"
+      },
+      {
+        "name": "láhev 0,75 l",
+        "price": "18 €"
+      }
+    ]
+  },
+  {
+    "name": "🍿 Pochutiny",
+    "items": [
+      {
+        "name": "Chipsy Lay’s 55–60 g (1, 6, 7) solené / paprikové / fromage / BBQ / sýr & kajenský pepř",
+        "price": "1,70 €"
+      },
+      {
+        "name": "Chipsy Lay’s pečené 110 g (1, 6, 7) bylinkové / grilovaná zelenina",
+        "price": "2,20 €"
+      },
+      {
+        "name": "Arašídové křupky 60 g (5)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Tyčinky 45 g (1, 7, 9)",
+        "price": "1,20 €"
+      },
+      {
+        "name": "Arašídy 100 g (5)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Horalky 50 g (1, 3, 5, 6, 7)",
+        "price": "1,20 €"
+      },
+      {
+        "name": "Kinder Bueno 43 g (1, 5, 6, 7)",
+        "price": "1,60 €"
+      }
+    ]
+  }
+]

@@ -1,0 +1,672 @@
+[
+  {
+    "name": "🍺 Sör",
+    "description": "(0,5 l / 0,3 l)",
+    "items": [
+      {
+        "name": "Urpiner 11° – világos",
+        "price": "2,20 € / 1,70 €"
+      },
+      {
+        "name": "Urpiner Premium 12° – világos",
+        "price": "2,40 € / 1,90 €"
+      },
+      {
+        "name": "Urpiner Extra 14° – világos",
+        "price": "2,80 € / 2,30 €"
+      },
+      {
+        "name": "Urpiner Dark 11° – barna",
+        "price": "2,40 € / 1,90 €"
+      },
+      {
+        "name": "Sörkülönlegesség",
+        "price": "ajánlat szerint"
+      }
+    ]
+  },
+  {
+    "name": "🍯 Sör mézzel",
+    "items": [
+      {
+        "name": "Korma Light – világos 12°",
+        "price": "3,20 € / 2,70 €"
+      },
+      {
+        "name": "Darth Korma – barna 11°",
+        "price": "3,20 € / 2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍺 Egyéb",
+    "items": [
+      {
+        "name": "Radler (kevert) 0,5 l",
+        "price": "2,60 €"
+      },
+      {
+        "name": "Cider Strongbow (alma / sötét gyümölcs / grapefruit) 0,44 l",
+        "price": "2,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🚫 Alkoholmentes sör",
+    "items": [
+      {
+        "name": "Bernard (klasszikus / meggy / szilva) 0,5 l",
+        "price": "2,50 €"
+      }
+    ]
+  },
+  {
+    "name": "🥤 Üdítők",
+    "description": "(0,5 l / 0,3 l)",
+    "items": [
+      {
+        "name": "Kofola",
+        "price": "1,90 € / 1,40 €"
+      },
+      {
+        "name": "Kofola (1 l / 0,5 l)",
+        "price": "3,30 € / 1,80 €"
+      },
+      {
+        "name": "Limonádé",
+        "price": "5,80 € / 3,00 €"
+      },
+      {
+        "name": "Limonádé (ajánlat szerint)",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Házi jeges tea 0,5 l",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Toma gyümölcslé (narancs / alma / eper / ananász)",
+        "price": "0,70 €"
+      },
+      {
+        "name": "Pepsi / Pepsi Max / 7up / Tonic",
+        "price": "0,70 €"
+      },
+      {
+        "name": "Szóda",
+        "price": "0,40 €"
+      },
+      {
+        "name": "Maté lime 0,33 l",
+        "price": "2,50 €"
+      },
+      {
+        "name": "Gyömbérsör 0,33 l",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Rózsaszín tonik 0,33 l",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Red Bull 0,33 l",
+        "price": "3,00 €"
+      }
+    ]
+  },
+  {
+    "name": "☕ Kávé és tea",
+    "items": [
+      {
+        "name": "Eszpresszó / Dupla",
+        "price": "1,60 € / 2,80 €"
+      },
+      {
+        "name": "Cappuccino / ízesített (mogyoró / kókusz / mandula)",
+        "price": "2,80 € / 3,00 €"
+      },
+      {
+        "name": "Caffé Latte",
+        "price": "2,80 €"
+      },
+      {
+        "name": "Jeges kávé",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Eszpresszó tonik",
+        "price": "2,60 €"
+      },
+      {
+        "name": "Kakaó (Granko, tej, tejszínhab, mandula)",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Szálas tea (zöld / gyömbér / menta)",
+        "price": "2,80 €"
+      },
+      {
+        "name": "Filteres tea (fekete / gyümölcs / zöld / menta)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Sült tea – különböző",
+        "price": "2,90 €"
+      },
+      {
+        "name": "Tej / laktózmentes / méz / citrom",
+        "price": "0,30 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Házi italok",
+    "items": [
+      {
+        "name": "Mana Potion",
+        "price": "6,40 €",
+        "description": "Abszint Euphoria, Gyümölcslikőr, Fizz, Monin Curaçao"
+      },
+      {
+        "name": "Health Potion",
+        "price": "5,60 €",
+        "description": "Maracuja likőr, Fizz, Friss lime, Monin Grenadine"
+      },
+      {
+        "name": "Sith",
+        "price": "6,60 €",
+        "description": "Absolut Vodka, Passoa, Eperlé, Friss lime, Monin Barack"
+      },
+      {
+        "name": "Soul Stone",
+        "price": "5,80 €",
+        "description": "Jägermeister likőr, Triple sec, Friss citrus, 7UP"
+      },
+      {
+        "name": "Mr. Poopybutthole’s Piña Colada (7)",
+        "price": "6,50 €",
+        "description": "Bacardi Rum, Ananászlé, Tej, Friss narancs, Monin Kókusz"
+      },
+      {
+        "name": "Pink Panther",
+        "price": "6,20 €",
+        "description": "Beefeater Pink Gin, Passoa, Friss lime, 7UP"
+      },
+      {
+        "name": "Kozmodróm (7)",
+        "price": "6,40 €",
+        "description": "Bacardi Rum, Bailey’s Salted Caramel, Disaronno Amaretto, Tej, Monin Mogyoró"
+      }
+    ]
+  },
+  {
+    "name": "🧙 Fantasy koktélok",
+    "items": [
+      {
+        "name": "Gryffindor",
+        "price": "6,40 €",
+        "description": "Arany Tequila, Triple Sec, Narancslé, Monin Grenadine"
+      },
+      {
+        "name": "Ravenclaw",
+        "price": "6,20 €",
+        "description": "Beefeater Gin, Eperlé, Fizz, Monin Curaçao"
+      },
+      {
+        "name": "Hufflepuff",
+        "price": "6,20 €",
+        "description": "Bacardi Rum, Alma- és narancslé, Monin Licsi"
+      },
+      {
+        "name": "Slytherin",
+        "price": "6,60 €",
+        "description": "Absolut Vodka, Triple Sec Cointreau, Narancslé, Friss lime, Monin Curaçao & Maracuja"
+      },
+      {
+        "name": "Blue Milk (7)",
+        "price": "5,90 €",
+        "description": "Absolut Vodka, Malibu, Tej, Monin Curaçao"
+      },
+      {
+        "name": "Šano Bomb",
+        "price": "5,60 €",
+        "description": "Spišská Borovička, Narancslé, Red Bull"
+      },
+      {
+        "name": "Szűz változatok",
+        "price": "3,40 €"
+      }
+    ]
+  },
+  {
+    "name": "🍹 Hagyományos koktélok",
+    "items": [
+      {
+        "name": "Long Island Iced Tea",
+        "price": "9,20 €"
+      },
+      {
+        "name": "Lady Killer",
+        "price": "6,90 €"
+      },
+      {
+        "name": "Bomberman B52",
+        "price": "5,00 €"
+      },
+      {
+        "name": "Umbakarna (Mai Tai)",
+        "price": "7,10 €"
+      },
+      {
+        "name": "Rum Sour tojásfehérjével / anélkül",
+        "price": "6,90 € / 6,40 €"
+      },
+      {
+        "name": "Cuba Libre",
+        "price": "5,60 €"
+      },
+      {
+        "name": "Espresso Martini",
+        "price": "6,70 €"
+      },
+      {
+        "name": "Moscow Mule",
+        "price": "6,60 €"
+      },
+      {
+        "name": "White Russian",
+        "price": "5,70 €"
+      },
+      {
+        "name": "Screwdriver",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Skinny B*tch",
+        "price": "5,60 €"
+      },
+      {
+        "name": "Whisky Sour tojásfehérjével / anélkül",
+        "price": "6,90 € / 6,20 €"
+      },
+      {
+        "name": "Lynchburg Lemonade",
+        "price": "6,40 €"
+      },
+      {
+        "name": "Vermouth Orange Spritz",
+        "price": "4,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🥃 Rum",
+    "items": [
+      {
+        "name": "Piquero 40% Panama",
+        "price": "6,40 €"
+      },
+      {
+        "name": "Don Papa Baroko 40% Fülöp-szigetek",
+        "price": "6,50 €"
+      },
+      {
+        "name": "Mount Gay XO 43% Barbados",
+        "price": "6,90 €"
+      },
+      {
+        "name": "Bacardi Carta Blanca 37,5%",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Kraken Black Spiced 40%",
+        "price": "4,30 €"
+      },
+      {
+        "name": "Legendario Elixir de Cuba 34%",
+        "price": "3,80 €"
+      },
+      {
+        "name": "Captain Morgan 35%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Republica Božkov 38%",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Gin",
+    "items": [
+      {
+        "name": "Lúčny (Réti) 40%",
+        "price": "3,60 €"
+      },
+      {
+        "name": "Beefeater 40%",
+        "price": "3,40 €"
+      },
+      {
+        "name": "Roku Gin 43%",
+        "price": "4,20 €"
+      },
+      {
+        "name": "Beefeater Pink eper 37,5%",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Malfy Rosa grapefruit 41%",
+        "price": "4,40 €"
+      }
+    ]
+  },
+  {
+    "name": "🥃 Whisk(e)y",
+    "items": [
+      {
+        "name": "Jameson 40%",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Ballantine’s 40%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Jack Daniel’s 40%",
+        "price": "3,90 €"
+      },
+      {
+        "name": "Jack Daniel’s Apple 35%",
+        "price": "4,00 €"
+      },
+      {
+        "name": "Writer’s Tears Copper Pot 40%",
+        "price": "4,40 €"
+      },
+      {
+        "name": "Glenmorangie 10 yrs 40%",
+        "price": "5,40 €"
+      },
+      {
+        "name": "Oban 14 yrs 43%",
+        "price": "7,10 €"
+      },
+      {
+        "name": "Buffalo Trace 40%",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🌲 Boróka",
+    "items": [
+      {
+        "name": "Spišská Borovička 40%",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Rusínska Borovička 40%",
+        "price": "2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Vodka",
+    "items": [
+      {
+        "name": "Absolut Blue 40%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Goral Master 40%",
+        "price": "3,80 €"
+      },
+      {
+        "name": "42 Below 40%",
+        "price": "4,00 €"
+      }
+    ]
+  },
+  {
+    "name": "🌵 Tequila",
+    "items": [
+      {
+        "name": "Ezüst 40% (citrom és só)",
+        "price": "3,40 €"
+      },
+      {
+        "name": "Arany 40% (narancs és fahéj)",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🍑 Párlatok",
+    "items": [
+      {
+        "name": "Hruškovica (Körte) 42%",
+        "price": "3,60 €"
+      },
+      {
+        "name": "Marhuľovica (Barack) 45%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Slivovica (Szilva) 52%",
+        "price": "4,00 €"
+      }
+    ]
+  },
+  {
+    "name": "🍬 Likőrök",
+    "items": [
+      {
+        "name": "Jägermeister 35%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Fernet Stock Citrus 37%",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Bailey’s Salted Caramel 17%",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Disaronno Amaretto 28%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Malibu 21%",
+        "price": "2,90 €"
+      },
+      {
+        "name": "Borsmenta likőr 28%",
+        "price": "2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍵 TatraTea",
+    "items": [
+      {
+        "name": "TatraTea 42% Peach",
+        "price": "3,70 €"
+      },
+      {
+        "name": "TatraTea 52% Original",
+        "price": "3,50 €"
+      },
+      {
+        "name": "TatraTea 62% Forest Fruit",
+        "price": "3,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🌿 Abszint",
+    "items": [
+      {
+        "name": "Suicide Red 70%",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Suicide Black 70%",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Euphoria 80%",
+        "price": "5,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🧃 Alkoholmentes kevert italok",
+    "items": [
+      {
+        "name": "Virgincollada (7)",
+        "price": "3,80 €",
+        "description": "Tej, Ananászlé, Friss narancs, Kókuszzirup"
+      },
+      {
+        "name": "Monte (7)",
+        "price": "3,90 €",
+        "description": "Tej, Mogyorószirup, Kakaópor, Tejszínhab, Bueno, Mandula"
+      },
+      {
+        "name": "Luffy",
+        "price": "3,60 €",
+        "description": "Narancslé, Monin Grenadin és Maracuja, Friss lime"
+      },
+      {
+        "name": "Powder",
+        "price": "3,60 €",
+        "description": "Monin Kivi és Curaçao, Friss lime, Szóda, Savanyú halacskák"
+      },
+      {
+        "name": "Healthy Potion",
+        "price": "3,40 €",
+        "description": "Almalé, Eperszirup, Friss citrus, 7UP"
+      },
+      {
+        "name": "Peach Moxxie",
+        "price": "3,40 €",
+        "description": "Baracklé, Licsi szirup, Friss citrus"
+      },
+      {
+        "name": "Legendás impotencia",
+        "price": "2,90 €",
+        "description": "Eperlé, Szóda"
+      },
+      {
+        "name": "Slytherin",
+        "price": "3,60 €",
+        "description": "Narancsos \"piadidzsúsz\", Kígyópikkely-szirup, Holdkőpor"
+      }
+    ]
+  },
+  {
+    "name": "🍷 Bor és mézbor",
+    "description": "(az árak 1 dl-re vonatkoznak, hacsak másképp nincs feltüntetve)",
+    "items": [
+      {
+        "name": "Fehér",
+        "isSubheader": true
+      },
+      {
+        "name": "Tureček – Sauvignon / Silvanské – száraz 12%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "Tureček – Olaszrizling – félédes 12%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "üveg 0,75 l",
+        "price": "15 €"
+      },
+      {
+        "name": "Vörös",
+        "isSubheader": true
+      },
+      {
+        "name": "Tureček – Dunaj / Neronet – száraz 13,5%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "üveg 0,75 l",
+        "price": "15 €"
+      },
+      {
+        "name": "Gyümölcs",
+        "isSubheader": true
+      },
+      {
+        "name": "Miluron – Bodza / Meggy",
+        "price": "2,10 €"
+      },
+      {
+        "name": "üveg 0,75 l",
+        "price": "16 €"
+      },
+      {
+        "name": "Prosecco",
+        "isSubheader": true
+      },
+      {
+        "name": "Prosecco Dal Bello DOC 11%",
+        "price": "2,10 €"
+      },
+      {
+        "name": "üveg 0,75 l",
+        "price": "16 €"
+      },
+      {
+        "name": "Mézbor",
+        "isSubheader": true
+      },
+      {
+        "name": "Apimed Nagyszombati mézbor 13,5%",
+        "price": "2,20 €"
+      },
+      {
+        "name": "üveg 0,75 l",
+        "price": "18 €"
+      }
+    ]
+  },
+  {
+    "name": "🍿 Rágcsálnivalók",
+    "items": [
+      {
+        "name": "Lay’s Chips 55–60 g (1, 6, 7) sós / paprika / fromage / BBQ / sajt és cayenne",
+        "price": "1,70 €"
+      },
+      {
+        "name": "Lay’s Sült Chips 110 g (1, 6, 7) fűszeres / grillezett zöldségek",
+        "price": "2,20 €"
+      },
+      {
+        "name": "Mogyorós puffancs 60 g (5)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Sós pálcika 45 g (1, 7, 9)",
+        "price": "1,20 €"
+      },
+      {
+        "name": "Földimogyoró 100 g (5)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Horalky 50 g (1, 3, 5, 6, 7)",
+        "price": "1,20 €"
+      },
+      {
+        "name": "Kinder Bueno 43 g (1, 5, 6, 7)",
+        "price": "1,60 €"
+      }
+    ]
+  }
+]

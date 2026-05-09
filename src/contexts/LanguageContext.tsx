@@ -1,24 +1,53 @@
 'use client';
 
-import { createContext, useContext, useState, type ReactNode, useMemo, useCallback } from 'react';
-import { ui, defaultLang, type LanguageCode } from '@/lib/translations';
+import { createContext, useContext, useState, type ReactNode, useMemo, useCallback, useEffect } from 'react';
+import { getTranslations, defaultLang, type LanguageCode, type Translations } from '@/lib/translations';
 
 type LanguageContextType = {
   lang: LanguageCode;
   setLang: (lang: LanguageCode) => void;
-  t: (key: keyof typeof ui[typeof defaultLang]) => string;
+  t: (key: string) => string;
+  loading: boolean;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<LanguageCode>(defaultLang);
+  const [translations, setTranslations] = useState<Translations>({});
+  const [loading, setLoading] = useState(true);
 
-  const t = useCallback((key: keyof typeof ui[typeof defaultLang]): string => {
-    return ui[lang][key] || ui[defaultLang][key];
+  useEffect(() => {
+    let mounted = true;
+
+    async function loadTranslations() {
+      setLoading(true);
+      try {
+        const t = await getTranslations(lang);
+        if (mounted) {
+          setTranslations(t);
+        }
+      } catch (error) {
+        console.error('Failed to load translations:', error);
+      } finally {
+        if (mounted) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadTranslations();
+
+    return () => {
+      mounted = false;
+    };
   }, [lang]);
 
-  const value = useMemo(() => ({ lang, setLang, t }), [lang, t]);
+  const t = useCallback((key: string): string => {
+    return translations[key] || key;
+  }, [translations]);
+
+  const value = useMemo(() => ({ lang, setLang, t, loading }), [lang, t, loading]);
 
   return (
     <LanguageContext.Provider value={value}>

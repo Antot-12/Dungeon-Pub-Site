@@ -3,6 +3,18 @@
 import { Facebook } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Events',
+    description: 'Upcoming events at Dungeon Pub - RPG sessions, board game tournaments, quiz nights, stand-up comedy, and themed parties.',
+    openGraph: {
+      title: 'Events | Dungeon Pub',
+      description: 'Upcoming events - RPG sessions, board game tournaments, quiz nights, and themed parties.',
+    },
+  };
+}
 
 // NOTE: This is a simplified type. The actual API response is more complex.
 type FacebookEvent = {
@@ -20,7 +32,7 @@ async function getFacebookEvents() {
   const accessToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
 
   if (!pageId || !accessToken) {
-    console.warn('Facebook environment variables are not set.');
+    // Silently return error without console.warn during build
     return { error: 'Configuration missing. Server-side environment variables for Facebook integration are not set.' };
   }
 
@@ -69,12 +81,24 @@ export default async function EventsPage() {
 
       <div className="space-y-8">
         {error && (
-            <div className="text-center text-destructive bg-destructive/10 p-8 rounded-lg border border-destructive/50">
-                <h3 className="font-headline text-2xl font-bold mb-2">Could Not Load Events</h3>
-                <p className="max-w-md mx-auto">
-                    There was a problem fetching events from Facebook. This usually means the required environment variables (`FACEBOOK_PAGE_ID` and `FACEBOOK_PAGE_ACCESS_TOKEN`) are missing or invalid. Please check your server configuration.
+            <div className="text-center bg-card border border-border p-8 rounded-lg">
+                <h3 className="font-headline text-2xl font-bold text-foreground mb-4">Events Temporarily Unavailable</h3>
+                <p className="max-w-md mx-auto text-muted-foreground mb-4">
+                    We're having trouble loading events from Facebook right now. Please check our{' '}
+                    <a
+                      href={`https://www.facebook.com/${process.env.FACEBOOK_PAGE_ID || 'dungeonpub'}/events`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline font-semibold"
+                    >
+                      Facebook page
+                    </a>
+                    {' '}directly for the latest events.
                 </p>
-                <p className="mt-4 text-sm font-mono bg-destructive/20 p-2 rounded-md">{error}</p>
+                <details className="text-left max-w-md mx-auto mt-4">
+                  <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">Technical details</summary>
+                  <p className="mt-2 text-xs font-mono bg-destructive/10 p-2 rounded-md text-destructive">{error}</p>
+                </details>
             </div>
         )}
 

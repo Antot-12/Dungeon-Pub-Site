@@ -1,0 +1,672 @@
+[
+  {
+    "name": "🍺 Пиво",
+    "description": "(0,5 л / 0,3 л)",
+    "items": [
+      {
+        "name": "Urpiner 11° – світле",
+        "price": "2,20 € / 1,70 €"
+      },
+      {
+        "name": "Urpiner Premium 12° – світле",
+        "price": "2,40 € / 1,90 €"
+      },
+      {
+        "name": "Urpiner Extra 14° – світле",
+        "price": "2,80 € / 2,30 €"
+      },
+      {
+        "name": "Urpiner Dark 11° – темне",
+        "price": "2,40 € / 1,90 €"
+      },
+      {
+        "name": "Пивний спеціалітет",
+        "price": "за пропозицією"
+      }
+    ]
+  },
+  {
+    "name": "🍯 Пиво з медом",
+    "items": [
+      {
+        "name": "Korma Light – світле 12°",
+        "price": "3,20 € / 2,70 €"
+      },
+      {
+        "name": "Darth Korma – темне 11°",
+        "price": "3,20 € / 2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍺 Інше",
+    "items": [
+      {
+        "name": "Радлер (змішаний) 0,5 л",
+        "price": "2,60 €"
+      },
+      {
+        "name": "Сидр Strongbow (яблуко / темні фрукти / грейпфрут) 0,44 л",
+        "price": "2,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🚫 Безалкогольне пиво",
+    "items": [
+      {
+        "name": "Bernard (класичний / вишня / слива) 0,5 л",
+        "price": "2,50 €"
+      }
+    ]
+  },
+  {
+    "name": "🥤 Безалкогольні напої",
+    "description": "(0,5 л / 0,3 л)",
+    "items": [
+      {
+        "name": "Kofola",
+        "price": "1,90 € / 1,40 €"
+      },
+      {
+        "name": "Kofola (1 л / 0,5 л)",
+        "price": "3,30 € / 1,80 €"
+      },
+      {
+        "name": "Лимонад",
+        "price": "5,80 € / 3,00 €"
+      },
+      {
+        "name": "Лимонад (за пропозицією)",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Домашній холодний чай 0,5 л",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Сік Toma (апельсин / яблуко / полуниця / ананас)",
+        "price": "0,70 €"
+      },
+      {
+        "name": "Pepsi / Pepsi Max / 7up / Tonic",
+        "price": "0,70 €"
+      },
+      {
+        "name": "Содова",
+        "price": "0,40 €"
+      },
+      {
+        "name": "Мате лайм 0,33 л",
+        "price": "2,50 €"
+      },
+      {
+        "name": "Імбирне пиво 0,33 л",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Рожевий тонік 0,33 л",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Red Bull 0,33 л",
+        "price": "3,00 €"
+      }
+    ]
+  },
+  {
+    "name": "☕ Кава та чай",
+    "items": [
+      {
+        "name": "Еспресо / Доппіо",
+        "price": "1,60 € / 2,80 €"
+      },
+      {
+        "name": "Капучино / з ароматом (лісовий горіх / кокос / мигдаль)",
+        "price": "2,80 € / 3,00 €"
+      },
+      {
+        "name": "Кафе-латте",
+        "price": "2,80 €"
+      },
+      {
+        "name": "Холодна кава",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Еспресо-тонік",
+        "price": "2,60 €"
+      },
+      {
+        "name": "Какао (Granko, молоко, збиті вершки, мигдаль)",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Розсипний чай (зелений / імбирний / м'ятний)",
+        "price": "2,80 €"
+      },
+      {
+        "name": "Порційний чай (чорний / фруктовий / зелений / м'ятний)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Печений чай – різні",
+        "price": "2,90 €"
+      },
+      {
+        "name": "Молоко / безлактозне / мед / лимон",
+        "price": "0,30 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Фірмові напої",
+    "items": [
+      {
+        "name": "Mana Potion",
+        "price": "6,40 €",
+        "description": "Абсент Euphoria, Фруктовий лікер, Fizz, Monin Curaçao"
+      },
+      {
+        "name": "Health Potion",
+        "price": "5,60 €",
+        "description": "Лікер з маракуї, Fizz, Свіжий лайм, Monin Grenadine"
+      },
+      {
+        "name": "Sith",
+        "price": "6,60 €",
+        "description": "Горілка Absolut, Passoa, Полуничний сік, Свіжий лайм, Monin Peach"
+      },
+      {
+        "name": "Soul Stone",
+        "price": "5,80 €",
+        "description": "Лікер Jägermeister, Triple sec, Свіжий цитрус, 7UP"
+      },
+      {
+        "name": "Mr. Poopybutthole’s Piña Colada (7)",
+        "price": "6,50 €",
+        "description": "Ром Bacardi, Ананасовий сік, Молоко, Свіжий апельсин, Monin Coconut"
+      },
+      {
+        "name": "Pink Panther",
+        "price": "6,20 €",
+        "description": "Джин Beefeater Pink, Passoa, Свіжий лайм, 7UP"
+      },
+      {
+        "name": "Kozmodróm (7)",
+        "price": "6,40 €",
+        "description": "Ром Bacardi, Bailey’s Salted Caramel, Disaronno Amaretto, Молоко, Monin Hazelnut"
+      }
+    ]
+  },
+  {
+    "name": "🧙 Фентезі-коктейлі",
+    "items": [
+      {
+        "name": "Gryffindor",
+        "price": "6,40 €",
+        "description": "Золота Текіла, Triple Sec, Апельсиновий сік, Monin Grenadine"
+      },
+      {
+        "name": "Ravenclaw",
+        "price": "6,20 €",
+        "description": "Джин Beefeater, Полуничний сік, Fizz, Monin Curaçao"
+      },
+      {
+        "name": "Hufflepuff",
+        "price": "6,20 €",
+        "description": "Ром Bacardi, Яблучний та апельсиновий сік, Monin Litchi"
+      },
+      {
+        "name": "Slytherin",
+        "price": "6,60 €",
+        "description": "Горілка Absolut, Triple Sec Cointreau, Апельсиновий сік, Свіжий лайм, Monin Curaçao & Маракуя"
+      },
+      {
+        "name": "Blue Milk (7)",
+        "price": "5,90 €",
+        "description": "Горілка Absolut, Malibu, Молоко, Monin Curaçao"
+      },
+      {
+        "name": "Šano Bomb",
+        "price": "5,60 €",
+        "description": "Спишська Боровичка, Апельсиновий сік, Red Bull"
+      },
+      {
+        "name": "Virgin variants",
+        "price": "3,40 €"
+      }
+    ]
+  },
+  {
+    "name": "🍹 Традиційні коктейлі",
+    "items": [
+      {
+        "name": "Long Island Iced Tea",
+        "price": "9,20 €"
+      },
+      {
+        "name": "Lady Killer",
+        "price": "6,90 €"
+      },
+      {
+        "name": "Bomberman B52",
+        "price": "5,00 €"
+      },
+      {
+        "name": "Umbakarna (Mai Tai)",
+        "price": "7,10 €"
+      },
+      {
+        "name": "Rum Sour з/без білка",
+        "price": "6,90 € / 6,40 €"
+      },
+      {
+        "name": "Cuba Libre",
+        "price": "5,60 €"
+      },
+      {
+        "name": "Espresso Martini",
+        "price": "6,70 €"
+      },
+      {
+        "name": "Moscow Mule",
+        "price": "6,60 €"
+      },
+      {
+        "name": "White Russian",
+        "price": "5,70 €"
+      },
+      {
+        "name": "Screwdriver",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Skinny B*tch",
+        "price": "5,60 €"
+      },
+      {
+        "name": "Whisky Sour з/без білка",
+        "price": "6,90 € / 6,20 €"
+      },
+      {
+        "name": "Lynchburg Lemonade",
+        "price": "6,40 €"
+      },
+      {
+        "name": "Vermouth Orange Spritz",
+        "price": "4,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🥃 Ром",
+    "items": [
+      {
+        "name": "Piquero 40% Panama",
+        "price": "6,40 €"
+      },
+      {
+        "name": "Don Papa Baroko 40% Philippines",
+        "price": "6,50 €"
+      },
+      {
+        "name": "Mount Gay XO 43% Barbados",
+        "price": "6,90 €"
+      },
+      {
+        "name": "Bacardi Carta Blanca 37.5%",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Kraken Black Spiced 40%",
+        "price": "4,30 €"
+      },
+      {
+        "name": "Legendario Elixir de Cuba 34%",
+        "price": "3,80 €"
+      },
+      {
+        "name": "Captain Morgan 35%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Republica Božkov 38%",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Джин",
+    "items": [
+      {
+        "name": "Lúčny (Луговий) 40%",
+        "price": "3,60 €"
+      },
+      {
+        "name": "Beefeater 40%",
+        "price": "3,40 €"
+      },
+      {
+        "name": "Roku Gin 43%",
+        "price": "4,20 €"
+      },
+      {
+        "name": "Beefeater Pink полуниця 37.5%",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Malfy Rosa грейпфрут 41%",
+        "price": "4,40 €"
+      }
+    ]
+  },
+  {
+    "name": "🥃 Віскі",
+    "items": [
+      {
+        "name": "Jameson 40%",
+        "price": "3,50 €"
+      },
+      {
+        "name": "Ballantine’s 40%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Jack Daniel’s 40%",
+        "price": "3,90 €"
+      },
+      {
+        "name": "Jack Daniel’s Apple 35%",
+        "price": "4,00 €"
+      },
+      {
+        "name": "Writer’s Tears Copper Pot 40%",
+        "price": "4,40 €"
+      },
+      {
+        "name": "Glenmorangie 10 yrs 40%",
+        "price": "5,40 €"
+      },
+      {
+        "name": "Oban 14 yrs 43%",
+        "price": "7,10 €"
+      },
+      {
+        "name": "Buffalo Trace 40%",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🌲 Боровичка (Ялівцева горілка)",
+    "items": [
+      {
+        "name": "Spišská Borovička 40%",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Rusínska Borovička 40%",
+        "price": "2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍸 Горілка",
+    "items": [
+      {
+        "name": "Absolut Blue 40%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Goral Master 40%",
+        "price": "3,80 €"
+      },
+      {
+        "name": "42 Below 40%",
+        "price": "4,00 €"
+      }
+    ]
+  },
+  {
+    "name": "🌵 Текіла",
+    "items": [
+      {
+        "name": "Срібна 40% (лимон і сіль)",
+        "price": "3,40 €"
+      },
+      {
+        "name": "Золота 40% (апельсин і кориця)",
+        "price": "3,60 €"
+      }
+    ]
+  },
+  {
+    "name": "🍑 Дистиляти",
+    "items": [
+      {
+        "name": "Hruškovica (Грушева) 42%",
+        "price": "3,60 €"
+      },
+      {
+        "name": "Marhuľovica (Абрикосова) 45%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Slivovica (Сливова) 52%",
+        "price": "4,00 €"
+      }
+    ]
+  },
+  {
+    "name": "🍬 Лікери",
+    "items": [
+      {
+        "name": "Jägermeister 35%",
+        "price": "3,30 €"
+      },
+      {
+        "name": "Fernet Stock Citrus 37%",
+        "price": "2,70 €"
+      },
+      {
+        "name": "Bailey’s Salted Caramel 17%",
+        "price": "3,20 €"
+      },
+      {
+        "name": "Disaronno Amaretto 28%",
+        "price": "3,70 €"
+      },
+      {
+        "name": "Malibu 21%",
+        "price": "2,90 €"
+      },
+      {
+        "name": "М'ятний лікер 28%",
+        "price": "2,70 €"
+      }
+    ]
+  },
+  {
+    "name": "🍵 TatraTea",
+    "items": [
+      {
+        "name": "TatraTea 42% Peach",
+        "price": "3,70 €"
+      },
+      {
+        "name": "TatraTea 52% Original",
+        "price": "3,50 €"
+      },
+      {
+        "name": "TatraTea 62% Forest Fruit",
+        "price": "3,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🌿 Абсент",
+    "items": [
+      {
+        "name": "Suicide Red 70%",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Suicide Black 70%",
+        "price": "4,90 €"
+      },
+      {
+        "name": "Euphoria 80%",
+        "price": "5,90 €"
+      }
+    ]
+  },
+  {
+    "name": "🧃 Безалкогольні змішані напої",
+    "items": [
+      {
+        "name": "Virgincollada (7)",
+        "price": "3,80 €",
+        "description": "Молоко, Ананасовий сік, Свіжий апельсин, Кокосовий сироп"
+      },
+      {
+        "name": "Monte (7)",
+        "price": "3,90 €",
+        "description": "Молоко, Горіховий сироп, Какао-порошок, Збиті вершки, Bueno, Мигдаль"
+      },
+      {
+        "name": "Luffy",
+        "price": "3,60 €",
+        "description": "Апельсиновий сік, Monin Grenadine & Маракуя, Свіжий лайм"
+      },
+      {
+        "name": "Powder",
+        "price": "3,60 €",
+        "description": "Monin Kiwi & Curaçao, Свіжий лайм, Содова, Кислі рибки"
+      },
+      {
+        "name": "Healthy Potion",
+        "price": "3,40 €",
+        "description": "Яблучний сік, Полуничний сироп, Свіжий цитрус, 7UP"
+      },
+      {
+        "name": "Peach Moxxie",
+        "price": "3,40 €",
+        "description": "Персиковий сік, Сироп лічі, Свіжий цитрус"
+      },
+      {
+        "name": "Legendary Impotence",
+        "price": "2,90 €",
+        "description": "Полуничний сік, Содова"
+      },
+      {
+        "name": "Slytherin",
+        "price": "3,60 €",
+        "description": "Апельсиновий \"piadidžus\", Сироп зі зміїної луски, Порошок з місячних каменів"
+      }
+    ]
+  },
+  {
+    "name": "🍷 Вино та мед",
+    "description": "(ціни вказані за 1 дл, якщо не вказано інше)",
+    "items": [
+      {
+        "name": "Біле",
+        "isSubheader": true
+      },
+      {
+        "name": "Tureček – Sauvignon / Silvanské – сухе 12%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "Tureček – Welschriesling – напівсолодке 12%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "пляшка 0,75 л",
+        "price": "15 €"
+      },
+      {
+        "name": "Червоне",
+        "isSubheader": true
+      },
+      {
+        "name": "Tureček – Dunaj / Neronet – сухе 13.5%",
+        "price": "2,00 €"
+      },
+      {
+        "name": "пляшка 0,75 л",
+        "price": "15 €"
+      },
+      {
+        "name": "Фруктове",
+        "isSubheader": true
+      },
+      {
+        "name": "Miluron – Бузина / Вишня",
+        "price": "2,10 €"
+      },
+      {
+        "name": "пляшка 0,75 л",
+        "price": "16 €"
+      },
+      {
+        "name": "Prosecco",
+        "isSubheader": true
+      },
+      {
+        "name": "Prosecco Dal Bello DOC 11%",
+        "price": "2,10 €"
+      },
+      {
+        "name": "пляшка 0,75 л",
+        "price": "16 €"
+      },
+      {
+        "name": "Мед",
+        "isSubheader": true
+      },
+      {
+        "name": "Apimed Trnava Мед 13.5%",
+        "price": "2,20 €"
+      },
+      {
+        "name": "пляшка 0,75 л",
+        "price": "18 €"
+      }
+    ]
+  },
+  {
+    "name": "🍿 Закуски",
+    "items": [
+      {
+        "name": "Чіпси Lay’s 55–60 г (1, 6, 7) солені / паприка / fromage / BBQ / сир і каєнський перець",
+        "price": "1,70 €"
+      },
+      {
+        "name": "Печені чіпси Lay’s 110 г (1, 6, 7) трави / грильовані овочі",
+        "price": "2,20 €"
+      },
+      {
+        "name": "Арахісові палички 60 г (5)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Солоні палички 45 г (1, 7, 9)",
+        "price": "1,20 €"
+      },
+      {
+        "name": "Арахіс 100 г (5)",
+        "price": "1,60 €"
+      },
+      {
+        "name": "Horalky 50 г (1, 3, 5, 6, 7)",
+        "price": "1,20 €"
+      },
+      {
+        "name": "Kinder Bueno 43 г (1, 5, 6, 7)",
+        "price": "1,60 €"
+      }
+    ]
+  }
+]
