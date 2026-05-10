@@ -179,8 +179,8 @@ export function getUpcomingRecurringEvents(days: number = 60): Array<RecurringEv
       while (currentDate <= futureDate) {
         if (currentDate.getDay() === event.dayOfWeek) {
           const eventDateTime = new Date(currentDate);
-          const [hours, minutes] = event.time.split(':');
-          eventDateTime.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+          const [hours = '0', minutes = '0'] = event.time.split(':');
+          eventDateTime.setHours(parseInt(hours, 10), parseInt(minutes, 10), 0, 0);
 
           if (eventDateTime > now) {
             upcomingEvents.push({
@@ -203,8 +203,8 @@ export function getUpcomingRecurringEvents(days: number = 60): Array<RecurringEv
     } else {
       const eventDate = new Date(now);
       eventDate.setDate(15);
-      const [hours, minutes] = event.time.split(':');
-      eventDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+      const [hours = '0', minutes = '0'] = event.time.split(':');
+      eventDate.setHours(parseInt(hours, 10), parseInt(minutes, 10), 0, 0);
 
       if (eventDate > now) {
         upcomingEvents.push({
