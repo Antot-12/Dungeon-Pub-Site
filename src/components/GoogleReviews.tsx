@@ -14,20 +14,21 @@ export function GoogleReviewsDisplay({ placeDetails, placeUrl }: ReviewsDisplayP
   const { t } = useLanguage();
   const { name, rating, user_ratings_total, reviews } = placeDetails;
 
-  // Display top 3 reviews only
-  const displayReviews = reviews?.slice(0, 3) || [];
+  // Filter 5-star reviews with text and display top 3 (API already sorts by newest first)
+  const fiveStarReviews = reviews?.filter(review => review.rating === 5 && review.text && review.text.trim().length > 0) || [];
+  const displayReviews = fiveStarReviews.slice(0, 3);
 
   return (
     <section className="w-full py-16 md:py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Decorative background shields */}
-        <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03]">
+        <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
           <Shield className="h-full w-full text-primary" />
         </div>
-        <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03]">
+        <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
           <Shield className="h-full w-full text-primary" />
         </div>
-        <div className="absolute top-1/2 right-20 w-16 h-16 opacity-[0.03]">
+        <div className="absolute top-1/2 right-20 w-16 h-16 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
           <Scroll className="h-full w-full text-primary" />
         </div>
         {/* Header */}
@@ -81,7 +82,7 @@ export function GoogleReviewsDisplay({ placeDetails, placeUrl }: ReviewsDisplayP
                   </span>
                 </div>
                 <p className="text-muted-foreground text-lg">
-                  Based on <span className="font-bold text-foreground">{user_ratings_total}</span> adventurer reviews
+                  {t('reviews.basedOn')} <span className="font-bold text-foreground">{user_ratings_total}</span> {t('reviews.adventurerReviews')}
                 </p>
               </div>
 
@@ -92,7 +93,7 @@ export function GoogleReviewsDisplay({ placeDetails, placeUrl }: ReviewsDisplayP
                   rel="noopener noreferrer"
                   className="group/btn relative inline-flex items-center gap-3 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-headline text-lg font-bold rounded-md overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-primary/50"
                 >
-                  <span className="relative z-10">View All on Google</span>
+                  <span className="relative z-10">{t('reviews.viewAllButton')}</span>
                   <ExternalLink className="h-5 w-5 relative z-10 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-700" />
                 </a>
@@ -111,7 +112,7 @@ export function GoogleReviewsDisplay({ placeDetails, placeUrl }: ReviewsDisplayP
         ) : (
           <div className="text-center py-12">
             <p className="text-xl text-muted-foreground">
-              No reviews available yet. Be the first to share your adventure!
+              {t('reviews.noReviews')}
             </p>
           </div>
         )}

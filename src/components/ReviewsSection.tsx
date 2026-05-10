@@ -22,7 +22,7 @@ async function ReviewsSection() {
   }
 
   // Google Maps URL for the place
-  const placeUrl = 'https://www.google.com/maps/place/Dungeon+Pub/@48.1496209,17.1049115,17z/';
+  const placeUrl = 'https://www.google.com/maps/place/Dungeon+Pub/@48.1530559,17.1041321,17z/data=!3m1!4b1!4m6!3m5!1s0x476c8950c93cd07f:0x1cd966cb0c6826d!8m2!3d48.1530523!4d17.106707!16s%2Fg%2F11bwbwp996?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D';
 
   return <GoogleReviewsDisplay placeDetails={data} placeUrl={placeUrl} />;
 }

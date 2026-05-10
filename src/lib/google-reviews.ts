@@ -15,6 +15,7 @@ export type GoogleReview = {
   text: string;
   time?: number;
   date?: string;
+  iso_date?: string;
 };
 
 export type PlaceDetails = {
@@ -33,7 +34,7 @@ export async function getGoogleReviews(): Promise<{ data?: PlaceDetails; error?:
   }
 
   try {
-    const url = `https://serpapi.com/search.json?engine=google_maps_reviews&place_id=${placeId}&api_key=${serpApiKey}&hl=sk`;
+    const url = `https://serpapi.com/search.json?engine=google_maps_reviews&place_id=${placeId}&api_key=${serpApiKey}&hl=sk&sort_by=newestFirst`;
 
     const response = await fetch(url, {
       next: { revalidate: 86400 }, // Cache for 24 hours (once per day)
@@ -61,6 +62,7 @@ export async function getGoogleReviews(): Promise<{ data?: PlaceDetails; error?:
       relative_time_description: review.date || '',
       text: review.snippet || review.text || '',
       date: review.date,
+      iso_date: review.iso_date,
       language: review.language || 'sk',
     }));
 

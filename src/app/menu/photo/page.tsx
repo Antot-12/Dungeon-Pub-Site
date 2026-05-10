@@ -39,10 +39,10 @@ export default function MenuPhotoPage() {
   return (
     <div className="container mx-auto max-w-5xl py-12 px-4 sm:px-6 lg:px-8">
       <header className="text-center mb-12">
-        <h1 className="font-headline font-bold text-5xl md:text-6xl text-primary">
+        <h1 className="font-headline font-bold text-[2.25rem] md:text-[3.5rem] lg:text-[5rem] text-primary">
           {t('menuPhoto.title')}
         </h1>
-        <p className="mt-4 text-xl text-muted-foreground">
+        <p className="mt-4 text-[1.125rem] md:text-[1.5rem] lg:text-[1.75rem] text-muted-foreground">
           {t('menuPhoto.subtitle')}
         </p>
       </header>
@@ -119,10 +119,10 @@ export default function MenuPhotoPage() {
       </Dialog>
 
       <div className="text-center mt-12 flex flex-wrap justify-center gap-4">
-        <Button asChild size="lg" variant="outline">
+        <Button asChild size="lg" variant="outline" className="text-lg md:text-xl px-8 py-6">
           <Link href="/menu">{t('menuPhoto.backButton')}</Link>
         </Button>
-        <Button asChild size="lg">
+        <Button asChild size="lg" className="text-lg md:text-xl px-8 py-6">
           <Link href="/">{t('menuPhoto.homeButton')}</Link>
         </Button>
       </div>

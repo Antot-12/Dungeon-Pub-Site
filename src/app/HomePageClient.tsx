@@ -148,10 +148,10 @@ export default function HomePageClient() {
       <section id="features" className="w-full py-12 md:py-20 lg:py-24 bg-background relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
           {/* Decorative background swords */}
-          <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03]">
+          <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
             <Sword className="h-full w-full text-primary" />
           </div>
-          <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03]">
+          <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
             <Sword className="h-full w-full text-primary rotate-180" />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-16">
@@ -234,10 +234,10 @@ export default function HomePageClient() {
       <section id="collaborations" className="w-full py-12 md:py-20 lg:py-24 bg-card/50 relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
             {/* Decorative background icons */}
-            <div className="absolute top-16 left-16 w-24 h-24 opacity-[0.03]">
+            <div className="absolute top-16 left-16 w-24 h-24 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
               <Trophy className="h-full w-full text-primary" />
             </div>
-            <div className="absolute bottom-16 right-16 w-24 h-24 opacity-[0.03]">
+            <div className="absolute bottom-16 right-16 w-24 h-24 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
               <Award className="h-full w-full text-primary" />
             </div>
             <div className="flex flex-col items-center text-center">
@@ -271,10 +271,10 @@ export default function HomePageClient() {
       <section id="menu-preview" className="w-full py-12 md:py-20 lg:py-24 relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
             {/* Decorative background utensils */}
-            <div className="absolute top-12 right-12 w-20 h-20 opacity-[0.03]">
+            <div className="absolute top-12 right-12 w-20 h-20 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
               <UtensilsCrossed className="h-full w-full text-primary" />
             </div>
-            <div className="absolute bottom-12 left-12 w-20 h-20 opacity-[0.03]">
+            <div className="absolute bottom-12 left-12 w-20 h-20 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
               <UtensilsCrossed className="h-full w-full text-primary" />
             </div>
             <div className="flex flex-col items-center text-center">
@@ -308,10 +308,10 @@ export default function HomePageClient() {
       <section id="gallery-preview" className="w-full py-12 md:py-20 lg:py-24 bg-card/50 relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
           {/* Decorative background compass */}
-          <div className="absolute top-16 left-16 w-24 h-24 opacity-[0.03]">
+          <div className="absolute top-16 left-16 w-24 h-24 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
             <Compass className="h-full w-full text-primary" />
           </div>
-          <div className="absolute bottom-16 right-16 w-24 h-24 opacity-[0.03]">
+          <div className="absolute bottom-16 right-16 w-24 h-24 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
             <Compass className="h-full w-full text-primary" />
           </div>
           <div className="flex flex-col items-center text-center">
@@ -351,10 +351,10 @@ export default function HomePageClient() {
       <section id="events" className="w-full py-12 md:py-20 lg:py-24 bg-background relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
           {/* Decorative background flags */}
-          <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03]">
+          <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
             <Flag className="h-full w-full text-primary" />
           </div>
-          <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03]">
+          <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
             <Flag className="h-full w-full text-primary" />
           </div>
           <div className="flex flex-col items-center text-center">
@@ -373,10 +373,10 @@ export default function HomePageClient() {
       <section id="location" className="w-full py-12 md:py-20 lg:py-24 bg-card/50 relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
           {/* Decorative background map pins */}
-          <div className="absolute top-16 right-16 w-24 h-24 opacity-[0.03]">
+          <div className="absolute top-16 right-16 w-24 h-24 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
             <MapPin className="h-full w-full text-primary" />
           </div>
-          <div className="absolute bottom-16 left-16 w-24 h-24 opacity-[0.03]">
+          <div className="absolute bottom-16 left-16 w-24 h-24 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
             <MapPin className="h-full w-full text-primary" />
           </div>
           <div className="flex flex-col items-center text-center">
