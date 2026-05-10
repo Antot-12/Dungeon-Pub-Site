@@ -33,11 +33,11 @@ export function GoogleReviewsDisplay({ placeDetails, placeUrl }: ReviewsDisplayP
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-4 mb-4">
-            <Shield className="h-8 w-8 md:h-10 md:w-10 text-primary animate-pulse" aria-hidden="true" />
-            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary px-2">
+            <Shield className="h-6 w-6 md:h-10 md:w-10 text-primary animate-pulse" aria-hidden="true" />
+            <h2 className="font-headline font-bold text-2xl md:text-4xl lg:text-6xl text-primary px-2">
               {t('reviews.title')}
             </h2>
-            <Shield className="h-8 w-8 md:h-10 md:w-10 text-primary animate-pulse" aria-hidden="true" />
+            <Shield className="h-6 w-6 md:h-10 md:w-10 text-primary animate-pulse" aria-hidden="true" />
           </div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('reviews.subtitle')}

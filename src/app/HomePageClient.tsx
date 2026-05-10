@@ -159,7 +159,7 @@ export default function HomePageClient() {
             <div className="lg:col-span-2 space-y-12">
               <div>
                   <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-center mb-12 text-primary flex items-center justify-center gap-4">
-                    <Sword className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+                    <Sword className="h-7 w-7 md:h-10 md:w-10 lg:h-12 lg:w-12" />
                     <span className="px-2">{t('home.features.title')}</span>
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -241,8 +241,8 @@ export default function HomePageClient() {
               <Award className="h-full w-full text-primary" />
             </div>
             <div className="flex flex-col items-center text-center">
-                <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center gap-4">
-                  <Users className="h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14" />
+                <h2 className="font-headline font-bold text-2xl md:text-4xl lg:text-6xl text-primary flex items-center gap-4">
+                  <Users className="h-8 w-8 md:h-12 md:w-12 lg:h-14 lg:w-14" />
                   <span className="px-2">{t('home.partners.title')}</span>
                 </h2>
                 <p className="mt-2 max-w-xl text-base md:text-lg lg:text-xl text-muted-foreground">{t('home.partners.subtitle')}</p>
@@ -278,8 +278,8 @@ export default function HomePageClient() {
               <UtensilsCrossed className="h-full w-full text-primary" />
             </div>
             <div className="flex flex-col items-center text-center">
-                <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
-                  <UtensilsCrossed className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+                <h2 className="font-headline font-bold text-2xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
+                  <UtensilsCrossed className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
                   <span className="px-2">{t('home.menu.title')}</span>
                 </h2>
                 <p className="mt-2 max-w-xl text-base md:text-lg lg:text-xl text-muted-foreground">{t('home.menu.subtitle')}</p>
@@ -315,8 +315,8 @@ export default function HomePageClient() {
             <Compass className="h-full w-full text-primary" />
           </div>
           <div className="flex flex-col items-center text-center">
-            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
-              <Camera className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+            <h2 className="font-headline font-bold text-2xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
+              <Camera className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
               <span className="px-2">{t('home.gallery.title')}</span>
             </h2>
             <p className="mt-2 max-w-xl text-base md:text-lg lg:text-xl text-muted-foreground">{t('home.gallery.subtitle')}</p>
@@ -358,8 +358,8 @@ export default function HomePageClient() {
             <Flag className="h-full w-full text-primary" />
           </div>
           <div className="flex flex-col items-center text-center">
-            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center gap-4">
-              <Calendar className="h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14" />
+            <h2 className="font-headline font-bold text-2xl md:text-4xl lg:text-6xl text-primary flex items-center gap-4">
+              <Calendar className="h-8 w-8 md:h-12 md:w-12 lg:h-14 lg:w-14" />
               <span className="px-2">{t('nav.events')}</span>
             </h2>
             <p className="mt-2 max-w-xl text-base md:text-lg lg:text-2xl text-muted-foreground">{t('events.subtitle')}</p>
@@ -380,8 +380,8 @@ export default function HomePageClient() {
             <MapPin className="h-full w-full text-primary" />
           </div>
           <div className="flex flex-col items-center text-center">
-            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
-              <MapPin className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+            <h2 className="font-headline font-bold text-2xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
+              <MapPin className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
               <span className="px-2">{t('home.location.title')}</span>
             </h2>
             <p className="mt-2 max-w-2xl text-base md:text-lg lg:text-2xl text-muted-foreground leading-relaxed">{t('home.location.subtitle')}</p>
