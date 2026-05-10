@@ -1,19 +1,20 @@
 'use server';
 
 /**
- * Google Places API integration for fetching reviews
- * Requires GOOGLE_PLACES_API_KEY and GOOGLE_PLACE_ID in environment variables
+ * SerpApi integration for fetching Google reviews
+ * Fetches reviews once per day via serverless function
  */
 
 export type GoogleReview = {
   author_name: string;
   author_url?: string;
-  language: string;
-  profile_photo_url: string;
+  language?: string;
+  profile_photo_url?: string;
   rating: number;
   relative_time_description: string;
   text: string;
-  time: number;
+  time?: number;
+  date?: string;
 };
 
 export type PlaceDetails = {
@@ -24,38 +25,55 @@ export type PlaceDetails = {
 };
 
 export async function getGoogleReviews(): Promise<{ data?: PlaceDetails; error?: string }> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = process.env.GOOGLE_PLACE_ID;
+  const serpApiKey = process.env.SERPAPI_KEY;
+  const placeId = 'ChIJf9A8yVCJbEcRbYLGsGyWzQE'; // Dungeon Pub correct place ID
 
-  if (!apiKey || !placeId) {
-    // Silently return without error - reviews section will be hidden
+  if (!serpApiKey) {
     return { error: 'not_configured' };
   }
 
   try {
-    const fields = 'name,rating,user_ratings_total,reviews';
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=${fields}&key=${apiKey}&language=sk`;
+    const url = `https://serpapi.com/search.json?engine=google_maps_reviews&place_id=${placeId}&api_key=${serpApiKey}&hl=sk`;
 
     const response = await fetch(url, {
-      next: { revalidate: 86400 }, // Revalidate once per day
+      next: { revalidate: 86400 }, // Cache for 24 hours (once per day)
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Google Places API Error:', errorData);
-      return { error: 'Failed to fetch reviews from Google.' };
+      const errorData = await response.json().catch(() => ({}));
+      console.error('SerpApi Error:', errorData);
+      return { error: 'Failed to fetch reviews.' };
     }
 
     const data = await response.json();
 
-    if (data.status !== 'OK') {
-      console.error('Google Places API returned non-OK status:', data.status);
-      return { error: `Google Places API error: ${data.status}` };
+    if (data.error) {
+      console.error('SerpApi returned error:', data.error);
+      return { error: data.error };
     }
 
-    return { data: data.result };
+    // Transform SerpApi response to match our expected format
+    const reviews: GoogleReview[] = (data.reviews || []).map((review: any) => ({
+      author_name: review.user?.name || 'Anonymous',
+      author_url: review.user?.link,
+      profile_photo_url: review.user?.thumbnail,
+      rating: review.rating || 0,
+      relative_time_description: review.date || '',
+      text: review.snippet || review.text || '',
+      date: review.date,
+      language: review.language || 'sk',
+    }));
+
+    const placeDetails: PlaceDetails = {
+      name: data.place_info?.title || 'Dungeon Pub',
+      rating: data.place_info?.rating || 0,
+      user_ratings_total: data.place_info?.reviews || 0,
+      reviews: reviews,
+    };
+
+    return { data: placeDetails };
   } catch (error: any) {
-    console.error('Failed to fetch Google reviews:', error);
+    console.error('Failed to fetch reviews via SerpApi:', error);
     return { error: error.message || 'An unknown error occurred.' };
   }
 }

@@ -14,39 +14,42 @@ export function GoogleReviewsDisplay({ placeDetails, placeUrl }: ReviewsDisplayP
   const { t } = useLanguage();
   const { name, rating, user_ratings_total, reviews } = placeDetails;
 
-  // Display top 6 reviews
-  const displayReviews = reviews?.slice(0, 6) || [];
+  // Display top 3 reviews only
+  const displayReviews = reviews?.slice(0, 3) || [];
 
   return (
-    <section className="w-full py-16 md:py-24 bg-gradient-to-b from-background via-card/30 to-background relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-primary rotate-45" />
-        <div className="absolute bottom-20 right-20 w-40 h-40 border-2 border-primary/50 rotate-12" />
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 border border-primary/30 -rotate-12" />
-      </div>
-
+    <section className="w-full py-16 md:py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Decorative background shields */}
+        <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03]">
+          <Shield className="h-full w-full text-primary" />
+        </div>
+        <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03]">
+          <Shield className="h-full w-full text-primary" />
+        </div>
+        <div className="absolute top-1/2 right-20 w-16 h-16 opacity-[0.03]">
+          <Scroll className="h-full w-full text-primary" />
+        </div>
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Shield className="h-10 w-10 text-primary animate-pulse" aria-hidden="true" />
-            <h2 className="font-headline font-bold text-4xl md:text-5xl lg:text-6xl text-primary">
-              Tales from Adventurers
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-4 mb-4">
+            <Shield className="h-8 w-8 md:h-10 md:w-10 text-primary animate-pulse" aria-hidden="true" />
+            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary px-2">
+              {t('reviews.title')}
             </h2>
-            <Shield className="h-10 w-10 text-primary animate-pulse" aria-hidden="true" />
+            <Shield className="h-8 w-8 md:h-10 md:w-10 text-primary animate-pulse" aria-hidden="true" />
           </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Hear what fellow travelers say about their quests at the Dungeon Pub
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            {t('reviews.subtitle')}
           </p>
         </div>
 
         {/* Overall Rating Card */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-gradient-to-br from-card via-card/95 to-primary/5 border-2 border-primary/30 rounded-lg p-8 md:p-12 shadow-2xl relative overflow-hidden group hover:border-primary/60 transition-all duration-500">
+        <div className="max-w-2xl mx-auto mb-10">
+          <div className="bg-gradient-to-br from-card via-card/95 to-primary/5 border-2 border-primary/30 rounded-lg p-4 md:p-6 shadow-2xl relative overflow-hidden group hover:border-primary/60 transition-all duration-500">
             {/* Decorative corner accents */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-primary/40" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-primary/40" />
+            <div className="absolute top-0 left-0 w-10 h-10 border-t-4 border-l-4 border-primary/40" />
+            <div className="absolute bottom-0 right-0 w-10 h-10 border-b-4 border-r-4 border-primary/40" />
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="text-center md:text-left">
@@ -100,9 +103,9 @@ export function GoogleReviewsDisplay({ placeDetails, placeUrl }: ReviewsDisplayP
 
         {/* Reviews Grid */}
         {displayReviews.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {displayReviews.map((review, index) => (
-              <ReviewCard key={`${review.author_name}-${review.time}`} review={review} index={index} />
+              <ReviewCard key={`${review.author_name}-${review.time || review.date}`} review={review} index={index} />
             ))}
           </div>
         ) : (

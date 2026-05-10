@@ -82,5 +82,7 @@
   "menuPhoto.backButton": "Powrót do szczegółowego menu",
   "menuPhoto.homeButton": "Powrót na stronę główną",
   "events.subtitle": "Przygody, turnieje i spotkania",
-  "home.events.seeAllButton": "Zobacz wszystkie Noce"
+  "home.events.seeAllButton": "Zobacz wszystkie Noce",
+  "reviews.title": "Opowieści poszukiwaczy przygód",
+  "reviews.subtitle": "Posłuchaj, co mówią inni podróżnicy o swoich przygodach w Dungeon Pub"
 }

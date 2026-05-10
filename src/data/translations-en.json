@@ -80,5 +80,7 @@
   "menuPhoto.backButton": "Back to Detailed Menu",
   "menuPhoto.homeButton": "Back to Home",
   "events.subtitle": "Adventures, Tournaments & Meetups",
-  "home.events.seeAllButton": "See All Nights"
+  "home.events.seeAllButton": "See All Nights",
+  "reviews.title": "Tales from Adventurers",
+  "reviews.subtitle": "Hear what fellow travelers say about their quests at the Dungeon Pub"
 }

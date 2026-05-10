@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Dices, Swords, Camera, GlassWater, MapPin, Clock, Users, Calendar, Facebook, Gamepad2, Mic } from 'lucide-react';
+import { Dices, Swords, Camera, GlassWater, MapPin, Clock, Users, Calendar, Facebook, Gamepad2, Mic, Scroll, Trophy, Award, UtensilsCrossed, Compass, Flag, Sword } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useEffect, useMemo, useState } from 'react';
@@ -145,13 +145,23 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      <section id="features" className="w-full py-12 md:py-20 lg:py-24 bg-background">
-        <div className="container px-4 md:px-6">
+      <section id="features" className="w-full py-12 md:py-20 lg:py-24 bg-background relative overflow-hidden">
+        <div className="container px-4 md:px-6 relative z-10">
+          {/* Decorative background swords */}
+          <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03]">
+            <Sword className="h-full w-full text-primary" />
+          </div>
+          <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03]">
+            <Sword className="h-full w-full text-primary rotate-180" />
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-16">
             
             <div className="lg:col-span-2 space-y-12">
               <div>
-                  <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-center mb-12 text-primary">{t('home.features.title')}</h2>
+                  <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-center mb-12 text-primary flex items-center justify-center gap-4">
+                    <Sword className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+                    <span className="px-2">{t('home.features.title')}</span>
+                  </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                       <FeatureCard
                       icon={<Dices className="h-12 w-12 md:h-14 md:w-14 text-primary" />}
@@ -183,7 +193,7 @@ export default function HomePageClient() {
 
             <div className="lg:col-span-1 lg:sticky lg:top-28" id="hours">
               <div className="flex flex-col items-center text-center bg-card p-6 rounded-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1">
-                <h3 className="font-headline font-bold text-3xl md:text-3xl lg:text-4xl text-primary flex items-center gap-3 whitespace-nowrap">
+                <h3 className="font-headline font-bold text-[1.895rem] md:text-[1.895rem] lg:text-[2.27rem] text-primary flex items-center gap-3 whitespace-nowrap">
                   <Clock className="h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10" />
                   {t('home.hours.title')}
                 </h3>
@@ -221,12 +231,19 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      <section id="collaborations" className="w-full py-12 md:py-20 lg:py-24 bg-card/50">
-        <div className="container px-4 md:px-6">
+      <section id="collaborations" className="w-full py-12 md:py-20 lg:py-24 bg-card/50 relative overflow-hidden">
+        <div className="container px-4 md:px-6 relative z-10">
+            {/* Decorative background icons */}
+            <div className="absolute top-16 left-16 w-24 h-24 opacity-[0.03]">
+              <Trophy className="h-full w-full text-primary" />
+            </div>
+            <div className="absolute bottom-16 right-16 w-24 h-24 opacity-[0.03]">
+              <Award className="h-full w-full text-primary" />
+            </div>
             <div className="flex flex-col items-center text-center">
-                <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center gap-3">
+                <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center gap-4">
                   <Users className="h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14" />
-                  {t('home.partners.title')}
+                  <span className="px-2">{t('home.partners.title')}</span>
                 </h2>
                 <p className="mt-2 max-w-xl text-base md:text-lg lg:text-xl text-muted-foreground">{t('home.partners.subtitle')}</p>
             </div>
@@ -251,10 +268,20 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      <section id="menu-preview" className="w-full py-12 md:py-20 lg:py-24">
-        <div className="container px-4 md:px-6">
+      <section id="menu-preview" className="w-full py-12 md:py-20 lg:py-24 relative overflow-hidden">
+        <div className="container px-4 md:px-6 relative z-10">
+            {/* Decorative background utensils */}
+            <div className="absolute top-12 right-12 w-20 h-20 opacity-[0.03]">
+              <UtensilsCrossed className="h-full w-full text-primary" />
+            </div>
+            <div className="absolute bottom-12 left-12 w-20 h-20 opacity-[0.03]">
+              <UtensilsCrossed className="h-full w-full text-primary" />
+            </div>
             <div className="flex flex-col items-center text-center">
-                <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary">{t('home.menu.title')}</h2>
+                <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
+                  <UtensilsCrossed className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+                  <span className="px-2">{t('home.menu.title')}</span>
+                </h2>
                 <p className="mt-2 max-w-xl text-base md:text-lg lg:text-xl text-muted-foreground">{t('home.menu.subtitle')}</p>
             </div>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -278,10 +305,20 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      <section id="gallery-preview" className="w-full py-12 md:py-20 lg:py-24 bg-card/50">
-        <div className="container px-4 md:px-6">
+      <section id="gallery-preview" className="w-full py-12 md:py-20 lg:py-24 bg-card/50 relative overflow-hidden">
+        <div className="container px-4 md:px-6 relative z-10">
+          {/* Decorative background compass */}
+          <div className="absolute top-16 left-16 w-24 h-24 opacity-[0.03]">
+            <Compass className="h-full w-full text-primary" />
+          </div>
+          <div className="absolute bottom-16 right-16 w-24 h-24 opacity-[0.03]">
+            <Compass className="h-full w-full text-primary" />
+          </div>
           <div className="flex flex-col items-center text-center">
-            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary">{t('home.gallery.title')}</h2>
+            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
+              <Camera className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+              <span className="px-2">{t('home.gallery.title')}</span>
+            </h2>
             <p className="mt-2 max-w-xl text-base md:text-lg lg:text-xl text-muted-foreground">{t('home.gallery.subtitle')}</p>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -311,12 +348,19 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      <section id="events" className="w-full py-12 md:py-20 lg:py-24 bg-secondary">
-        <div className="container px-4 md:px-6">
+      <section id="events" className="w-full py-12 md:py-20 lg:py-24 bg-background relative overflow-hidden">
+        <div className="container px-4 md:px-6 relative z-10">
+          {/* Decorative background flags */}
+          <div className="absolute top-12 left-12 w-20 h-20 opacity-[0.03]">
+            <Flag className="h-full w-full text-primary" />
+          </div>
+          <div className="absolute bottom-12 right-12 w-20 h-20 opacity-[0.03]">
+            <Flag className="h-full w-full text-primary" />
+          </div>
           <div className="flex flex-col items-center text-center">
-            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center gap-3">
+            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center gap-4">
               <Calendar className="h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14" />
-              {t('nav.events')}
+              <span className="px-2">{t('nav.events')}</span>
             </h2>
             <p className="mt-2 max-w-xl text-base md:text-lg lg:text-2xl text-muted-foreground">{t('events.subtitle')}</p>
             <Button asChild size="lg" className="mt-8 font-headline text-lg md:text-xl lg:text-2xl transition-transform hover:scale-105 active:scale-100">
@@ -326,10 +370,20 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      <section id="location" className="w-full py-12 md:py-20 lg:py-24">
-        <div className="container px-4 md:px-6">
+      <section id="location" className="w-full py-12 md:py-20 lg:py-24 bg-card/50 relative overflow-hidden">
+        <div className="container px-4 md:px-6 relative z-10">
+          {/* Decorative background map pins */}
+          <div className="absolute top-16 right-16 w-24 h-24 opacity-[0.03]">
+            <MapPin className="h-full w-full text-primary" />
+          </div>
+          <div className="absolute bottom-16 left-16 w-24 h-24 opacity-[0.03]">
+            <MapPin className="h-full w-full text-primary" />
+          </div>
           <div className="flex flex-col items-center text-center">
-            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary">{t('home.location.title')}</h2>
+            <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-6xl text-primary flex items-center justify-center gap-4">
+              <MapPin className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+              <span className="px-2">{t('home.location.title')}</span>
+            </h2>
             <p className="mt-2 max-w-2xl text-base md:text-lg lg:text-2xl text-muted-foreground leading-relaxed">{t('home.location.subtitle')}</p>
             <div className="mt-8">
               <a

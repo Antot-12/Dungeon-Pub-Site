@@ -85,7 +85,7 @@ export function Header() {
   const NavLinks = ({ className, showIcons = false }: { className?: string, showIcons?: boolean }) => {
     const pathname = usePathname();
     return (
-      <nav className={cn("flex items-center gap-6 text-lg md:text-xl lg:text-2xl", className)} aria-label="Main navigation">
+      <nav className={cn("flex items-center gap-6 text-lg md:text-lg lg:text-xl", className)} aria-label="Main navigation">
         {navItems.map((item) => (
           <Link
             key={item.href}
@@ -110,7 +110,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container flex h-24 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center" onClick={() => setSheetOpen(false)}>
-           <Image src={Logo} alt="Dungeon Pub Logo" className="h-20 w-auto" priority />
+           <Image src={Logo} alt="Dungeon Pub Logo" className="h-20 w-auto" priority loading="eager" />
         </Link>
         
         <div className="hidden md:flex items-center gap-4">
@@ -132,7 +132,7 @@ export function Header() {
                     <div className="flex flex-col h-full">
                       <div className="mb-8">
                         <Link href="/" className="flex items-center" onClick={() => setSheetOpen(false)}>
-                           <Image src={Logo} alt="Dungeon Pub Logo" className="h-20 w-auto" />
+                           <Image src={Logo} alt="Dungeon Pub Logo" className="h-20 w-auto" loading="eager" />
                         </Link>
                       </div>
 

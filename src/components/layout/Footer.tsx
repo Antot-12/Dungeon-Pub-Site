@@ -42,7 +42,7 @@ export function Footer() {
 
           <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
             <Link href="/" className="mb-4" aria-label="Dungeon Pub home">
-              <Image src={Logo} alt="Dungeon Pub Logo" className="h-24 w-auto" />
+              <Image src={Logo} alt="Dungeon Pub Logo" className="h-24 w-auto" loading="eager" />
             </Link>
             <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-xs">
               {t('home.hero.subtitle')}

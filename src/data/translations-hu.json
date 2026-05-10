@@ -82,5 +82,7 @@
   "menuPhoto.backButton": "Vissza a részletes menühöz",
   "menuPhoto.homeButton": "Vissza a főoldalra",
   "events.subtitle": "Kalandok, versenyek és találkozók",
-  "home.events.seeAllButton": "Összes Éjszaka Megtekintése"
+  "home.events.seeAllButton": "Összes Éjszaka Megtekintése",
+  "reviews.title": "Kalandozók történetei",
+  "reviews.subtitle": "Hallgassa meg, mit mondanak más utazók a Dungeon Pub-ban átélt kalandjaikról"
 }

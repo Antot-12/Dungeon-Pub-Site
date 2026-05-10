@@ -21,10 +21,8 @@ async function ReviewsSection() {
     return null;
   }
 
-  // Get Google Maps URL for the place
-  const placeUrl = process.env.GOOGLE_PLACE_ID
-    ? `https://www.google.com/maps/place/?q=place_id:${process.env.GOOGLE_PLACE_ID}`
-    : 'https://g.page/r/YOUR_GOOGLE_BUSINESS_PROFILE';
+  // Google Maps URL for the place
+  const placeUrl = 'https://www.google.com/maps/place/Dungeon+Pub/@48.1496209,17.1049115,17z/';
 
   return <GoogleReviewsDisplay placeDetails={data} placeUrl={placeUrl} />;
 }

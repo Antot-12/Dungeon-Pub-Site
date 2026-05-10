@@ -82,5 +82,7 @@
   "menuPhoto.backButton": "Zpět na detailní menu",
   "menuPhoto.homeButton": "Zpět na domovskou stránku",
   "events.subtitle": "Dobrodružství, turnaje a setkání",
-  "home.events.seeAllButton": "Zobrazit všechny Noci"
+  "home.events.seeAllButton": "Zobrazit všechny Noci",
+  "reviews.title": "Příběhy od dobrodruhů",
+  "reviews.subtitle": "Poslechněte si, co říkají ostatní cestovatelé o svých dobrodružstvích v Dungeon Pubu"
 }

@@ -82,5 +82,7 @@
   "menuPhoto.backButton": "Назад до детального меню",
   "menuPhoto.homeButton": "Назад на головну",
   "events.subtitle": "Пригоди, турніри та зустрічі",
-  "home.events.seeAllButton": "Переглянути всі Ночі"
+  "home.events.seeAllButton": "Переглянути всі Ночі",
+  "reviews.title": "Історії від шукачів пригод",
+  "reviews.subtitle": "Почуйте, що кажуть інші мандрівники про свої пригоди в Dungeon Pub"
 }
