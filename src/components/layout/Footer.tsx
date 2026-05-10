@@ -44,15 +44,15 @@ export function Footer() {
             <Link href="/" className="mb-4" aria-label="Dungeon Pub home">
               <Image src={Logo} alt="Dungeon Pub Logo" className="h-24 w-auto" />
             </Link>
-            <p className="text-sm text-muted-foreground max-w-xs">
+            <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-xs">
               {t('home.hero.subtitle')}
             </p>
           </div>
 
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
             <nav aria-label="Footer navigation">
-              <h3 className="font-headline font-bold text-lg text-primary mb-4">{t('footer.navigation')}</h3>
-              <ul className="space-y-3">
+              <h3 className="font-headline font-bold text-lg md:text-xl lg:text-2xl text-primary mb-4">{t('footer.navigation')}</h3>
+              <ul className="space-y-3 text-sm md:text-base lg:text-lg">
                 <li><Link href="/" className="text-muted-foreground transition-colors hover:text-primary">{t('nav.home')}</Link></li>
                 <li><Link href="/menu" className="text-muted-foreground transition-colors hover:text-primary">{t('nav.menu')}</Link></li>
                 <li><Link href="/events" className="text-muted-foreground transition-colors hover:text-primary">{t('nav.events')}</Link></li>
@@ -62,8 +62,8 @@ export function Footer() {
             </nav>
 
             <nav aria-label="Quick links">
-              <h3 className="font-headline font-bold text-lg text-primary mb-4">{t('footer.quick_links')}</h3>
-              <ul className="space-y-3">
+              <h3 className="font-headline font-bold text-lg md:text-xl lg:text-2xl text-primary mb-4">{t('footer.quick_links')}</h3>
+              <ul className="space-y-3 text-sm md:text-base lg:text-lg">
                   <li><Link href="/#features" className="text-muted-foreground transition-colors hover:text-primary">{t('home.features.title')}</Link></li>
                   <li><Link href="/#hours" className="text-muted-foreground transition-colors hover:text-primary">{t('home.hours.title')}</Link></li>
                   <li><Link href="/#menu-preview" className="text-muted-foreground transition-colors hover:text-primary">{t('home.menu.title')}</Link></li>
@@ -72,12 +72,12 @@ export function Footer() {
             </nav>
 
             <div>
-              <h3 className="font-headline font-bold text-lg text-primary mb-4">{t('footer.contact')}</h3>
+              <h3 className="font-headline font-bold text-lg md:text-xl lg:text-2xl text-primary mb-4">{t('footer.contact')}</h3>
               <address className="not-italic">
-                <ul className="space-y-3">
+                <ul className="space-y-3 text-sm md:text-base lg:text-lg">
                   <li>
                     <a href="https://www.google.com/maps/search/?api=1&query=Štefánikova+869%2F14+Bratislava" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center sm:justify-start gap-2 text-muted-foreground transition-colors hover:text-primary">
-                      <MapPin className="h-5 w-5" aria-hidden="true" />
+                      <MapPin className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7" aria-hidden="true" />
                       <span>Štefánikova 869/14, BA</span>
                     </a>
                   </li>
@@ -118,7 +118,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-8 pt-8 text-center text-sm md:text-base lg:text-lg text-muted-foreground">
           <p>
             © {new Date().getFullYear()} Dungeon Pub. {t('footer.rights')}{' '}
             | Developed by <a href="https://github.com/Antot-12" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Antot_12</a>

@@ -1,5 +1,17 @@
 import { getGoogleReviews } from '@/lib/google-reviews';
-import { GoogleReviewsDisplay } from '@/components/GoogleReviews';
+import dynamic from 'next/dynamic';
+
+// Lazy load the GoogleReviewsDisplay component to reduce initial bundle size
+const GoogleReviewsDisplay = dynamic(
+  () => import('@/components/GoogleReviews').then(mod => ({ default: mod.GoogleReviewsDisplay })),
+  {
+    loading: () => {
+      const { GoogleReviewsLoading } = require('@/components/GoogleReviews');
+      return <GoogleReviewsLoading />;
+    },
+    ssr: true,
+  }
+);
 
 async function ReviewsSection() {
   const { data, error } = await getGoogleReviews();

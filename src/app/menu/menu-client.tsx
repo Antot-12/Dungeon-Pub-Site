@@ -66,7 +66,7 @@ export default function MenuClient() {
                 </div>
             </header>
 
-            <Accordion type="multiple" defaultValue={currentMenu.length > 0 ? [currentMenu[0].name] : []} className="w-full">
+            <Accordion type="multiple" defaultValue={currentMenu.length > 0 && currentMenu[0] ? [currentMenu[0].name] : []} className="w-full">
                 {currentMenu.map((category) => (
                     <AccordionItem key={category.name} value={category.name} className="border-b-primary/20">
                         <AccordionTrigger className="text-xl sm:text-2xl font-headline font-bold hover:no-underline py-6 text-left px-4 rounded-md transition-all duration-300 hover:bg-primary/10 hover:pl-8">

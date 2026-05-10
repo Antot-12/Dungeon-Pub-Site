@@ -4,33 +4,108 @@ import { Card } from '@/components/ui/card';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useHaptic } from '@/hooks/useHaptic';
 
 export default function GalleryClient() {
   const { t } = useLanguage();
   const galleryImages = PlaceHolderImages.filter(p => p.id.startsWith('gallery-'));
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  
+  const { triggerHaptic } = useHaptic();
+  const touchStartX = useRef<number>(0);
+  const touchCurrentX = useRef<number>(0);
+  const touchStartY = useRef<number>(0);
+
   const selectedImage = selectedImageIndex !== null ? galleryImages[selectedImageIndex] : null;
 
-  const handleNext = () => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((prevIndex) => 
-        prevIndex === null ? null : Math.min(prevIndex + 1, galleryImages.length - 1)
-      );
+  const handleNext = useCallback(() => {
+    if (selectedImageIndex !== null && selectedImageIndex < galleryImages.length - 1) {
+      setSelectedImageIndex(selectedImageIndex + 1);
+      triggerHaptic('selection');
     }
-  };
+  }, [selectedImageIndex, galleryImages.length, triggerHaptic]);
 
-  const handlePrev = () => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((prevIndex) => 
-        prevIndex === null ? null : Math.max(prevIndex - 1, 0)
-      );
+  const handlePrev = useCallback(() => {
+    if (selectedImageIndex !== null && selectedImageIndex > 0) {
+      setSelectedImageIndex(selectedImageIndex - 1);
+      triggerHaptic('selection');
     }
-  };
+  }, [selectedImageIndex, triggerHaptic]);
+
+  // Swipe gesture handling
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      if (selectedImageIndex !== null) {
+        touchStartX.current = e.touches[0]?.clientX ?? 0;
+        touchStartY.current = e.touches[0]?.clientY ?? 0;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (selectedImageIndex !== null) {
+        touchCurrentX.current = e.touches[0]?.clientX ?? 0;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (selectedImageIndex !== null) {
+        const swipeDistanceX = touchCurrentX.current - touchStartX.current;
+        const swipeDistanceY = Math.abs((touchCurrentX.current - touchStartX.current));
+
+        // Only trigger swipe if horizontal movement is dominant (not vertical scroll)
+        if (Math.abs(swipeDistanceX) > 100 && Math.abs(swipeDistanceX) > swipeDistanceY) {
+          if (swipeDistanceX < -100 && selectedImageIndex < galleryImages.length - 1) {
+            // Swipe left - next image
+            handleNext();
+          } else if (swipeDistanceX > 100 && selectedImageIndex > 0) {
+            // Swipe right - previous image
+            handlePrev();
+          }
+        }
+
+        touchStartX.current = 0;
+        touchCurrentX.current = 0;
+        touchStartY.current = 0;
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      document.addEventListener('touchstart', handleTouchStart, { passive: true });
+      document.addEventListener('touchmove', handleTouchMove, { passive: true });
+      document.addEventListener('touchend', handleTouchEnd);
+
+      return () => {
+        document.removeEventListener('touchstart', handleTouchStart);
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+      };
+    }
+  }, [selectedImageIndex, galleryImages.length, handleNext, handlePrev]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedImageIndex === null) return;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        handleNext();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        handlePrev();
+      } else if (e.key === 'Escape') {
+        setSelectedImageIndex(null);
+      }
+    };
+
+    if (selectedImageIndex !== null) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [selectedImageIndex, handleNext, handlePrev]);
 
   return (
     <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -50,6 +125,8 @@ export default function GalleryClient() {
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 data-ai-hint={image.imageHint}
+                placeholder={image.blurDataURL ? "blur" : "empty"}
+                blurDataURL={image.blurDataURL}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
                 <div className="absolute bottom-0 left-0 p-4">

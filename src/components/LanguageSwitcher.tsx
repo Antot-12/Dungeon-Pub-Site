@@ -17,18 +17,19 @@ export function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2">
-          <Languages className="h-5 w-5" />
+        <Button variant="outline" className="flex items-center gap-2" aria-label={`Change language. Current language: ${languages[lang]}`}>
+          <Languages className="h-5 w-5" aria-hidden="true" />
           <span className="font-mono uppercase">{lang}</span>
-          <ChevronDown className="h-4 w-4 opacity-50" />
+          <ChevronDown className="h-4 w-4 opacity-50" aria-hidden="true" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" aria-label="Language selection">
         {Object.entries(languages).map(([code, name]) => (
           <DropdownMenuItem
             key={code}
             onSelect={() => setLang(code as LanguageCode)}
             className="flex gap-2"
+            aria-label={`Switch to ${name}`}
           >
             <span className="font-mono uppercase w-8 text-muted-foreground">{code}</span>
             <span>{name}</span>

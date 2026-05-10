@@ -45,13 +45,13 @@ export function Header() {
   // Swipe to close functionality
   useEffect(() => {
     const handleTouchStart = (e: TouchEvent) => {
-      if (isSheetOpen) {
+      if (isSheetOpen && e.touches[0]) {
         touchStartX.current = e.touches[0].clientX;
       }
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (isSheetOpen) {
+      if (isSheetOpen && e.touches[0]) {
         touchCurrentX.current = e.touches[0].clientX;
       }
     };
@@ -85,7 +85,7 @@ export function Header() {
   const NavLinks = ({ className, showIcons = false }: { className?: string, showIcons?: boolean }) => {
     const pathname = usePathname();
     return (
-      <nav className={cn("flex items-center gap-6 text-lg", className)} aria-label="Main navigation">
+      <nav className={cn("flex items-center gap-6 text-lg md:text-xl lg:text-2xl", className)} aria-label="Main navigation">
         {navItems.map((item) => (
           <Link
             key={item.href}

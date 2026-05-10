@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import GalleryClient from './gallery-client';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 export const metadata: Metadata = {
   title: 'Gallery',
@@ -12,5 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default function GalleryPage() {
-  return <GalleryClient />;
+  return (
+    <ErrorBoundary>
+      <GalleryClient />
+    </ErrorBoundary>
+  );
 }

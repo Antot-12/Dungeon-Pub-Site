@@ -4,115 +4,134 @@
       "id": "hero-tavern",
       "description": "A cozy, candle-lit tavern interior, evoking a fantasy RPG setting.",
       "imageUrl": "/images/Dungeon_Pub_main.jpg",
-      "imageHint": "fantasy tavern"
+      "imageHint": "fantasy tavern",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAIAAADzBuo/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAApklEQVR4nAGbAGT/AA0sVwAQMxAyWgkoTAABJQAAIQATMgATLgACIgstUAABHTgAESgCHzsJKEgTFzAkLEYqPFoqPVYTJUMmKjwAAA0bUGZvGi89GSQwrZyavba2l5mj9+fk1MfBlaapAAoZKTZlfEB2izgtNIlwcK2FgKuPiP/i1v/364l8gQAZGi0AEzANLlEIDCAeIC5NTmA4Z5QqQFx5Z3I7KzMZTS1FfGx/ZQAAAABJRU5ErkJggg=="
     },
     {
       "id": "pub-signboard",
       "description": "A hanging wooden signboard for a pub.",
       "imageUrl": "/images/Dungeon-pub-img.png",
-      "imageHint": "pub sign"
+      "imageHint": "pub sign",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nAHcACP/AAAAADEoIzctJxcSETUrJzEoJAMCAQAUEhGTfXHKsZ9xYll5amXCr6QzNzoAHSMmqpaJ9NvGj354tKOY4tLFRVllACQjJIZ7d829srWnn6mcmce9t0FLUgAzMS92cXekmZWvqKrm29L/9u1MWmQAPDw8x7qw4tLHi4WP3tPO//zvUGFtADY0M4t7c49+eId+fX58f5SUmkhXYwAnKChKPTuAbWLcwaiCenZfXGNVbn8ACxQYLiomWElAnYR0cF5VW2NoRXGJAAIJCQUMDhUVEx4jIDFCSDRabjdheYzgWB7ia9qsAAAAAElFTkSuQmCC"
     },
     {
       "id": "about-us-pub",
       "description": "The exterior of a friendly-looking pub at dusk.",
       "imageUrl": "/images/Dungeon-pub-img.png",
-      "imageHint": "pub exterior"
+      "imageHint": "pub exterior",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nAHcACP/AAAAADEoIzctJxcSETUrJzEoJAMCAQAUEhGTfXHKsZ9xYll5amXCr6QzNzoAHSMmqpaJ9NvGj354tKOY4tLFRVllACQjJIZ7d829srWnn6mcmce9t0FLUgAzMS92cXekmZWvqKrm29L/9u1MWmQAPDw8x7qw4tLHi4WP3tPO//zvUGFtADY0M4t7c49+eId+fX58f5SUmkhXYwAnKChKPTuAbWLcwaiCenZfXGNVbn8ACxQYLiomWElAnYR0cF5VW2NoRXGJAAIJCQUMDhUVEx4jIDFCSDRabjdheYzgWB7ia9qsAAAAAElFTkSuQmCC"
     },
     {
       "id": "gallery-1",
       "description": "A group of friends laughing while playing a board game.",
       "imageUrl": "/images/galery/1.jpg",
-      "imageHint": "people game"
+      "imageHint": "people game",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAIAAACExCpEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABIklEQVR4nAEXAej+AC0jLiccK0AvPqWNfcu0nIhzarGAc/+tmv+QgndMRAAoIDQ8LUFUQFHIspv/+drQvKzXw63HhHzIkIKyoooAHA8cLR8pSDQ7n4l38N/Ayrut18u3/fjd5NzCsaKTAGJoeRoRE1k7N6V2cM+ajNmqlOC1qPvXvfnRscK1ogCn2PhwUG5TM0JjNk3ObYfliqCnXpukb6GTZZ/y1cgAmsHbm2WjYzhzQyRf6YbM/6e9tVmfZS55MhZWh1qGAIqRum1Dh0ozfDMWQPaB0v+U1cdZtAIAIAYAImlFowBvlK6HZ7lsRaUpESaiUHDkfZemXHVwRDOKUU5XNzsALz5GEQoVbkc9u3BPumlIpF1ErV9CwnFWm1xGbDwuZ0eFWhHKJpYAAAAASUVORK5CYII="
     },
     {
       "id": "gallery-2",
       "description": "A close-up of colorful dice on a D&D character sheet.",
       "imageUrl": "/images/galery/2.jpg",
-      "imageHint": "roleplaying game"
+      "imageHint": "roleplaying game",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAIAAABPmPnhAAAACXBIWXMAAAsTAAALEwEAmpwYAAABA0lEQVR4nAH4AAf/AL1rW/9+YpFpXJh0V8KpjZKCeDwvJiQdFyIZEhYSDQD/u6D/xKX/5NT/yq/uxaXVpo2AX0xbQTd3KB1XFxMA5rSsk2pgmm1nyrmq/+HH3bmf/+rX/6SIrl9LhjUpAKiCdSEYGSckJEkxJf+cftC2qp92brtnUtqDb39JQACTYk0aGBciGhNGIhWqWUViUksCBQOaaV9vTUIGAgAAaV1bCwgFJyEZJRkScUI0LB8YDw4NlHBltH54KhkWAB4WDgQCABQGACgNB00uIR8WD0AvIn5rXKCGeigUEACtkmJgSzM8HxcnHxQTBwMxMTI8JRRzX0llYVUUAwGRg1bEWtrJQgAAAABJRU5ErkJggg=="
     },
     {
       "id": "gallery-3",
       "description": "People in costume at a fantasy-themed event.",
       "imageUrl": "/images/galery/3.jpg",
-      "imageHint": "fantasy cosplay"
+      "imageHint": "fantasy cosplay",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAIAAABPmPnhAAAACXBIWXMAAAsTAAALEwEAmpwYAAABA0lEQVR4nAH4AAf/AGpjZUk9O0AsK1FLVN6Ql+SJmG+Ip1pddU5CWE01TwCHZlWUb1ktGRSAUE//vrv/tb2Mcok8M0mtbl+ehHQAvaab8dLDYE1FmF1bznp8/5WjgU1cPSU2/6di+8OdANTIwf/o3Ihxaa9vaeOQkf6Nm39CS4pOVv+zV//RigDLvrn/+e2wl4idb2nnt7Lto7DSn72XfIj+qj3/vXgAgGNFsYxoQDYuKiAdjm1pkV1uwo/RQTROckUf/69tALd7K0EoDwsHBxgSDhgQDap1dpJPWwUECFs9MpRhSABxVjkNCAgTDgwCAQBVODb/6NfOhHxNWFyHiXlcQjUhxHCVN1HNKwAAAABJRU5ErkJggg=="
     },
     {
       "id": "gallery-4",
       "description": "A bartender crafting a colorful cocktail.",
       "imageUrl": "/images/galery/4.jpg",
-      "imageHint": "cocktail bar"
+      "imageHint": "cocktail bar",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA30lEQVR4nGNgYmLj5heWVDVbvvf6/D13/v+++/FCnyAfDwMDg7iIKAMjA6OQoIivjW1XXpFfcOS1A905gRa83LwsLKwyomIgaTFB4dLQQBU5BQkxia7yuMxQV2stDWYWNgUxUQYWRiZWNjYFVXVeMVkfOzsjJRU+IQkuHgFmFjYZIUEGBgYGWX7BXd4ODqJSCuo68hLSz2Jcl3vaMTAwignwgaRz1DT+T6uOkpDilZDjYuX9nx/xvzxZkJmZkYmZQVxcnIuLi4mBQYyLV1hMWlBQRIKVlYGBgZmJWUVFFQA3FShJvExi3gAAAABJRU5ErkJggg=="
     },
     {
       "id": "gallery-5",
       "description": "A lively crowd enjoying a night at the pub.",
       "imageUrl": "/images/galery/5.jpg",
-      "imageHint": "people pub"
+      "imageHint": "people pub",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4ElEQVR4nGNgYGDk5GAyMNcun7B2/bkfX/7/n94SKSzKriAtLCPGxcDAwMDJwWykKji5tWnhqu27Dp1IjnIVEedUlhbkYmNl4BIQYGZhlBLn0lYRW7hq55zVawQFWMUlBWRFudmZmRh4BPklRfmMNSTEhdmKilO7JpTZmCnycnPyczEzMTIwCAtzGikIiDMzmWrw66ryGerL+bjriorysrGxMDIyMHBxMwuLsHFysauqiMoLcwjzs+npqPgG2vDxc4LcJcDGzMPNwsEFMkldh1/bUpCRgYGXj4VfhE1VXwEAl5Ajj71nN80AAAAASUVORK5CYII="
     },
     {
       "id": "gallery-6",
       "description": "A collection of board game boxes stacked on a shelf.",
       "imageUrl": "/images/galery/6.jpg",
-      "imageHint": "board games"
+      "imageHint": "board games",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzElEQVR4nGOonL22Y/mOnlWHdh7Z9//7wtI07yA7NT52ZgYGRgYGBgZ7j+C62rYDxy61d7Zd2jwjw9tJhI9TToiXnREsrSyvnBcYnurmbaKjXpEckOtix83FIcLDwcXEBJLm5+OVl5QSk5AU4BdY3tu1cEIfAwMDDzsLHzszCxMjAzMzMwc7u5+YhI+AiIqSqoe1taa0OAMDAzMTE9h0BpCKXCmJEDklZSMLaRFBRXERBgYGqKyYhISgqIS4nJJPcLyKthFEA8TVsrKyAD8UJ+GRKBdBAAAAAElFTkSuQmCC"
     },
     {
       "id": "gallery-7",
       "description": "A person painting a miniature figure.",
       "imageUrl": "/images/galery/7.jpg",
-      "imageHint": "miniature painting"
+      "imageHint": "miniature painting",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AFpil0A8ZatpuJlduXQ/gEgoJYJtdXZgbABobqpLTXZxWZZhQYlEKlYwJTUwKUY/MUsAJCcqXVRIlIVoXFxMQ0FEYE9VKyg6QjU1AEg5LZSAb6CFb5t+bbahkpx9cExCO4FwaABDOCxpX116YUiggly1jGLSpYCqlIxwamMAWFVAsq6fyKmJzqyBY1AvuJpzk4FpLzo5AE5KNXd5abKoiqaIX1JDLvbGojkxHgENCQASFAlASDm7uZ5aUTZOTDWOclJMOyYAAwEACAQAbXJjxMWrRjsktr6shGZJ9s2lhYd9AA4QCnp7acKyj3h2YMLDqYSEaeHhxfv/6AEEY8EfqRxdAAAAAElFTkSuQmCC"
     },
     {
       "id": "gallery-8",
       "description": "A dramatic shot of a gaming table mid-session.",
       "imageUrl": "/images/galery/8.jpg",
-      "imageHint": "game table"
+      "imageHint": "game table",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAIAAACExCpEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABIklEQVR4nAEXAej+AItzSD00Hlw8HHZXOCQkFyAgFgUNC1N7h3y7yh1AUACWd1V1TSa3gEr2tYjAkGP2z6R6dGeMtLnC//9Fj6kAQTomb04sy4xX+raS8Kp9/9Kt/dOs/9+82dXDLGyIACAjFyUlFLGHWeKgecyUbeKsi9uvjP/Ysd6xixE1RwACCQIJCwOth2jPnXqqimyoe2DsrYj/x5vUl3hJRj0ACQ4EAAMAcVxC/8ufvYVqxI9t/76D/ceb/8KfhmdPAAMJAgAIBBsZCuyygLGDZ5RwVr6Sbv/Np/+7lp96XQAgICAYGRgAAABQNCZCLCFkVkZAOCm0jG/VnnjJl3YAExMTERERBwgIDQoHOy4tZ1BEXUg316eCc2BMQjMprb12hdoFApkAAAAASUVORK5CYII="
     },
     {
       "id": "gallery-9",
       "description": "Two people clinking beer glasses.",
       "imageUrl": "/images/galery/9.jpg",
-      "imageHint": "cheers beer"
+      "imageHint": "cheers beer",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAElEQVR4nGMQExaQFBexERP3kpQW5+PlYGPh52bj52ZnkBITVpKScFCQ3eZmcqs2Nz7Qk5+TVUSAByQhKirUGOM2K8n//9uz/2/vF+DllhARZBAQESpTU9riauJmpJbn71TobhkgJwOS4BUSWGyj/789YXlH6YzWohMtxRucjcUE+Rl4ebkDxSUX2ejVJgeZaytbS0u26alJiQgwcHKwaEqIGUhLSPFxcnFxuAmJ7fYwk+LnYWBlY5YQ5ivwtRHj45Lg5w4QkajWVBHjZmfg4GBhYGBItNYzkJHgZmdRExEU5mLnYGNlYGFhYWZhFuRm5+NmZ2FhlhMW5GZnZWFhAQBHqCxafQboPgAAAABJRU5ErkJggg=="
     },
     {
       "id": "gallery-10",
       "description": "A bookshelf filled with fantasy novels and RPG rulebooks.",
       "imageUrl": "/images/galery/10.jpg",
-      "imageHint": "fantasy books"
+      "imageHint": "fantasy books",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AAAAAF9gYWhrfWlocRITEgABAAYFBWs0KAAAAAA8RVi5vOl/fJsaGhkqJyANCwlGLikADA4LNEFdlH6Rj3F2dnFx28W3GRYUt5Z9ACY0Pn+Zx5SLlezp+HR9jItzZlpPSeO0igANGSc+WI3s+P+txesnMkNKQTYuKSSqim0AFRsfX3ybp7TF5O76OT9BHB4aAQMDppuKABAYHVttfp2NhPz794R1Z5eLfFNbW1dQWAACBgcPEBMVExYUERBCPjf448u7pJEUECcAAgcHBwkJFBYeGRccPjY2GyMsFhcXDhEWAAAAAGVbUqqSkB4cKTgwQSYmNxgdIwIHCIc4ThXFmszUAAAAAElFTkSuQmCC"
     },
     {
       "id": "menu-photo",
       "description": "A photo of the pub's menu.",
       "imageUrl": "/images/menus/napoj.list.png",
-      "imageHint": "menu board"
+      "imageHint": "menu board",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAApElEQVR4nC3OoQ6EMBAE0PWVK6o2QU1S0RyIFYh6zCoMDldxBMl9AP9Th+QP+CDshbuOfJlMhojIzO77Ps+zlCIiRETe+33fU0rMrKpd1z3KzNd1revqnFPVlFLtHseRcyYiACGEqqWUz7bJLwDqQs55mqYYIwAzq2pmALz3McZhGKrO86yq/w/jONbd97K82paZQwiq+qhzru97ACLCzE3TENEXOBYr1PSvWfwAAAAASUVORK5CYII="
     },
     {
       "id": "menu-photo1",
       "description": "A photo of the pub's menu.",
       "imageUrl": "/images/menus/nealko.list.png",
-      "imageHint": "menu board"
+      "imageHint": "menu board",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoUlEQVR4nC3OoQqGMBTF8VtMCwvn48I1GERYGFgGlhtWViwmky+wZPNx1nxI68fY6o8/nEPDMBBRzvn7vpQSEVVh5uu6vPfbtoUQpmkioqrv+8YYrbXruh7HURVAzrlVIqKqXZ/nYWZjjIiEEKqKSCnFOcfMqtoVwH3fquq9Tykxc18rpZzn6ZyLMXYF0D6MIj9gnueq1tp935dlAWCMae0fT8Mlbo89tm4AAAAASUVORK5CYII="
     },
     {
       "id": "menu-photo2",
       "description": "A photo of the pub's menu.",
       "imageUrl": "/images/menus/cocktails.1.list.png",
-      "imageHint": "menu board"
+      "imageHint": "menu board",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAvklEQVR4nEWNMQqDMBRAk9JqR8VIxJLgh4+CYEYHC9Uxi+3ensEpxAO42S7ewHPaqQSEro/He+RAKSFknufvtg3DQAjxPI/EjH3eb631tWkQUQjhKOd8miZVVXmex4wVRXE6HZ1rjHk9n+3tJoVARNcMg8AYo7VWVXVJUwBwNGZsXde+77MsAwAp5H4brb02jVJKCrG7CefLsjzu967tkiT5F0Zr67pGxCiKyrJ09Oz7AHBJ0zAIzr4fM3ag9AekByYzlav1/gAAAABJRU5ErkJggg=="
     },
     {
       "id": "menu-photo3",
       "description": "A photo of the pub's menu.",
       "imageUrl": "/images/menus/cocktails.2.list.png",
-      "imageHint": "menu board"
+      "imageHint": "menu board",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqklEQVR4nGPg4uBgYmQszC/49/t3YV4eEyMjFwcHg7CQUHx0dH9vr7uLq7qamriYGB8vL4OUpOTGtWt9fXz4eHnFREWtraxBouJiYoX5Bc5OTjLS0nq6etZWViATxMXEKssr1FRVhYWEZWVkzE3NQKJSkpJTJk/W0dKSkpRUlFdwsLODqm2oq0tPS5OVkdHR0rK0tASJcnFw8PPxCQsJ8fPxQRhQUUyEXRQAVv8hclFZuFAAAAAASUVORK5CYII="
     },
     {
       "id": "menu-photo4",
       "description": "A photo of the pub's menu.",
       "imageUrl": "/images/menus/destilaty.a.pochutiny1..png",
-      "imageHint": "menu board"
+      "imageHint": "menu board",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4ElEQVR4nGNgYmTcu3v3u1evtm3e8u7VqwN79zIxMjJISkrWVlZZW1n3dHYe2Lffwsyci5MTJFpTUREUEJCXm5uZnmFhZi4mKsogJCg0eeLEzPSMksLCaVOmBgcGCQgIMIiLiSXGJ+hoa/t4eUeFR5qYmPByczPIycoGBwZpqKuXFBYunDffyMBQSFAQpLapocHN1U1HW1tcTExMVJSVmYVBWkpq+bJlGurqSkpKDAwMTIyMrMzMILXTpkwJDgwqLiior6tTUVYG2cbFyamirCwtJaWirKyjraMgJ8/LzQ0ARmI6TNO5AfcAAAAASUVORK5CYII="
     },
     {
       "id": "menu-photo5",
       "description": "A photo of the pub's menu.",
       "imageUrl": "/images/menus/destilaty.a.pochutiny2..png",
-      "imageHint": "menu board"
+      "imageHint": "menu board",
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nGNgZWY5sHfv+9dvDuzb///f/wP79jMxMjKIi4n3dHU72Nu3NTU3NzRaWlrycvMwSEtJNTU06GjrpKWm1lZWRYaHi4uJg0RrKio01NXdXN0S4uOtrayEBIVAotOmTDU0MPDx8u7p7LQwMwOJiouJ11RU6GjrJMYnZKZnQEWlpaR6urp1tHViIqPSUlMNDQxEhIRBommpqSrKypnpGdOmTLW2soap7ex0sHdIiI9vbmjMTM+QlpJiYGVmERIUEhcTFxcTl5eTExcT5+LkBACg/j1AVXjzUQAAAABJRU5ErkJggg=="
     }
   ]
 }

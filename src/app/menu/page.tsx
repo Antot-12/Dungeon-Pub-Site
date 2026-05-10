@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import MenuClient from './menu-client';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 export const metadata: Metadata = {
   title: 'Menu',
@@ -12,5 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default function MenuPage() {
-  return <MenuClient />;
+  return (
+    <ErrorBoundary>
+      <MenuClient />
+    </ErrorBoundary>
+  );
 }
