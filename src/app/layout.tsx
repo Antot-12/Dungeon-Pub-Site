@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Template from './template';
 
 const fontHeadline = Cormorant_Garamond({
-  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  subsets: ['latin', 'latin-ext'],
   weight: ['400', '700'],
   variable: '--font-headline',
   display: 'swap',
@@ -17,8 +17,8 @@ const fontHeadline = Cormorant_Garamond({
 });
 
 const fontBody = EB_Garamond({
-  subsets: ['latin', 'latin-ext', 'cyrillic'],
-  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '600', '700'],
   variable: '--font-body',
   display: 'swap',
   preload: true,

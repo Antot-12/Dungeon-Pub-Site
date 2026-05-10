@@ -1,6 +1,6 @@
 'use client';
 
-import { Facebook, Calendar, Trophy, Dices, Swords, Clock, MapPin, Users, Search, Filter, Grid3x3, List, Scroll, Shield, X } from 'lucide-react';
+import { Facebook, Calendar, Trophy, Dices, Swords, Clock, MapPin, Users, Search, Filter, Grid3x3, Scroll, Shield, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -13,31 +13,93 @@ import { useState, useMemo, useEffect } from 'react';
 type FacebookEvent = {
   id: string;
   name: string;
+  nameEn?: string;
   description?: string;
+  descriptionEn?: string;
   start_time: string;
   cover?: {
     source: string;
   };
+  type?: 'quiz' | 'tournament' | 'rpg' | 'comedy' | 'music' | 'boardgame' | 'other';
+  isRecurring?: boolean;
 };
 
-type EventType = 'all' | 'quiz' | 'tournament' | 'rpg' | 'comedy' | 'music' | 'other';
+type EventType = 'all' | 'quiz' | 'tournament' | 'rpg' | 'comedy' | 'music' | 'boardgame' | 'other';
 
 type ViewMode = 'list' | 'grid';
 
 interface EventsClientProps {
   events?: FacebookEvent[];
-  error?: string;
+  error?: string | null;
+  hasRecurringEvents?: boolean;
 }
 
 // Helper function to detect event type from name/description
 function detectEventType(event: FacebookEvent): EventType {
+  // If type is already set (from recurring events), use it
+  if (event.type && event.type !== 'other') {
+    return event.type as EventType;
+  }
+
   const text = `${event.name} ${event.description || ''}`.toLowerCase();
 
-  if (text.includes('kvíz') || text.includes('quiz')) return 'quiz';
-  if (text.includes('turnaj') || text.includes('tournament')) return 'tournament';
-  if (text.includes('rpg') || text.includes('d&d') || text.includes('dnd')) return 'rpg';
-  if (text.includes('comedy') || text.includes('stand-up') || text.includes('komik')) return 'comedy';
-  if (text.includes('music') || text.includes('hudba') || text.includes('concert')) return 'music';
+  // Quiz events - check first as they're most common
+  if (
+    text.includes('kvíz') ||
+    text.includes('quiz') ||
+    text.includes('vedomostný') ||
+    text.includes('vedomostny') ||
+    text.includes('anime') && text.includes('vol')
+  ) return 'quiz';
+
+  // Tournament events
+  if (
+    text.includes('turnaj') ||
+    text.includes('tournament') ||
+    text.includes('beerpong') ||
+    text.includes('beer pong')
+  ) return 'tournament';
+
+  // Board game events
+  if (
+    text.includes('boardgame') ||
+    text.includes('board game') ||
+    text.includes('doskové hry') ||
+    text.includes('deskove hry') ||
+    text.includes('nero games') ||
+    text.includes('level majstrov')
+  ) return 'boardgame';
+
+  // RPG and D&D events
+  if (
+    text.includes('rpg') ||
+    text.includes('d&d') ||
+    text.includes('dnd') ||
+    text.includes('dungeons') ||
+    text.includes('dragons') ||
+    text.includes('na ceste hrdinov') ||
+    text.includes('sessions')
+  ) return 'rpg';
+
+  // Comedy events
+  if (
+    text.includes('comedy') ||
+    text.includes('stand-up') ||
+    text.includes('komik') ||
+    text.includes('komedia')
+  ) return 'comedy';
+
+  // Music events
+  if (
+    text.includes('music') ||
+    text.includes('hudba') ||
+    text.includes('koncert') ||
+    text.includes('concert') ||
+    text.includes('jam session') ||
+    text.includes('just dance') ||
+    text.includes('pexo') ||
+    text.includes('irish')
+  ) return 'music';
 
   return 'other';
 }
@@ -49,6 +111,7 @@ function getEventTypeLabel(type: EventType, t: (key: string) => string): string 
     quiz: t('events.filters.quiz'),
     tournament: t('events.filters.tournament'),
     rpg: t('events.filters.rpg'),
+    boardgame: t('events.filters.boardgame'),
     comedy: t('events.filters.comedy'),
     music: t('events.filters.music'),
     other: t('events.filters.other'),
@@ -63,6 +126,7 @@ function getEventTypeColor(type: EventType): string {
     quiz: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
     tournament: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
     rpg: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+    boardgame: 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20',
     comedy: 'bg-pink-500/10 text-pink-500 border-pink-500/20',
     music: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
     other: 'bg-muted text-muted-foreground border-border',
@@ -77,6 +141,7 @@ function getEventTypeIcon(type: EventType) {
     quiz: Trophy,
     tournament: Dices,
     rpg: Scroll,
+    boardgame: Swords,
     comedy: Users,
     music: Users,
     other: Calendar,
@@ -127,11 +192,11 @@ function useCountdown(targetDate: string) {
   return timeLeft;
 }
 
-export default function EventsClient({ events = [], error }: EventsClientProps) {
+export default function EventsClient({ events = [], error, hasRecurringEvents = false }: EventsClientProps) {
   const { t } = useLanguage();
   const [selectedType, setSelectedType] = useState<EventType>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState<ViewMode>('list');
+  const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [showPastEvents, setShowPastEvents] = useState(false);
 
   // Filter and sort events
@@ -175,10 +240,10 @@ export default function EventsClient({ events = [], error }: EventsClientProps) 
   // Get next event for countdown
   const nextEvent = upcomingEvents[0];
 
-  const eventTypes: EventType[] = ['all', 'quiz', 'tournament', 'rpg', 'comedy', 'music', 'other'];
+  const eventTypes: EventType[] = ['all', 'quiz', 'tournament', 'rpg', 'boardgame', 'comedy', 'music', 'other'];
 
   return (
-    <div className="container mx-auto max-w-6xl py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="container mx-auto max-w-6xl py-8 md:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-20 left-8 w-24 h-24 opacity-[0.03] pointer-events-none" style={{ willChange: 'opacity' }}>
         <Calendar className="h-full w-full text-primary" />
@@ -194,65 +259,53 @@ export default function EventsClient({ events = [], error }: EventsClientProps) 
       </div>
 
       {/* Header */}
-      <header className="text-center mb-16 relative z-10">
-        <h1 className="font-headline font-bold text-5xl md:text-6xl text-primary mb-6">{t('nav.events')}</h1>
-        <p className="mt-4 text-xl md:text-2xl text-muted-foreground leading-relaxed">{t('events.subtitle')}</p>
-
-        {/* Decorative divider */}
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <div className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-primary"></div>
-          <Trophy className="h-6 w-6 text-primary" />
-          <div className="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-primary"></div>
-        </div>
-
-        <a
-          href={`https://www.facebook.com/${process.env.NEXT_PUBLIC_FACEBOOK_PAGE_ID || 'dungeonpub'}/events`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left text-base md:text-lg text-muted-foreground hover:text-primary transition-colors duration-300"
-        >
-          <Facebook className="h-5 w-5 md:h-6 md:w-6" />
-          <span>{t('events.fb_link_text')}</span>
-        </a>
+      <header className="text-center mb-6 relative z-10">
+        <h1 className="font-headline font-bold text-6xl md:text-7xl text-primary">{t('nav.events')}</h1>
       </header>
 
       {/* Countdown Timer for Next Event */}
       {nextEvent && !error && (
-        <CountdownCard event={nextEvent} t={t} />
+        <CountdownCard
+          event={nextEvent}
+          t={t}
+          onTagClick={(type) => {
+            setSelectedType(type);
+          }}
+        />
       )}
 
       {/* Filters and Search */}
       <div className="mb-10 space-y-6 relative z-10">
         {/* Search Bar */}
         <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-6 w-6 text-muted-foreground" />
           <Input
             type="search"
             placeholder={t('events.search')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-12 pr-12 h-12 md:h-14 text-base md:text-lg bg-card/80 backdrop-blur-sm border-border/50 focus:border-primary/50"
+            className="pl-14 pr-14 h-14 md:h-16 text-lg md:text-xl bg-card/80 backdrop-blur-sm border-border/50 focus:border-primary/50"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary transition-colors"
             >
-              <X className="h-5 w-5" />
+              <X className="h-6 w-6" />
             </button>
           )}
         </div>
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap items-center gap-3">
-          <Filter className="h-5 w-5 text-muted-foreground" />
+          <Filter className="h-6 w-6 text-muted-foreground" />
           {eventTypes.map((type) => (
             <Button
               key={type}
               variant={selectedType === type ? 'default' : 'outline'}
-              size="sm"
+              size="lg"
               onClick={() => setSelectedType(type)}
-              className={`transition-all duration-300 ${
+              className={`transition-all duration-300 text-base ${
                 selectedType === type
                   ? 'shadow-lg shadow-primary/30'
                   : 'hover:border-primary/50'
@@ -267,28 +320,12 @@ export default function EventsClient({ events = [], error }: EventsClientProps) 
         </div>
 
         {/* View Mode & Past Events Toggle */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Button
-              variant={viewMode === 'list' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setViewMode('list')}
-            >
-              <List className="h-4 w-4" />
-            </Button>
-            <Button
-              variant={viewMode === 'grid' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setViewMode('grid')}
-            >
-              <Grid3x3 className="h-4 w-4" />
-            </Button>
-          </div>
-
+        <div className="flex flex-wrap items-center justify-end gap-4">
           <Button
             variant={showPastEvents ? 'default' : 'outline'}
-            size="sm"
+            size="lg"
             onClick={() => setShowPastEvents(!showPastEvents)}
+            className="text-base"
           >
             {showPastEvents ? t('events.showUpcoming') : t('events.showPast')}
           </Button>
@@ -299,11 +336,11 @@ export default function EventsClient({ events = [], error }: EventsClientProps) 
       <div className="space-y-6 relative z-10">
         {error && (
           <Card className="text-center bg-card/80 backdrop-blur-sm border-2 border-destructive/30 p-12 transition-all duration-500 hover:shadow-2xl hover:border-destructive/50">
-            <Shield className="h-16 w-16 text-destructive/60 mx-auto mb-6" />
-            <h3 className="font-headline text-2xl md:text-3xl font-bold text-foreground mb-4">
+            <Shield className="h-20 w-20 text-destructive/60 mx-auto mb-6" />
+            <h3 className="font-headline text-3xl md:text-4xl font-bold text-foreground mb-4">
               Events Temporarily Unavailable
             </h3>
-            <p className="max-w-md mx-auto text-base md:text-lg text-muted-foreground mb-4 leading-relaxed">
+            <p className="max-w-md mx-auto text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed">
               We're having trouble loading events from Facebook right now. Please check our{' '}
               <a
                 href={`https://www.facebook.com/${process.env.NEXT_PUBLIC_FACEBOOK_PAGE_ID || 'dungeonpub'}/events`}
@@ -316,10 +353,10 @@ export default function EventsClient({ events = [], error }: EventsClientProps) 
               {' '}directly for the latest events.
             </p>
             <details className="text-left max-w-md mx-auto mt-6">
-              <summary className="cursor-pointer text-sm md:text-base text-muted-foreground hover:text-foreground transition-colors">
+              <summary className="cursor-pointer text-base md:text-lg text-muted-foreground hover:text-foreground transition-colors">
                 Technical details
               </summary>
-              <p className="mt-2 text-xs md:text-sm font-mono bg-destructive/10 p-3 rounded-md text-destructive">
+              <p className="mt-2 text-sm md:text-base font-mono bg-destructive/10 p-3 rounded-md text-destructive">
                 {error}
               </p>
             </details>
@@ -327,27 +364,44 @@ export default function EventsClient({ events = [], error }: EventsClientProps) 
         )}
 
         {!error && filteredEvents.length === 0 && (
-          <Card className="text-center bg-gradient-to-br from-card via-card/95 to-primary/5 backdrop-blur-sm p-16 border-2 border-dashed border-border/50 transition-all duration-500 hover:shadow-2xl hover:border-primary/30">
-            <Calendar className="h-20 w-20 text-primary/30 mx-auto mb-6" />
-            <h3 className="font-headline text-2xl md:text-3xl font-bold text-primary/90 mb-4">
+          <Card className="text-center bg-gradient-to-br from-card via-card/95 to-primary/5 backdrop-blur-sm p-12 md:p-16 border-2 border-dashed border-border/50 transition-all duration-500 hover:shadow-2xl hover:border-primary/30">
+            <Calendar className="h-24 w-24 text-primary/30 mx-auto mb-6 animate-pulse" />
+            <h3 className="font-headline text-3xl md:text-4xl font-bold text-primary/90 mb-4">
               {showPastEvents ? t('events.noPastEvents') : t('events.noUpcomingEvents')}
             </h3>
-            <p className="text-base md:text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-6">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
               {showPastEvents
                 ? t('events.noPastEventsDesc')
                 : t('events.noUpcomingEventsDesc')}
             </p>
             {!showPastEvents && (
-              <Button asChild size="lg" className="mt-4">
-                <a
-                  href={`https://www.facebook.com/${process.env.NEXT_PUBLIC_FACEBOOK_PAGE_ID || 'dungeonpub'}/events`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Facebook className="h-5 w-5 mr-2" />
-                  {t('events.checkFacebook')}
-                </a>
-              </Button>
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Button asChild size="lg" className="text-lg md:text-xl px-8 py-6 shadow-lg hover:shadow-xl transition-all">
+                    <a
+                      href="https://www.facebook.com/dungeonpub/events"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Facebook className="h-6 w-6 mr-2" />
+                      {t('events.viewOnFacebook')}
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="text-lg md:text-xl px-8 py-6">
+                    <a
+                      href="https://www.facebook.com/dungeonpub"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Facebook className="h-6 w-6 mr-2" />
+                      {t('events.followUs')}
+                    </a>
+                  </Button>
+                </div>
+                <p className="text-base text-muted-foreground mt-4">
+                  {t('events.monthlyProgram')}
+                </p>
+              </div>
             )}
           </Card>
         )}
@@ -355,7 +409,16 @@ export default function EventsClient({ events = [], error }: EventsClientProps) 
         {!error && filteredEvents.length > 0 && (
           <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : 'space-y-6'}>
             {filteredEvents.map((event, index) => (
-              <EventCard key={event.id} event={event} index={index} t={t} viewMode={viewMode} />
+              <EventCard
+                key={event.id}
+                event={event}
+                index={index}
+                t={t}
+                viewMode={viewMode}
+                onTagClick={(type) => {
+                  setSelectedType(type);
+                }}
+              />
             ))}
           </div>
         )}
@@ -365,51 +428,61 @@ export default function EventsClient({ events = [], error }: EventsClientProps) 
 }
 
 // Countdown Card Component
-function CountdownCard({ event, t }: { event: FacebookEvent; t: (key: string) => string }) {
+function CountdownCard({ event, t, onTagClick }: {
+  event: FacebookEvent;
+  t: (key: string) => string;
+  onTagClick: (type: EventType) => void;
+}) {
   const timeLeft = useCountdown(event.start_time);
   const eventType = detectEventType(event);
 
   if (!timeLeft) return null;
 
   return (
-    <Card className="mb-10 bg-gradient-to-br from-primary/10 via-card to-card border-2 border-primary/30 overflow-hidden relative">
+    <Card className="mb-8 bg-gradient-to-br from-primary/10 via-card to-card border-2 border-primary/30 overflow-hidden relative">
       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
-      <CardContent className="p-6 md:p-8">
-        <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="flex-shrink-0">
-            <div className="p-4 bg-primary/20 rounded-full">
-              <Clock className="h-12 w-12 text-primary" />
-            </div>
-          </div>
-          <div className="flex-1 text-center md:text-left">
-            <p className="text-sm md:text-base text-muted-foreground mb-2">{t('events.nextEvent')}</p>
-            <h3 className="font-headline text-xl md:text-2xl font-bold text-primary mb-3">{event.name}</h3>
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">{timeLeft.days}</div>
-                <div className="text-xs text-muted-foreground">{t('events.days')}</div>
-              </div>
-              <div className="text-2xl text-muted-foreground">:</div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">{timeLeft.hours}</div>
-                <div className="text-xs text-muted-foreground">{t('events.hours')}</div>
-              </div>
-              <div className="text-2xl text-muted-foreground">:</div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">{timeLeft.minutes}</div>
-                <div className="text-xs text-muted-foreground">{t('events.minutes')}</div>
-              </div>
-              <div className="text-2xl text-muted-foreground">:</div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">{timeLeft.seconds}</div>
-                <div className="text-xs text-muted-foreground">{t('events.seconds')}</div>
+      <CardContent className="p-3 md:p-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2 md:gap-3">
+          <div className="flex items-center gap-2 md:gap-3 flex-1">
+            <div className="flex-shrink-0">
+              <div className="p-1.5 bg-primary/20 rounded-full">
+                <Clock className="h-6 w-6 text-primary" />
               </div>
             </div>
+            <div className="text-center md:text-left">
+              <p className="text-xs md:text-sm text-muted-foreground mb-0">{t('events.nextEvent')}</p>
+              <h3 className="font-headline text-base md:text-lg font-bold text-primary mb-1">{event.name}</h3>
+              <div className="flex flex-wrap justify-center md:justify-start gap-1.5 md:gap-2">
+                <div className="text-center">
+                  <div className="text-xl md:text-2xl font-bold text-primary leading-none">{timeLeft.days}</div>
+                  <div className="text-xs text-muted-foreground leading-tight">{t('events.days')}</div>
+                </div>
+                <div className="text-xl md:text-2xl text-muted-foreground leading-none self-start">:</div>
+                <div className="text-center">
+                  <div className="text-xl md:text-2xl font-bold text-primary leading-none">{timeLeft.hours}</div>
+                  <div className="text-xs text-muted-foreground leading-tight">{t('events.hours')}</div>
+                </div>
+                <div className="text-xl md:text-2xl text-muted-foreground leading-none self-start">:</div>
+                <div className="text-center">
+                  <div className="text-xl md:text-2xl font-bold text-primary leading-none">{timeLeft.minutes}</div>
+                  <div className="text-xs text-muted-foreground leading-tight">{t('events.minutes')}</div>
+                </div>
+                <div className="text-xl md:text-2xl text-muted-foreground leading-none self-start">:</div>
+                <div className="text-center">
+                  <div className="text-xl md:text-2xl font-bold text-primary leading-none">{timeLeft.seconds}</div>
+                  <div className="text-xs text-muted-foreground leading-tight">{t('events.seconds')}</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <Badge className={`${getEventTypeColor(eventType)} px-4 py-2 text-sm font-semibold`}>
+          <button
+            onClick={() => onTagClick(eventType)}
+            className={`${getEventTypeColor(eventType)} px-2.5 py-1 text-xs md:text-sm font-semibold rounded-full inline-flex items-center gap-1.5 transition-all duration-300 hover:scale-105 hover:shadow-md cursor-pointer flex-shrink-0`}
+            title={`Filter by ${getEventTypeLabel(eventType, t)}`}
+          >
             {getEventTypeIcon(eventType)}
-            <span className="ml-2">{getEventTypeLabel(eventType, t)}</span>
-          </Badge>
+            <span>{getEventTypeLabel(eventType, t)}</span>
+          </button>
         </div>
       </CardContent>
     </Card>
@@ -417,7 +490,13 @@ function CountdownCard({ event, t }: { event: FacebookEvent; t: (key: string) =>
 }
 
 // Event Card Component
-function EventCard({ event, index, t, viewMode }: { event: FacebookEvent; index: number; t: (key: string) => string; viewMode: ViewMode }) {
+function EventCard({ event, index, t, viewMode, onTagClick }: {
+  event: FacebookEvent;
+  index: number;
+  t: (key: string) => string;
+  viewMode: ViewMode;
+  onTagClick: (type: EventType) => void;
+}) {
   const eventType = detectEventType(event);
   const status = getEventStatus(event.start_time);
 
@@ -437,7 +516,7 @@ function EventCard({ event, index, t, viewMode }: { event: FacebookEvent; index:
             />
             {/* Status badge overlay */}
             {status === 'today' && (
-              <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+              <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold animate-pulse">
                 {t('events.today')}
               </div>
             )}
@@ -445,51 +524,74 @@ function EventCard({ event, index, t, viewMode }: { event: FacebookEvent; index:
         )}
         <div className="p-6 flex-1 flex flex-col">
           {/* Event type badge and date */}
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-            <Badge className={`${getEventTypeColor(eventType)} border px-3 py-1 text-xs font-semibold`}>
-              {getEventTypeIcon(eventType)}
-              <span className="ml-2">{getEventTypeLabel(eventType, t)}</span>
-            </Badge>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Calendar className="h-4 w-4" />
-              <span className="font-semibold">
-                {new Date(event.start_time).toLocaleString('sk-SK', {
-                  dateStyle: 'full',
-                  timeStyle: 'short',
-                })}
-              </span>
+          <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  onTagClick(eventType);
+                }}
+                className={`${getEventTypeColor(eventType)} border px-3 py-1 text-sm font-semibold rounded-full inline-flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-md cursor-pointer w-fit`}
+                title={`Filter by ${getEventTypeLabel(eventType, t)}`}
+              >
+                {getEventTypeIcon(eventType)}
+                <span>{getEventTypeLabel(eventType, t)}</span>
+              </button>
+            </div>
+            <div className="flex flex-col gap-1.5 text-right">
+              <div className="flex items-center gap-2 text-base text-muted-foreground">
+                <Calendar className="h-5 w-5" />
+                <span className="font-semibold">
+                  {new Date(event.start_time).toLocaleString('sk-SK', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-lg text-primary font-bold">
+                <Clock className="h-5 w-5" />
+                <span>
+                  {new Date(event.start_time).toLocaleString('sk-SK', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Event title */}
-          <h2 className="font-headline text-xl md:text-2xl font-bold text-primary mb-3 leading-tight">
+          <h2 className="font-headline text-2xl md:text-3xl font-bold text-primary mb-3 leading-tight">
             {event.name}
           </h2>
 
           {/* Event description */}
           {event.description && (
-            <p className="text-foreground/80 mb-4 flex-grow line-clamp-3 leading-relaxed">
+            <p className="text-base text-foreground/80 mb-4 flex-grow line-clamp-4 leading-relaxed">
               {event.description}
             </p>
           )}
 
-          {/* Visual separator */}
-          <div className="my-4 flex items-center gap-2">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent"></div>
-            <Scroll className="h-4 w-4 text-primary/40" />
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-border to-transparent"></div>
+          {/* Event info footer */}
+          <div className="mt-auto pt-4 border-t border-border/50">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4" />
+                <span>Dungeon Pub, Bratislava</span>
+              </div>
+              <Link
+                href={`https://www.facebook.com/events/${event.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-base text-primary font-bold hover:underline group"
+              >
+                <span>Viac info</span>
+                <Facebook className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
-
-          {/* Action button */}
-          <Link
-            href={`https://www.facebook.com/events/${event.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary font-bold hover:underline self-start mt-auto group"
-          >
-            <span>View on Facebook</span>
-            <Facebook className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
         </div>
       </div>
     </Card>
