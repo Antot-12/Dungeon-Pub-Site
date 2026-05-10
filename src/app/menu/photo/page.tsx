@@ -72,15 +72,17 @@ export default function MenuPhotoPage() {
       )}
 
       <Dialog open={selectedImageIndex !== null} onOpenChange={(isOpen) => { if (!isOpen) setSelectedImageIndex(null); }}>
-        <DialogContent 
+        <DialogContent
             onClick={() => setSelectedImageIndex(null)}
             className="max-w-[95vw] md:max-w-[90vw] w-auto h-auto bg-transparent border-none p-0 shadow-none flex items-center justify-center"
         >
+            <DialogTitle className="sr-only">{selectedImage?.description || "Menu photo"}</DialogTitle>
+            <DialogDescription className="sr-only">
+              {selectedImage ? `Enlarged view of menu photo: ${selectedImage.description}` : "Enlarged menu photo view"}
+            </DialogDescription>
+
             {selectedImage && (
               <div onClick={(e) => e.stopPropagation()} className="relative flex items-center justify-center">
-                <DialogTitle className="sr-only">{selectedImage.description}</DialogTitle>
-                <DialogDescription className="sr-only">Enlarged view of menu photo: {selectedImage.description}</DialogDescription>
-                
                 {selectedImageIndex !== null && selectedImageIndex > 0 && (
                   <Button
                     variant="ghost"

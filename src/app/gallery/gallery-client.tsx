@@ -297,11 +297,15 @@ export default function GalleryClient() {
           onClick={() => setSelectedImageIndex(null)}
           className="max-w-[98vw] md:max-w-[95vw] w-auto h-auto bg-black/95 border-none p-4 md:p-8 shadow-none flex items-center justify-center transition-all duration-300 animate-in fade-in zoom-in-95"
         >
+            <DialogTitle className="sr-only">
+              {selectedImage ? getTranslatedDescription(selectedImage) : "Gallery image"}
+            </DialogTitle>
+            <DialogDescription className="sr-only">
+              {selectedImage ? `Enlarged view of: ${getTranslatedDescription(selectedImage)}` : "Enlarged gallery image view"}
+            </DialogDescription>
+
             {selectedImage && (
               <div onClick={(e) => e.stopPropagation()} className="relative flex flex-col items-center justify-center gap-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <DialogTitle className="sr-only">{selectedImage.description}</DialogTitle>
-                <DialogDescription className="sr-only">Enlarged view of: {selectedImage.description}</DialogDescription>
-
                 {/* Top controls */}
                 <div className="absolute top-2 right-2 flex gap-2 z-50 animate-in fade-in slide-in-from-top-2 duration-300">
                   <Button

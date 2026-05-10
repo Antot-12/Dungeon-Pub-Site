@@ -18,6 +18,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Button } from '../ui/button';
@@ -128,6 +129,9 @@ export function Header() {
                 <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-card backdrop-blur-xl" aria-label="Mobile navigation">
                     <SheetHeader>
                         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                        <SheetDescription className="sr-only">
+                          Access all pages and language settings
+                        </SheetDescription>
                     </SheetHeader>
                     <div className="flex flex-col h-full">
                       <div className="mb-8">
