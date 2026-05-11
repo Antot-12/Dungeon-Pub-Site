@@ -33,6 +33,8 @@ export default function GalleryClient() {
   const touchStartX = useRef<number>(0);
   const touchCurrentX = useRef<number>(0);
   const touchStartY = useRef<number>(0);
+  const isDragging = useRef<boolean>(false);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<HTMLDivElement>(null);
   const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -47,6 +49,22 @@ export default function GalleryClient() {
     const translated = t(translationKey);
     return translated === translationKey ? image.description : translated;
   };
+
+  // Preload adjacent images when viewing an image
+  useEffect(() => {
+    if (selectedImageIndex === null) return;
+
+    const preloadImage = (index: number) => {
+      if (index >= 0 && index < galleryImages.length) {
+        const img = new window.Image();
+        img.src = galleryImages[index].imageUrl;
+      }
+    };
+
+    // Preload previous and next images
+    preloadImage(selectedImageIndex - 1);
+    preloadImage(selectedImageIndex + 1);
+  }, [selectedImageIndex, galleryImages]);
 
   // Clean up transition timeout on unmount
   useEffect(() => {
@@ -85,16 +103,14 @@ export default function GalleryClient() {
         clearTimeout(transitionTimeoutRef.current);
       }
 
-      // Wait for fade out, then change image, then fade in
-      requestAnimationFrame(() => {
-        transitionTimeoutRef.current = setTimeout(() => {
-          setSelectedImageIndex(selectedImageIndex + 1);
-          transitionTimeoutRef.current = setTimeout(() => {
-            setIsTransitioning(false);
-            setDirection(null);
-          }, 50);
-        }, 200);
-      });
+      // Immediately change image with smooth transition
+      setSelectedImageIndex(selectedImageIndex + 1);
+
+      // Reset transition state after a short delay
+      transitionTimeoutRef.current = setTimeout(() => {
+        setIsTransitioning(false);
+        setDirection(null);
+      }, 300);
     }
   }, [selectedImageIndex, galleryImages.length, triggerHaptic, isTransitioning]);
 
@@ -108,16 +124,14 @@ export default function GalleryClient() {
         clearTimeout(transitionTimeoutRef.current);
       }
 
-      // Wait for fade out, then change image, then fade in
-      requestAnimationFrame(() => {
-        transitionTimeoutRef.current = setTimeout(() => {
-          setSelectedImageIndex(selectedImageIndex - 1);
-          transitionTimeoutRef.current = setTimeout(() => {
-            setIsTransitioning(false);
-            setDirection(null);
-          }, 50);
-        }, 200);
-      });
+      // Immediately change image with smooth transition
+      setSelectedImageIndex(selectedImageIndex - 1);
+
+      // Reset transition state after a short delay
+      transitionTimeoutRef.current = setTimeout(() => {
+        setIsTransitioning(false);
+        setDirection(null);
+      }, 300);
     }
   }, [selectedImageIndex, triggerHaptic, isTransitioning]);
 
@@ -131,52 +145,84 @@ export default function GalleryClient() {
     }
   }, []);
 
-  // Swipe gesture handling
-  useEffect(() => {
-    const handleTouchStart = (e: TouchEvent) => {
-      if (selectedImageIndex !== null) {
-        touchStartX.current = e.touches[0]?.clientX ?? 0;
-        touchStartY.current = e.touches[0]?.clientY ?? 0;
-      }
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (selectedImageIndex !== null) {
-        touchCurrentX.current = e.touches[0]?.clientX ?? 0;
-      }
-    };
-
-    const handleTouchEnd = () => {
-      if (selectedImageIndex !== null) {
-        const swipeDistanceX = touchCurrentX.current - touchStartX.current;
-        const swipeDistanceY = Math.abs((touchCurrentX.current - touchStartX.current));
-
-        if (Math.abs(swipeDistanceX) > 100 && Math.abs(swipeDistanceX) > swipeDistanceY) {
-          if (swipeDistanceX < -100 && selectedImageIndex < galleryImages.length - 1) {
-            handleNext();
-          } else if (swipeDistanceX > 100 && selectedImageIndex > 0) {
-            handlePrev();
-          }
-        }
-
-        touchStartX.current = 0;
-        touchCurrentX.current = 0;
-        touchStartY.current = 0;
-      }
-    };
-
-    if (typeof window !== 'undefined') {
-      document.addEventListener('touchstart', handleTouchStart, { passive: true });
-      document.addEventListener('touchmove', handleTouchMove, { passive: true });
-      document.addEventListener('touchend', handleTouchEnd);
-
-      return () => {
-        document.removeEventListener('touchstart', handleTouchStart);
-        document.removeEventListener('touchmove', handleTouchMove);
-        document.removeEventListener('touchend', handleTouchEnd);
-      };
+  // Direct swipe/drag handlers using React events instead of addEventListener
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    if (touch) {
+      touchStartX.current = touch.clientX;
+      touchStartY.current = touch.clientY;
+      touchCurrentX.current = touch.clientX;
+      isDragging.current = true;
     }
-  }, [selectedImageIndex, galleryImages.length, handleNext, handlePrev]);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    if (touch && isDragging.current) {
+      touchCurrentX.current = touch.clientX;
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDragging.current) return;
+
+    const swipeDistanceX = touchCurrentX.current - touchStartX.current;
+
+    if (Math.abs(swipeDistanceX) > 50) {
+      if (swipeDistanceX < -50 && selectedImageIndex !== null && selectedImageIndex < galleryImages.length - 1) {
+        handleNext();
+      } else if (swipeDistanceX > 50 && selectedImageIndex !== null && selectedImageIndex > 0) {
+        handlePrev();
+      }
+    }
+
+    touchStartX.current = 0;
+    touchCurrentX.current = 0;
+    touchStartY.current = 0;
+    isDragging.current = false;
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    touchStartX.current = e.clientX;
+    touchStartY.current = e.clientY;
+    touchCurrentX.current = e.clientX;
+    isDragging.current = true;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging.current) {
+      touchCurrentX.current = e.clientX;
+    }
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+
+    const swipeDistanceX = touchCurrentX.current - touchStartX.current;
+
+    if (Math.abs(swipeDistanceX) > 50) {
+      if (swipeDistanceX < -50 && selectedImageIndex !== null && selectedImageIndex < galleryImages.length - 1) {
+        handleNext();
+      } else if (swipeDistanceX > 50 && selectedImageIndex !== null && selectedImageIndex > 0) {
+        handlePrev();
+      }
+    }
+
+    touchStartX.current = 0;
+    touchCurrentX.current = 0;
+    touchStartY.current = 0;
+    isDragging.current = false;
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent) => {
+    if (isDragging.current) {
+      touchStartX.current = 0;
+      touchCurrentX.current = 0;
+      touchStartY.current = 0;
+      isDragging.current = false;
+    }
+  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -295,7 +341,7 @@ export default function GalleryClient() {
       <Dialog open={selectedImageIndex !== null} onOpenChange={(isOpen) => { if (!isOpen) setSelectedImageIndex(null); }}>
         <DialogContent
           onClick={() => setSelectedImageIndex(null)}
-          className="max-w-[98vw] md:max-w-[95vw] w-auto h-auto bg-black/95 border-none p-4 md:p-8 shadow-none flex items-center justify-center transition-all duration-300 animate-in fade-in zoom-in-95"
+          className="max-w-[98vw] md:max-w-[95vw] w-auto h-auto bg-black/95 border-none p-4 md:p-8 shadow-none flex items-center justify-center transition-all duration-300 animate-in fade-in zoom-in-95 [&>button]:hidden"
         >
             <DialogTitle className="sr-only">
               {selectedImage ? getTranslatedDescription(selectedImage) : "Gallery image"}
@@ -305,13 +351,25 @@ export default function GalleryClient() {
             </DialogDescription>
 
             {selectedImage && (
-              <div onClick={(e) => e.stopPropagation()} className="relative flex flex-col items-center justify-center gap-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div
+                ref={imageContainerRef}
+                onClick={(e) => e.stopPropagation()}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+                className="relative flex flex-col items-center justify-center gap-4 w-full h-full animate-in fade-in slide-in-from-bottom-4 duration-500 cursor-grab active:cursor-grabbing select-none"
+                style={{ touchAction: 'pan-y' }}
+              >
                 {/* Top controls */}
                 <div className="absolute top-2 right-2 flex gap-2 z-50 animate-in fade-in slide-in-from-top-2 duration-300">
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-full h-10 w-10 bg-black/70 text-white hover:bg-black/90 transition-all duration-300 hover:scale-110"
+                    className="rounded-full h-10 w-10 bg-black/70 text-white hover:bg-black/90 transition-all duration-300 hover:scale-110 cursor-pointer"
                     onClick={toggleFullscreen}
                     aria-label="Toggle fullscreen"
                   >
@@ -320,7 +378,7 @@ export default function GalleryClient() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-full h-10 w-10 bg-black/70 text-white hover:bg-black/90 transition-all duration-300 hover:scale-110 hover:rotate-90"
+                    className="rounded-full h-10 w-10 bg-black/70 text-white hover:bg-black/90 transition-all duration-300 hover:scale-110 hover:rotate-90 cursor-pointer"
                     onClick={() => setSelectedImageIndex(null)}
                     aria-label="Close"
                   >
@@ -347,23 +405,24 @@ export default function GalleryClient() {
                 )}
 
                 {/* Main image */}
-                <div className={`relative transition-all duration-200 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+                <div className={`relative transition-opacity duration-150 ease-out`}>
                   <Image
                       key={selectedImage.id}
                       src={selectedImage.imageUrl}
                       alt={getTranslatedDescription(selectedImage)}
                       width={1920}
                       height={1080}
-                      className="object-contain max-w-[90vw] md:max-w-[85vw] max-h-[75vh] md:max-h-[80vh] rounded-lg shadow-2xl"
+                      className="object-contain max-w-[90vw] md:max-w-[85vw] max-h-[75vh] md:max-h-[80vh] rounded-lg shadow-2xl select-none"
                       data-ai-hint={selectedImage.imageHint}
                       placeholder={selectedImage.blurDataURL ? "blur" : "empty"}
                       blurDataURL={selectedImage.blurDataURL}
                       priority
+                      draggable={false}
                   />
                 </div>
 
                 {/* Caption */}
-                <div className={`bg-black/70 text-white px-6 py-3 rounded-lg max-w-[90vw] md:max-w-[85vw] text-center transition-all duration-200 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+                <div className={`bg-black/70 text-white px-6 py-3 rounded-lg max-w-[90vw] md:max-w-[85vw] text-center transition-opacity duration-150 ease-out`}>
                   <p className="text-sm md:text-base">{getTranslatedDescription(selectedImage)}</p>
                 </div>
 
@@ -371,13 +430,35 @@ export default function GalleryClient() {
                    <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 rounded-full h-12 w-12 md:h-14 md:w-14 bg-black/70 text-white hover:bg-black/90 z-50 transition-all duration-300 hover:scale-110 hover:translate-x-1 animate-in fade-in slide-in-from-right-4 duration-300"
+                    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 rounded-full h-12 w-12 md:h-14 md:w-14 bg-black/70 text-white hover:bg-black/90 z-50 transition-all duration-300 hover:scale-110 hover:translate-x-1 animate-in fade-in slide-in-from-right-4 duration-300 cursor-pointer"
                     onClick={handleNext}
                     aria-label="Next image"
                   >
                     <ChevronRight className="h-7 w-7 md:h-9 md:w-9" />
                   </Button>
                 )}
+
+                {/* Hidden preload images for adjacent images */}
+                <div className="hidden">
+                  {selectedImageIndex !== null && selectedImageIndex > 0 && (
+                    <Image
+                      src={galleryImages[selectedImageIndex - 1].imageUrl}
+                      alt="preload"
+                      width={1920}
+                      height={1080}
+                      priority
+                    />
+                  )}
+                  {selectedImageIndex !== null && selectedImageIndex < galleryImages.length - 1 && (
+                    <Image
+                      src={galleryImages[selectedImageIndex + 1].imageUrl}
+                      alt="preload"
+                      width={1920}
+                      height={1080}
+                      priority
+                    />
+                  )}
+                </div>
               </div>
             )}
         </DialogContent>
