@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import { getMenuData, type MenuCategory } from "@/lib/menu-data";
 import { useEffect, useState } from "react";
+import { Beer, Wine, Coffee, UtensilsCrossed } from "lucide-react";
 
 // Helper function to get category color based on emoji/name
 function getCategoryColor(categoryName: string): string {
@@ -109,7 +110,21 @@ export default function MenuClient() {
 
     if (loading) {
         return (
-            <div className="container mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+                {/* Background decorations */}
+                <div className="absolute top-12 left-8 w-24 h-24 opacity-[0.03] pointer-events-none animate-in fade-in duration-1000" style={{ willChange: 'opacity' }}>
+                    <Beer className="h-full w-full text-primary" />
+                </div>
+                <div className="absolute top-32 right-12 w-20 h-20 opacity-[0.03] pointer-events-none animate-in fade-in duration-1000 delay-200" style={{ willChange: 'opacity' }}>
+                    <Wine className="h-full w-full text-primary" />
+                </div>
+                <div className="absolute bottom-32 left-16 w-16 h-16 opacity-[0.03] pointer-events-none animate-in fade-in duration-1000 delay-500" style={{ willChange: 'opacity' }}>
+                    <Coffee className="h-full w-full text-primary" />
+                </div>
+                <div className="absolute bottom-12 right-8 w-24 h-24 opacity-[0.03] pointer-events-none animate-in fade-in duration-1000 delay-300" style={{ willChange: 'opacity' }}>
+                    <UtensilsCrossed className="h-full w-full text-primary" />
+                </div>
+
                 <header className="text-center mb-12">
                     <h1 className="font-headline font-bold text-[2.25rem] md:text-[3.5rem] lg:text-[5rem] text-primary">{t('menu.title')}</h1>
                     <p className="mt-4 text-[1.125rem] md:text-[1.5rem] lg:text-[1.75rem] text-muted-foreground">{t('menu.subtitle')}</p>
@@ -124,8 +139,22 @@ export default function MenuClient() {
     }
 
     return (
-        <div className="container mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8">
-            <header className="text-center mb-12">
+        <div className="container mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            {/* Background decorations */}
+            <div className="absolute top-12 left-8 w-24 h-24 opacity-[0.03] pointer-events-none animate-in fade-in duration-1000" style={{ willChange: 'opacity' }}>
+                <Beer className="h-full w-full text-primary" />
+            </div>
+            <div className="absolute top-32 right-12 w-20 h-20 opacity-[0.03] pointer-events-none animate-in fade-in duration-1000 delay-200" style={{ willChange: 'opacity' }}>
+                <Wine className="h-full w-full text-primary" />
+            </div>
+            <div className="absolute bottom-32 left-16 w-16 h-16 opacity-[0.03] pointer-events-none animate-in fade-in duration-1000 delay-500" style={{ willChange: 'opacity' }}>
+                <Coffee className="h-full w-full text-primary" />
+            </div>
+            <div className="absolute bottom-12 right-8 w-24 h-24 opacity-[0.03] pointer-events-none animate-in fade-in duration-1000 delay-300" style={{ willChange: 'opacity' }}>
+                <UtensilsCrossed className="h-full w-full text-primary" />
+            </div>
+
+            <header className="text-center mb-12 animate-in fade-in slide-in-from-top-4 duration-700">
                 <h1 className="font-headline font-bold text-[2.25rem] md:text-[3.5rem] lg:text-[5rem] text-primary">{t('menu.title')}</h1>
                 <p className="mt-4 text-[1.125rem] md:text-[1.5rem] lg:text-[1.75rem] text-muted-foreground">{t('menu.subtitle')}</p>
                 <div className="mt-6">
@@ -135,7 +164,7 @@ export default function MenuClient() {
                 </div>
             </header>
 
-            <Accordion type="multiple" defaultValue={currentMenu.length > 0 && currentMenu[0] ? [currentMenu[0].name] : []} className="w-full">
+            <Accordion type="multiple" defaultValue={currentMenu.length > 0 && currentMenu[0]?.name ? [currentMenu[0].name] : []} className="w-full">
                 {currentMenu.map((category) => (
                     <AccordionItem key={category.name} value={category.name} className="border-b-primary/20">
                         <AccordionTrigger className={`text-2xl sm:text-3xl font-headline font-bold hover:no-underline py-6 text-left px-4 rounded-md transition-all duration-300 hover:bg-primary/10 hover:pl-8 ${getCategoryColor(category.name)}`}>

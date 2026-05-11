@@ -11,15 +11,20 @@ interface Props {
 interface State {
   hasError: boolean;
   error: Error | null;
+  mounted: boolean;
 }
 
 export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { hasError: false, error: null, mounted: false };
   }
 
-  static getDerivedStateFromError(error: Error): State {
+  componentDidMount() {
+    this.setState({ mounted: true });
+  }
+
+  static getDerivedStateFromError(error: Error): Partial<State> {
     return { hasError: true, error };
   }
 
@@ -42,7 +47,7 @@ export class ErrorBoundary extends Component<Props, State> {
             <p className="text-muted-foreground">
               We encountered an error while loading this content. Please try refreshing the page.
             </p>
-            {this.state.error && (
+            {this.state.mounted && this.state.error && (
               <details className="text-left">
                 <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
                   Technical details
@@ -52,15 +57,17 @@ export class ErrorBoundary extends Component<Props, State> {
                 </pre>
               </details>
             )}
-            <Button
-              onClick={() => {
-                this.setState({ hasError: false, error: null });
-                window.location.reload();
-              }}
-              className="mt-4"
-            >
-              Refresh Page
-            </Button>
+            {this.state.mounted && (
+              <Button
+                onClick={() => {
+                  this.setState({ hasError: false, error: null });
+                  window.location.reload();
+                }}
+                className="mt-4"
+              >
+                Refresh Page
+              </Button>
+            )}
           </div>
         </div>
       );

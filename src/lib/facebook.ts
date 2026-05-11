@@ -3,6 +3,14 @@
  * Fetches events from a Facebook page
  */
 
+import https from 'https';
+
+const httpsAgent = typeof window === 'undefined' && process.env.NODE_ENV === 'development'
+  ? new https.Agent({
+      rejectUnauthorized: false,
+    })
+  : undefined;
+
 export type FacebookEvent = {
   id: string;
   name: string;
@@ -85,9 +93,15 @@ export async function fetchFacebookEvents(
   const url = `https://graph.facebook.com/v21.0/${facebookPageId}/events?${params.toString()}`;
 
   try {
-    const response = await fetch(url, {
-      next: { revalidate: 3600 }, // Cache for 1 hour
-    });
+    const fetchOptions: RequestInit & { agent?: https.Agent } = {
+      next: { revalidate: 3600 },
+    };
+
+    if (httpsAgent) {
+      fetchOptions.agent = httpsAgent;
+    }
+
+    const response = await fetch(url, fetchOptions);
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
@@ -124,7 +138,12 @@ export async function getLongLivedPageAccessToken(shortLivedToken: string): Prom
   // Step 1: Exchange short-lived token for long-lived user token
   const userTokenUrl = `https://graph.facebook.com/v21.0/oauth/access_token?grant_type=fb_exchange_token&client_id=${appId}&client_secret=${appSecret}&fb_exchange_token=${shortLivedToken}`;
 
-  const userTokenResponse = await fetch(userTokenUrl);
+  const userTokenFetchOptions: RequestInit & { agent?: https.Agent } = {};
+  if (httpsAgent) {
+    userTokenFetchOptions.agent = httpsAgent;
+  }
+
+  const userTokenResponse = await fetch(userTokenUrl, userTokenFetchOptions);
   const userTokenData = await userTokenResponse.json();
 
   if (userTokenData.error) {
@@ -137,7 +156,12 @@ export async function getLongLivedPageAccessToken(shortLivedToken: string): Prom
   const pageId = process.env.FACEBOOK_PAGE_ID;
   const pageTokenUrl = `https://graph.facebook.com/v21.0/${pageId}?fields=access_token&access_token=${longLivedUserToken}`;
 
-  const pageTokenResponse = await fetch(pageTokenUrl);
+  const pageTokenFetchOptions: RequestInit & { agent?: https.Agent } = {};
+  if (httpsAgent) {
+    pageTokenFetchOptions.agent = httpsAgent;
+  }
+
+  const pageTokenResponse = await fetch(pageTokenUrl, pageTokenFetchOptions);
   const pageTokenData = await pageTokenResponse.json();
 
   if (pageTokenData.error) {
@@ -162,7 +186,12 @@ export async function validateAccessToken(accessToken?: string) {
   const url = `https://graph.facebook.com/v21.0/debug_token?input_token=${token}&access_token=${token}`;
 
   try {
-    const response = await fetch(url);
+    const fetchOptions: RequestInit & { agent?: https.Agent } = {};
+    if (httpsAgent) {
+      fetchOptions.agent = httpsAgent;
+    }
+
+    const response = await fetch(url, fetchOptions);
     const data = await response.json();
 
     if (data.error) {
@@ -200,9 +229,15 @@ export async function fetchFacebookEvent(
   const url = `https://graph.facebook.com/v21.0/${eventId}?${params.toString()}`;
 
   try {
-    const response = await fetch(url, {
+    const fetchOptions: RequestInit & { agent?: https.Agent } = {
       next: { revalidate: 3600 },
-    });
+    };
+
+    if (httpsAgent) {
+      fetchOptions.agent = httpsAgent;
+    }
+
+    const response = await fetch(url, fetchOptions);
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
