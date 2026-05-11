@@ -443,24 +443,30 @@ export default function GalleryClient() {
 
                 {/* Hidden preload images for adjacent images */}
                 <div className="hidden">
-                  {selectedImageIndex !== null && selectedImageIndex > 0 && (
-                    <Image
-                      src={galleryImages[selectedImageIndex - 1].imageUrl}
-                      alt="preload"
-                      width={1920}
-                      height={1080}
-                      priority
-                    />
-                  )}
-                  {selectedImageIndex !== null && selectedImageIndex < galleryImages.length - 1 && (
-                    <Image
-                      src={galleryImages[selectedImageIndex + 1].imageUrl}
-                      alt="preload"
-                      width={1920}
-                      height={1080}
-                      priority
-                    />
-                  )}
+                  {selectedImageIndex !== null && selectedImageIndex > 0 && (() => {
+                    const prevImage = galleryImages[selectedImageIndex - 1];
+                    return prevImage ? (
+                      <Image
+                        src={prevImage.imageUrl}
+                        alt="preload"
+                        width={1920}
+                        height={1080}
+                        priority
+                      />
+                    ) : null;
+                  })()}
+                  {selectedImageIndex !== null && selectedImageIndex < galleryImages.length - 1 && (() => {
+                    const nextImage = galleryImages[selectedImageIndex + 1];
+                    return nextImage ? (
+                      <Image
+                        src={nextImage.imageUrl}
+                        alt="preload"
+                        width={1920}
+                        height={1080}
+                        priority
+                      />
+                    ) : null;
+                  })()}
                 </div>
               </div>
             )}
