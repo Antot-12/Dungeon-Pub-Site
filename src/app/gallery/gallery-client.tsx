@@ -56,8 +56,11 @@ export default function GalleryClient() {
 
     const preloadImage = (index: number) => {
       if (index >= 0 && index < galleryImages.length) {
-        const img = new window.Image();
-        img.src = galleryImages[index].imageUrl;
+        const image = galleryImages[index];
+        if (image) {
+          const img = new window.Image();
+          img.src = image.imageUrl;
+        }
       }
     };
 
